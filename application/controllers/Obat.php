@@ -39,12 +39,9 @@ class Obat extends CI_Controller {
 		$v_nama_obat = $this->input->post('i_nama_obat');
 		$v_harga_obat = $this->input->post('i_harga_obat');
 		
-		
-
 		$data_tambah = array(
 			'nama_obat' => $v_nama_obat,
 			'harga_obat' => $v_harga_obat);
-			
 		$tambah_data = $this->db->insert('tb_obat', $data_tambah);
 
 		if($tambah_data) {
@@ -60,23 +57,22 @@ class Obat extends CI_Controller {
 		$parser = array(
 			'p_obat' => $this->db->get_where('tb_obat', array('id_obat'=>$id_obat))->row()
 			);
-		$this->load->view('obat/edit', $parser);
+		$this->load->view('obat/v_edit', $parser);
 	}
-	public function proses_edit()
+	public function proses_edit($id_obat)
 	{
 		$v_nama_obat = $this->input->post('i_nama_obat');
 		$v_harga_obat = $this->input->post('i_harga_obat');
 		
 		$data_tambah = array(
 			'nama_obat' => $v_nama_obat,
-			'i_harga_obat' => $v_harga_obat);
-			
-
+			'harga_obat' => $v_harga_obat);
+		$this->db->where('id_obat', $id_obat);
 		$data_where= array(
 			'id_obat' => $v_id_obat
-			);
-
-		$tambah_data = $this->db->update('tb_obat', $data_tambah, $data_where);
+		);
+			
+		$tambah_data = $this->db->update('tb_obat', $data_tambah);
 
 		if($tambah_data) {
 			$this->session->set_flashdata('fd_pesan', 'Edit obat berhasil.');
