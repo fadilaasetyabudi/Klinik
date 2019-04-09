@@ -33,6 +33,7 @@
         </div>
       </li>
 
+
       <li class="nav-item">
         <a class="nav-link" href="<?php echo site_url('dokter'); ?>">
           <i class="fas fa-fw fa-tag"></i>
@@ -51,6 +52,8 @@
           <i class="fas fa-fw fa-archive"></i>
           <span>Piket</span></a>
       </li>
+
+      <?php if ($this->session->userdata('level') == 'admin') { ?>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo site_url('layanan'); ?>">
           <i class="fas fa-fw fa-archive"></i>
@@ -78,6 +81,7 @@
           <i class="fas fa-fw fa-archive"></i>
           <span>Penjualan</span></a>
       </li>
+      <?php } ?>
 
    
       <!-- Divider -->
