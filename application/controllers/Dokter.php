@@ -60,24 +60,25 @@ class Dokter extends CI_Controller {
 		$parser = array(
 			'p_dokter' => $this->db->get_where('tb_dokter', array('id_dokter'=>$id_dokter))->row()
 			);
-		$this->load->view('dokter/edit', $parser);
+		$this->load->view('dokter/v_edit', $parser);
 	}
-	public function proses_edit()
+	public function proses_edit($id_dokter)
 	{
 		$v_id_dokter = $this->input->post('i_id_dokter');
 		$v_nama_dokter = $this->input->post('i_nama_dokter');
 		$v_email_dokter = $this->input->post('i_email_dokter');
 		$v_password_dokter = $this->input->post('i_password_dokter');
 		$v_current_password = $this->input->post('i_current_password');
+
 		$data_tambah = array(
 			'nama_dokter' => $v_nama_dokter,
 			'email_dokter' => $v_email_dokter,
-			'password_dokter' => $v_password_dokter);
+			'password_dokter' => md5($v_password_dokter));
 
 		$data_where= array(
 			'id_dokter' => $v_id_dokter
 			);
-
+		$this->db->where('id_dokter', $id_dokter);
 		$tambah_data = $this->db->update('tb_dokter', $data_tambah, $data_where);
 
 		if($tambah_data) {

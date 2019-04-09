@@ -30,7 +30,7 @@ defined('BASEPATH') or exit('No direct script');
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
-      <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="col-xl-6 col-lg-8 col-md-9">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
@@ -40,7 +40,7 @@ defined('BASEPATH') or exit('No direct script');
               <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                    <h3 class="h3 text-gray-900 mb-4">Klinik Kecantikan Dokter Lia</h3>
                   </div>
                   <form method="POST" action="<?php echo site_url('login/proses_login');?>" class="user">
                     <div class="form-group">

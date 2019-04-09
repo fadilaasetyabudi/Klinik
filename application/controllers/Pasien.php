@@ -46,7 +46,6 @@ class Pasien extends CI_Controller {
 		$v_password_pasien = $this->input->post('i_password_pasien');
 		$v_kode_verivikasi = $this->input->post('i_kode_verivikasi');
 		
-
 		$data_tambah = array(
 			'nama_pasien' => $v_nama_pasien,
 			'jenis_kelamin' => $v_jenis_kelamin,
@@ -73,7 +72,7 @@ class Pasien extends CI_Controller {
 			);
 		$this->load->view('pasien/v_edit', $parser);
 	}
-	public function proses_edit()
+	public function proses_edit($id_pasien)
 	{
 		$v_id_pasien = $this->input->post('i_id_pasien');
 		$v_nama_pasien = $this->input->post('i_nama_pasien');
@@ -100,6 +99,7 @@ class Pasien extends CI_Controller {
 			'id_pasien' => $v_id_pasien
 			);
 
+		$this->db->where('id_pasien', $id_pasien);
 		$tambah_data = $this->db->update('tb_pasien', $data_tambah, $data_where);
 
 		if($tambah_data) {

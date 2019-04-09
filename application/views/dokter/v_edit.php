@@ -40,29 +40,25 @@ defined('BASEPATH') or exit('No direct script');
       <div id="content">
 
       <?php $this->load->view("template/topbar");?>
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Form Tambah Data Dokter</h1>
-          <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
-
-          <form class="user" action="<?php echo site_url('dokter/proses_tambah'); ?>" method="POST">
+          <h1 class="h3 mb-2 text-gray-800">Form Edit  Data dokter</h1>
+          <p class="mb-4"><a target="_blank" href="https://datatables.net"></a></p>
+          <form class="user" action="<?php echo site_url('dokter/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">   
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama dokter" name="i_nama_dokter">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama dokter" name="i_nama_dokter" value="<?php echo $p_dokter->nama_dokter; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Email Dokter" name="i_email_dokter">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kontak dokter" name="i_email_dokter" value="<?php echo $p_dokter->email_dokter; ?>">
                     </div>
-                      <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Password Dokter" name="i_password_dokter">
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Alamat dokter" name="i_password_dokter" value="<?php echo $p_dokter->password_dokter; ?>">
                     </div>
-                    <!-- <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Current Password" name="i_current_password">
-                    </div> -->
                     <button type="submit" class="btn btn-primary btn-user btn-block">
-                      Tambah
+                      Kirim
                  </button>
+                  
                   </form>
         </div>
         <!-- /.container-fluid -->
