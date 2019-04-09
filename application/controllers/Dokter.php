@@ -6,21 +6,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 class Dokter extends CI_Controller {
 
-	public function __construct() 
-	{
-		parent::__construct();
+	// public function __construct() 
+	// {
+	// 	parent::__construct();
 
-		if ($this->session->userdata('is_login')) {
+	// 	if ($this->session->userdata('is_login')) {
 
-			//sudah login
-			echo "Sudah Login";
+	// 		//sudah login
+	// 		echo "Sudah Login";
 			
-		} else {
-			//belum login
+	// 	} else {
+	// 		//belum login
 
-			redirect('login');
-		}
-	}
+	// 		redirect('login');
+	// 	}
+	// }
 	
 	public function index()
 	{

@@ -12,7 +12,7 @@ defined('BASEPATH') or exit('No direct script');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Tables</title>
+  <title>v_daftar dokter</title>
 
   <!-- Custom fonts for this template -->
   <link href="<?php echo base_url(); ?>tema/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
