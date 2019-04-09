@@ -56,7 +56,10 @@ defined('BASEPATH') or exit('No direct script');
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama pasien" name="i_nama_pasien" value="<?php echo $p_pasien->nama_pasien; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jenis Kelamin" name="i_jenis_kelamin" value="<?php echo $p_pasien->jenis_kelamin; ?>">
+                      <select name="i_jenis_kelamin" class="form-control form-control-user">
+                          <option value="L" <?php echo ($p_pasien->jenis_kelamin == 'L' ? 'selected="selected"' : ''); ?>>Laki-laki</option>
+                         <option value="P" <?php echo ($p_pasien->jenis_kelamin == 'P' ? 'selected="selected"' : ''); ?>>Perempuan</option>
+                      </select>
                     </div>
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kontak pasien" name="i_kontak_pasien" value="<?php echo $p_pasien->kontak_pasien; ?>">
@@ -65,7 +68,7 @@ defined('BASEPATH') or exit('No direct script');
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Alamat Pasien" name="i_alamat_pasien" value="<?php echo $p_pasien->alamat_pasien; ?>">
                     </div>
                      <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal lahir" name="i_tanggal_lahir" value="<?php echo $p_pasien->tanggal_lahir; ?>">
+                      <input type="date" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal lahir" name="i_tanggal_lahir" value="<?php echo $p_pasien->tanggal_lahir; ?>">
                     </div>
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Golongan Darah" name="i_golongan_darah" value="<?php echo $p_pasien->golongan_darah; ?>">

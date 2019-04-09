@@ -71,7 +71,7 @@ class Pasien extends CI_Controller {
 		$parser = array(
 			'p_pasien' => $this->db->get_where('tb_pasien', array('id_pasien'=>$id_pasien))->row()
 			);
-		$this->load->view('pasien/edit', $parser);
+		$this->load->view('pasien/v_edit', $parser);
 	}
 	public function proses_edit()
 	{
