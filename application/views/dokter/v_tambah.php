@@ -61,9 +61,9 @@ defined('BASEPATH') or exit('No direct script');
                       <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Password Dokter" name="i_password_dokter">
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Current Password" name="i_current_password">
-                    </div>
+                    </div> -->
                    
                    
                     <button type="submit" class="btn btn-primary btn-user btn-block">

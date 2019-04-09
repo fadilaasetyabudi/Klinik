@@ -41,41 +41,40 @@ defined('BASEPATH') or exit('No direct script');
 
       <?php $this->load->view("template/topbar");?>
 
+
+        
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Form Edit Pasien</h1>
+          <h1 class="h3 mb-2 text-gray-800">Form Edit  Data Pasien</h1>
           <p class="mb-4"><a target="_blank" href="https://datatables.net"></a></p>
 
           <form class="user" action="<?php echo site_url('pasien/proses_edit'); ?>" method="POST">
-            <input type="hidden" name="i_id_pasien" value="<?php echo $p_pasien->id_pasien; ?>">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama pasien" name="i_nama_pasien">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama pasien" name="i_nama_pasien" value="<?php echo $p_pasien->nama_pasien; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jenis Kelamin" name="i_jenis_kelamin">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jenis Kelamin" name="i_jenis_kelamin" value="<?php echo $p_pasien->jenis_kelamin; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Email pasien" name="i_email_pasien">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kontak pasien" name="i_kontak_pasien" value="<?php echo $p_pasien->kontak_pasien; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kontak pasien" name="i_kontak_pasien">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Alamat Pasien" name="i_alamat_pasien">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Alamat Pasien" name="i_alamat_pasien" value="<?php echo $p_pasien->alamat_pasien; ?>">
                     </div>
                      <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal lahir" name="i_tanggal_lahir">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal lahir" name="i_tanggal_lahir" value="<?php echo $p_pasien->tanggal_lahir; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Golongan Darah" name="i_golongan_darah">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Golongan Darah" name="i_golongan_darah" value="<?php echo $p_pasien->golongan_darah; ?>">
                     </div>
                      <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kata Sandi" name="i_password_pasien">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kata Sandi" name="i_password_pasien" value="<?php echo $p_pasien->password_pasien; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kode Verivikasi" name="i_kode_verivikasi">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kode Verivikasi" name="i_kode_verivikasi" value="<?php echo $p_pasien->kode_verivikasi; ?>">
                     </div>
                    
                     <button type="submit" class="btn btn-primary btn-user btn-block">

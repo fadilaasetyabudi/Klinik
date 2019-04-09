@@ -39,7 +39,7 @@ class Dokter extends CI_Controller {
 		$v_nama_dokter = $this->input->post('i_nama_dokter');
 		$v_email_dokter = $this->input->post('i_email_dokter');
 		$v_password_dokter = $this->input->post('i_password_dokter');
-		$v_current_password = $this->input->post('i_current_password');
+		$v_current_password = $this->input->post('i_password_dokter');
 		$data_tambah = array(
 			'nama_dokter' => $v_nama_dokter,
 			'email_dokter' => $v_email_dokter,
