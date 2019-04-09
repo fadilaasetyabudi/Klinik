@@ -44,7 +44,7 @@ defined('BASEPATH') or exit('No direct script');
                   </div>
                   <form method="POST" action="<?php echo site_url('login/proses_login');?>" class="user">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputtext" aria-describedby="emailHelp" placeholder="Username" name="i_username" autocomplete="off">
+                      <input type="email" class="form-control form-control-user" id="exampleInputtext" aria-describedby="emailHelp" placeholder="Email" name="i_email" autocomplete="off">
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="i_password">

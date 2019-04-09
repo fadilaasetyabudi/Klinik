@@ -110,6 +110,8 @@ defined('BASEPATH') or exit('No direct script');
            <td><?php echo $data->current_password; ?></td>
         <td>
        <!--    <a href="">Edit</a> -->
+       <?php if ($this->session->userdata('level') == 'admin') { ?>
+         
           <a href="<?php echo site_url('dokter/edit/' . $data->id_dokter); ?>" class="btn btn-success btn-circle">
                     <i class="fas fa-edit"></i>
                   </a>
@@ -117,6 +119,7 @@ defined('BASEPATH') or exit('No direct script');
            <a href="<?php echo site_url('dokter/proses_hapus/' . $data->id_dokter); ?>" class="btn btn-danger btn-circle">
                     <i class="fas fa-trash"></i>
                   </a>
+       <?php } ?>
         </td>
       </tr>
       <?php } ?>

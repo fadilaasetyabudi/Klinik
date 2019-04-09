@@ -20,10 +20,10 @@ defined('BASEPATH') or exit('No direct script');
 		<label for="i password dokter">Password Dokter</label>
 		<input type="text" name="i_password_dokter" ></input>
 	</p>
-	<p>
+	<!-- <p>
 		<label for="i current password ">Current Password </label>
 		<input type="text" name="i_current_password" ></input>
-	</p>
+	</p> -->
 	<p>
 		<button type="submit">Kirim</button>
 	</p>

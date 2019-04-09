@@ -14,7 +14,13 @@ defined('BASEPATH') or exit('No direct script');
 	</p>
 		<p>
 		<label for="i jenis kelamin">Jenis Kelamin</label>
-		<input type="text" name="i_jenis_kelamin"></input>
+		<!-- <input type="text" name="i_jenis_kelamin"></input> -->
+
+	
+		<select name="i_jenis_kelamin">
+			<option value="L" <?php echo ($p_pasien->jenis_kelamin == 'L' ? 'selected="selected"' : ''); ?>>Laki-laki</option>
+			<option value="P" <?php echo ($p_pasien->jenis_kelamin == 'P' ? 'selected="selected"' : ''); ?>>Perempuan</option>
+		</select>
 	</p>
 	<p>
 		<label for="i kontak pasien">Kontak Pasien</label>
@@ -26,7 +32,7 @@ defined('BASEPATH') or exit('No direct script');
 	</p>
 	<p>
 		<label for="i tanggal lahir">Tanggal Lahir</label>
-		<input type="text" name="i_nama_pasien"></input>
+		<input type="date" name="i_nama_pasien"></input>
 	</p>
 	<p>
 		<label for="i golongan darah">Golongan Darah</label>
