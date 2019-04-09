@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script');
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>edit pasien</title>
 </head>
 <body>
 	<form action="<?php echo site_url('pasien/proses_edit'); ?>" method="POST">

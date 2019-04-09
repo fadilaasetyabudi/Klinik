@@ -12,7 +12,7 @@ defined('BASEPATH') or exit('No direct script');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Tables</title>
+  <title>v_pasien edit</title>
 
   <!-- Custom fonts for this template -->
   <link href="<?php echo base_url(); ?>tema/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -78,7 +78,6 @@ defined('BASEPATH') or exit('No direct script');
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kode Verivikasi" name="i_kode_verivikasi" value="<?php echo $p_pasien->kode_verivikasi; ?>">
                     </div>
-                   
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Kirim
                  </button>

@@ -98,9 +98,8 @@ class Pasien extends CI_Controller {
 		$data_where= array(
 			'id_pasien' => $v_id_pasien
 			);
-
 		$this->db->where('id_pasien', $id_pasien);
-		$tambah_data = $this->db->update('tb_pasien', $data_tambah, $data_where);
+		$tambah_data = $this->db->update('tb_pasien', $data_tambah);
 
 		if($tambah_data) {
 			$this->session->set_flashdata('fd_pesan', 'Edit pasien berhasil.');

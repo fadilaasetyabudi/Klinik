@@ -79,7 +79,7 @@ class Dokter extends CI_Controller {
 			'id_dokter' => $v_id_dokter
 			);
 		$this->db->where('id_dokter', $id_dokter);
-		$tambah_data = $this->db->update('tb_dokter', $data_tambah, $data_where);
+		$tambah_data = $this->db->update('tb_dokter', $data_tambah);
 
 		if($tambah_data) {
 			$this->session->set_flashdata('fd_pesan', 'Edit dokter berhasil.');
