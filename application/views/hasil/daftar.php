@@ -8,7 +8,7 @@ defined('BASEPATH') or exit('No direct script');
 </head>
 <body>
 <p><?php echo $this->session->flashdata('fd_pesan'); ?></p>
-<a href="<?php echo site_url('obat/tambah'); ?>">Tambah Obat</a>
+<a href="<?php echo site_url('hasil/tambah'); ?>">Tambah Hasil</a>
 	<table border="1">
 		<thead>
 			<tr>

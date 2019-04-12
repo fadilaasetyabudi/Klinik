@@ -38,10 +38,12 @@ class Obat extends CI_Controller {
 	{
 		$v_nama_obat = $this->input->post('i_nama_obat');
 		$v_harga_obat = $this->input->post('i_harga_obat');
+		$v_keterangan_obat = $this->input->post('i_keterangan_obat');
 		
 		$data_tambah = array(
 			'nama_obat' => $v_nama_obat,
-			'harga_obat' => $v_harga_obat);
+			'harga_obat' => $v_harga_obat,
+			'keterangan_obat' => $v_keterangan_obat);
 		$tambah_data = $this->db->insert('tb_obat', $data_tambah);
 
 		if($tambah_data) {
@@ -63,10 +65,12 @@ class Obat extends CI_Controller {
 	{
 		$v_nama_obat = $this->input->post('i_nama_obat');
 		$v_harga_obat = $this->input->post('i_harga_obat');
+		$v_keterangan_obat = $this->input->post('i_keterangan_obat');
 		
 		$data_tambah = array(
 			'nama_obat' => $v_nama_obat,
-			'harga_obat' => $v_harga_obat);
+			'harga_obat' => $v_harga_obat,
+			'keterangan_obat' => $v_keterangan_obat);
 		$this->db->where('id_obat', $id_obat);
 		$data_where= array(
 			'id_obat' => $v_id_obat

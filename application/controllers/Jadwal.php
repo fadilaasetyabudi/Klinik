@@ -1,4 +1,4 @@
-cv<?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
@@ -71,7 +71,7 @@ class jadwal extends CI_Controller {
 		
 		$data_tambah = array(
 			'status_jadwal' => $v_status_jadwal,
-			'i_tanggal_daftar' => $v_tanggal_daftar),
+			'i_tanggal_daftar' => $v_tanggal_daftar,
 		'i_tanggal_ditangani' => $v_tanggal_ditangani);
 			
 

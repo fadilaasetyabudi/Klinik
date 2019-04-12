@@ -50,7 +50,7 @@ defined('BASEPATH') or exit('No direct script');
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama pasien" name="i_nama_pasien" value="<?php echo $p_pasien->nama_pasien; ?>">
                     </div>
                     <div class="form-group">
-                      <select name="i_jenis_kelamin" class="form-control form-control-user">
+                      <select name="i_jenis_kelamin" class="form-control form-control-user-combobox">
                           <option value="L" <?php echo ($p_pasien->jenis_kelamin == 'L' ? 'selected="selected"' : ''); ?>>Laki-laki</option>
                          <option value="P" <?php echo ($p_pasien->jenis_kelamin == 'P' ? 'selected="selected"' : ''); ?>>Perempuan</option>
                       </select>
@@ -65,7 +65,7 @@ defined('BASEPATH') or exit('No direct script');
                       <input type="date" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal lahir" name="i_tanggal_lahir" value="<?php echo $p_pasien->tanggal_lahir; ?>">
                     </div>
                     <div class="form-group">
-                      <select name="i_golongan_darah" class="form-control form-control-user">
+                      <select name="i_golongan_darah" class="form-control form-control-user-combobox">
                           <option value="A" <?php echo ($p_pasien->golongan_darah == 'A' ? 'selected="selected"' : ''); ?>>A</option>
                          <option value="B" <?php echo ($p_pasien->golongan_darah == 'B' ? 'selected="selected"' : ''); ?>>B</option>
                          <option value="AB" <?php echo ($p_pasien->golongan_darah == 'AB' ? 'selected="selected"' : ''); ?>>AB</option>

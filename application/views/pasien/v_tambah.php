@@ -52,9 +52,9 @@ defined('BASEPATH') or exit('No direct script');
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama pasien" name="i_nama_pasien">
                     </div>
                     <div class="form-group">
-                      <select name="i_jenis_kelamin" class="form-control form-control-user">
-                          <option value="L" >Laki-laki</option>
-                         <option value="P" >Perempuan</option>
+                      <select name="i_jenis_kelamin" class="form-control form-control-user-combobox">
+                         <option value="L" selected>Laki-laki</option>
+                         <option value="P">Perempuan</option>
                       </select>
                     </div>
                     <div class="form-group">
