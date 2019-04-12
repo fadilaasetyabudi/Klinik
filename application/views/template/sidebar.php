@@ -43,14 +43,14 @@
  <!-- Divider -->
       <!-- <hr class="sidebar-divider my-2"> -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('jadwal'); ?>">
+        <a class="nav-link" href="<?php echo site_url('hasil'); ?>">
           <i class="fas fa-fw fa-archive"></i>
-          <span>Jadwal</span></a>
+          <span>Hasil</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('piket'); ?>">
+        <a class="nav-link" href="<?php echo site_url('resep'); ?>">
           <i class="fas fa-fw fa-archive"></i>
-          <span>Piket</span></a>
+          <span>Resep</span></a>
       </li>
 
       <?php if ($this->session->userdata('level') == 'admin') { ?>
@@ -80,6 +80,17 @@
         <a class="nav-link" href="<?php echo site_url('penjualan'); ?>">
           <i class="fas fa-fw fa-archive"></i>
           <span>Penjualan</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo site_url('jadwal'); ?>">
+          <i class="fas fa-fw fa-archive"></i>
+          <span>Jadwal</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo site_url('piket'); ?>">
+          <i class="fas fa-fw fa-archive"></i>
+          <span>Piket</span></a>
       </li>
       <?php } ?>
 
