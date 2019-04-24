@@ -9,6 +9,11 @@ defined('BASEPATH') or exit('No direct script');
 <body>
 	<form action="<?php echo site_url('jadwal/proses_edit'); ?>" method="POST">
 	<input type="hidden" name="i_id_jadwal" value="<?php echo $p_jadwal->id_jadwal; ?>">
+
+	<p>
+		<label for="i pasien">ID Pasien</label>
+		<input type="local-tim" name="i_tanggal_daftar" value="<?php echo $p_jadwal->tanggal_daftar; ?>">
+	</p>
 	
 	<p>
 		<label for="i status jadwal">Status Jadwal/label>

@@ -1,4 +1,4 @@
-cv<?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
@@ -77,21 +77,32 @@ class jadwal extends CI_Controller {
 	public function edit($id_jadwal)
 	{
 		
-		$parser = array(
-			'p_jadwal' => $this->db->get_where('tb_jadwal', array('id_jadwal'=>$id_jadwal))->row()
-			);
-		$this->load->view('jadwal/edit', $parser);
+		$parser['p_semuapasien'] = $this->db->get('tb_pasien')->result();
+		$this->db->join('tb_dokter', 'tb_dokter.id_dokter=tb_piket.id_dokter');
+		$parser['p_semuapiket'] = $this->db->get('tb_piket')->result();
+		$parser['p_semualayanan'] = $this->db->get('tb_layanan')->result();
+		$parser['p_jadwal'] = $this->db->get_where('tb_jadwal', array('id_jadwal'=>$id_jadwal))->row();
+		$this->load->view('jadwal/v_edit', $parser);
 	}
 	public function proses_edit()
 	{
+		$v_id_jadwal = $this->input->post('i_id_jadwal');
+		$v_id_pasien = $this->input->post('i_id_pasien');
+		$v_id_piket = $this->input->post('i_id_piket');
+		$v_id_layanan = $this->input->post('i_id_layanan');
 		$v_status_jadwal = $this->input->post('i_status_jadwal');
 		$v_tanggal_daftar = $this->input->post('i_tanggal_daftar');
 		$v_tanggal_ditangani = $this->input->post('i_tanggal_ditangani');
+
 		
 		$data_tambah = array(
+			'id_pasien' => $v_id_pasien,
+			'id_piket' => $v_id_piket,
+			'id_layanan' => $v_id_layanan,
 			'status_jadwal' => $v_status_jadwal,
-			'i_tanggal_daftar' => $v_tanggal_daftar,
-		'i_tanggal_ditangani' => $v_tanggal_ditangani);
+			'tanggal_daftar' => $v_tanggal_daftar,
+			'tanggal_ditangani' => $v_tanggal_ditangani
+			);
 			
 
 		$data_where= array(
