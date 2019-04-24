@@ -11,7 +11,7 @@ class Admin extends CI_Controller {
 		$parser = array(
 			'p_semuadokter' => $this->db->get_where('tb_dokter')->result()
 			);
-		$this->load->view('amin/index');
+		$this->load->view('admin/index');
 	}
 	public function proses_admin() {
 		$v_username = $this->input->post('i_username');

@@ -13,6 +13,9 @@ defined('BASEPATH') or exit('No direct script');
 		<thead>
 			<tr>
 				<th>#</th>
+				<th>ID Pasien<th> 
+				<th>ID Piket<th>
+				<th>ID Layanan<th>
 				<th>Status Jadwal</th>
 				<th>Tanggal Daftar</th>
 				<th>Tanggal Ditangani</th>
@@ -27,6 +30,9 @@ defined('BASEPATH') or exit('No direct script');
 			<?php foreach ($p_semuajadwal as $data) { ?>
 			<tr>
 				<td><?php echo $no++; ?></td>
+				<td><?php echo $data->id_pasien; ?></td>
+				<td><?php echo $data->id_piket; ?></td>
+				<td><?php echo $data->id_layanan; ?></td>
 				<td><?php echo $data->status_jadwal; ?></td>
 				<td><?php echo $data->tanggal_daftar; ?></td>
 				<td><?php echo $data->tanggal_ditangani; ?></td>

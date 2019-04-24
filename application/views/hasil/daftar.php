@@ -13,7 +13,7 @@ defined('BASEPATH') or exit('No direct script');
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Nama Obat</th>
+				<th>id</th>
 				<th>Harga Obat</th>
 				<th>keterangan Obat</th>
 				<th>Aksi</th>
