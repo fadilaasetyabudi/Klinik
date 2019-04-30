@@ -13,36 +13,27 @@ defined('BASEPATH') or exit('No direct script');
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>id</th>
-				<th>Harga Obat</th>
-				<th>keterangan Obat</th>
-				<th>Aksi</th>
+                     <th>id hasil</th>
+                     <th>id jadwal</th>
+                     <th>Keterangan hasil</th>
+                     <th>Aksi</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php if(count($p_semuaobat) > 0) { ?>
+			<?php if(count($p_semuahasil) > 0) { ?>
 			<?php $no = 1; ?>
-			<?php foreach ($p_semuaobat as $data) { ?>
+			<?php foreach ($p_semuahasil as $data) { ?>
 			<tr>
 				<td><?php echo $no++; ?></td>
-				<td><?php echo $data->nama_obat; ?></td>
-				<td><?php echo $data->hargahhghg_obat; ?></td>
+				<td><?php echo $data->id_jadwal; ?></td>
+				<td><?php echo $data->keterangan_hasil; ?></td>
 				
 				<td>
-					<a href="<?php echo site_url('obat/edit/' . $data->id_obat); ?>">Edit</a>
-					<a href="<?php echo site_url('obat/proses_hapus/' . $data->id_obat); ?>">Hapus</a>
+					<a href="<?php echo site_url('hsil/edit/' . $data->id_hasil); ?>">Edit</a>
+					<a href="<?php echo site_url('hasil/proses_hapus/' . $data->id_hasil); ?>">Hapus</a>
 				</td>
 			</tr>
 			<?php } ?>
 			<?php } else { ?>
 			<tr>
-				<td colspan="4">Tidak ada obat</td>
-			</tr>
-			<?php } ?>
-			
-		</tbody>
-		
-	</table>
-
-</body>
-</html>
+				<td colspan="4">Tidak ada hasil</td>

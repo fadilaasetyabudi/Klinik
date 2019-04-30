@@ -68,7 +68,13 @@ class jadwal extends CI_Controller {
 
 		if($tambah_data) {
 			$this->session->set_flashdata('fd_pesan', 'Tambah jadwal berhasil.');
-			redirect('jadwal');
+			$this->db->order_by('id_jadwal', 'desc');
+			$jadwalInserted = $this->db->get('tb_jadwal', 1)->row();
+			if ($v_status_jadwal == 'Sudah Ditangani') {
+				redirect('hasil/tambahHasil/'.$jadwalInserted->id_jadwal,'refresh');
+			} else {
+				redirect('jadwal','refresh');
+			}
 		} else {
 			$this->session->set_flashdata('fd_pesan', 'Tmbah jadwal gagal.');
 			redirect ('jadwal');

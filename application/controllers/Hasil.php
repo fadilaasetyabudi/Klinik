@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
 * 
 */
-class jadwal extends CI_Controller {
+class Hasil extends CI_Controller {
 
 	// public function __construct() 
 	// {
@@ -24,26 +24,56 @@ class jadwal extends CI_Controller {
 	
 	public function index()
 	{
-		$parser = array(
-			'p_semuahasil' => $this->db->get_where('tb_hasil')->result()
-			);
-		$this->load->view('hasil/v_hasil', 
-			$parser);
+		$this->db->join('tb_jadwal', 'tb_jadwal.id_jadwal=tb_hasil.id_jadwal');
+		$this->db->join('tb_pasien', 'tb_pasien.id_pasien=tb_jadwal.id_pasien');
+		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
+		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
+		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
+		$parser['p_semuahasil'] = $this->db->get('tb_hasil')->result();
+		$this->load->view('hasil/v_daftar', $parser);
 	}
+
 	public function tambah()
 	{
-		$this->load->view('hasil/v_hasil');
+		$this->db->join('tb_pasien', 'tb_pasien.id_pasien=tb_jadwal.id_pasien');
+		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
+		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
+		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
+		$this->db->where('tb_jadwal.status_jadwal', 'Sudah Ditangani');
+		$data['p_semuajadwal'] = $this->db->get('tb_jadwal')->result();
+		//$this->db->join('tb_dokter', 'tb_dokter.id_dokter=tb_piket.id_dokter');
+		
+		$data['p_semuaketerangan_hasil'] = $this->db->get('tb_hasil')->result();
+		$this->load->view('hasil/v_tambah', $data);
+	}
+
+	public function tambahHasil($id_jadwal)
+	{
+		$this->db->join('tb_pasien', 'tb_pasien.id_pasien=tb_jadwal.id_pasien');
+		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
+		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
+		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
+		$this->db->where('tb_jadwal.id_jadwal', $id_jadwal);
+		$data['p_jadwal'] = $this->db->get('tb_jadwal')->row();
+		$this->load->view('hasil/v_tambah2', $data);
 	}
 	public function proses_tambah()
 	{
-		$v_id_hasil = $this->input->post('i_id_hasil');
+	
 		$v_id_jadwal = $this->input->post('i_id_jadwal');
+		// $v_id_pasien = $this->input->post('i_id_pasien');
+		// $v_id_piket = $this->input->post('i_id_piket');
+		// $v_id_layanan = $this->input->post('i_id_layanan');
+		// $v_status_jadwal = $this->input->post('i_status_jadwal');
+		// $v_tanggal_daftar = $this->input->post('i_tanggal_daftar');
+		// $v_tanggal_ditangani = $this->input->post('i_tanggal_ditangani');
+
 		$v_keterangan_hasil = $this->input->post('i_keterangan_hasil');
 		
 		
 
 		$data_tambah = array(
-			'id_hasil' => $v_id_hasil,
+			
 			'id_jadwal' => $v_id_jadwal,
 			'keterangan_hasil' => $v_keterangan_hasil);
 			
@@ -57,13 +87,19 @@ class jadwal extends CI_Controller {
 			redirect ('hasil');
 		}
 	}
-	public function edit($id_jadwal)
+	public function edit($id_hasil)
 	{
-		
-		$parser = array(
-			'p_hasil' => $this->db->get_where('tb_hasil', array('id_hasil'=>$id_hasil))->row()
-			);
-		$this->load->view('hasil/edit', $parser);
+		$this->db->join('tb_jadwal', 'tb_jadwal.id_jadwal=tb_hasil.id_jadwal');
+		$this->db->join('tb_pasien', 'tb_pasien.id_pasien=tb_jadwal.id_pasien');
+		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
+		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
+		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
+		$parser['p_hasil'] = $this->db->get_where('tb_hasil', array('id_hasil'=>$id_hasil))->row();
+		$this->load->view('hasil/v_edit', $parser);
+		// $parser = array(
+		// 	'p_hasil' => $this->db->get_where('tb_hasil', array('id_hasil'=>$id_hasil))->row()
+		// 	);
+		// $this->load->view('hasil/edit', $parser);
 	}
 	public function proses_edit()
 	{
@@ -72,7 +108,7 @@ class jadwal extends CI_Controller {
 		$v_keterangan_hasil = $this->input->post('i_keterangan_hasil');
 		
 		$data_tambah = array(
-			'id_hasil' => $v_id_hasil,
+			
 			'id_jadwal' => $v_id_jadwal,
 			'keterangan_hasil' => $v_keterangan_hasil);
 			
@@ -102,10 +138,10 @@ class jadwal extends CI_Controller {
 
 		if($hapus_data) {
 			$this->session->set_flashdata('fd_pesan', 'Hapus hasil berhasil.');
-			redirect('hasil);
+			redirect('hasil');
 		} else {
-			$this->session->set_flashdata('fd_pesan', 'Hapus hasilgagal.');
-			redirect ('hasil);
+			$this->session->set_flashdata('fd_pesan', 'Hapus hasil gagal.');
+			redirect ('hasil');
 		}
 	}
 }

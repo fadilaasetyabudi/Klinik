@@ -19,7 +19,7 @@ defined('BASEPATH') or exit('No direct script');
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-   <link href="<?php echo base_url(); ?>tema/admin/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>tema/admin/css/sb-admin-2.min.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -36,31 +36,34 @@ defined('BASEPATH') or exit('No direct script');
 
       <!-- Main Content -->
       <div id="content">
-      <?php $this->load->view("template/topbar");?>
-      
+        <?php $this->load->view("template/topbar");?>
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Form Edit Data Obat</h1>
+          <h1 class="h3 mb-2 text-gray-800">Form Edit Data hasil</h1>
           <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
-          <form class="user" action="<?php echo site_url('obat/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="Nama obat" name="i_nama_obat" value="<?php echo $p_obat->nama_obat; ?>">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="harga obat" name="i_harga_obat" value="<?php echo $p_obat->harga_obat; ?>">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
-                      Kirim
-                 </button>
-                  
-                  </form>
+          <form class="user" action="<?php echo site_url('hasil/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">
+            <div class="form-group">                    
+              <label for="i id pasien">ID Hasil</label>
+              <input type="hidden" name="i_id_hasil" value="<?php echo $p_hasil->id_hasil ?>">
+              <input type="hidden" name="i_id_jadwal" value="<?php echo $p_hasil->id_jadwal ?>">
+              <input class="form-control form-control-user" type="text" value="<?php echo $p_hasil->nama_pasien; echo " "; echo $p_hasil->nama_dokter; echo " Jam "; echo $p_hasil->jam_mulai; echo " - "; echo $p_hasil->jam_selesai ?>" readonly="readonly">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan hasil" name="i_keterangan_hasil" value="<?php echo $p_hasil->keterangan_hasil ?>">
+            </div>
+            <button type="submit" class="btn btn-primary btn-user btn-block">
+              Kirim
+            </button>
+
+          </form>
         </div>
         <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
 
-     <?php $this->load->view("template/footer");?>
+      <?php $this->load->view("template/footer");?>

@@ -1,4 +1,3 @@
-
 <?php
 defined('BASEPATH') or exit('No direct script');
 ?>
@@ -49,8 +48,8 @@ defined('BASEPATH') or exit('No direct script');
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800 text-primary">Daftar Jadwal</h1>
-          <!-- <p class="mb-4 text-primary">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
+          <h1 class="h3 mb-2 text-gray-800">Resep Pasien</h1>
+         <!--  <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
           <?php  if($this->session->flashdata('fd_pesan')){?>
 
@@ -68,7 +67,7 @@ defined('BASEPATH') or exit('No direct script');
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
-                <a href="<?php echo site_url('jadwal/tambah'); ?>" class="btn btn-primary btn-icon-split">
+                <a href="<?php echo site_url('resep/tambah'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
@@ -81,50 +80,43 @@ defined('BASEPATH') or exit('No direct script');
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                     <th>#</th>
-                     <th>Nama Pasien</th>
-                     <th>Jadwal Piket</th>
-                     <th>Nama Layanan</th>
-                     <th>Status Jadwal</th>
-                     <th>Tanggal Daftar</th>
-                     <th>Tanggal Ditangani</th>
-                    
+                    <th>#</th>
+                     <th>id resep</th>
+                     <th>id hasil</th>
+                     <th>id obat</th>
+                     <th>jumlah obat</th>
+                     <th>total harga</th>
                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                     <th>#</th>
-                     <th>Nama Pasien</th>
-                     <th>Jadwal Piket</th>
-                     <th>Nama Layanan</th>
-                    <th>Status Jadwal</th>
-                     <th>Tanggal Daftar</th>
-                     <th>Tanggal Ditangani</th>
-                    
-                      <th>Aksi</th>
+                    <th>#</th>
+                     <th>id resep</th>
+                     <th>id hasil</th>
+                     <th>id obat</th>
+                     <th>jumlah obat</th>
+                     <th>total harga</th>
+                     <th>Aksi</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                   <?php if(count($p_semuajadwal) > 0) { ?>
+                   <?php if(count($p_semuaresep) > 0) { ?>
       <?php $no = 1; ?>
-      <?php foreach ($p_semuajadwal as $data) { ?>
+      <?php foreach ($p_semuaresep as $data) { ?>
       <tr>
         <td><?php echo $no++; ?></td>
-        <td><?php echo $data->nama_pasien; ?></td>
-        <td><?php echo $data->nama_dokter; echo " Hari "; echo $data->hari; echo " Jam "; echo $data->jam_mulai; echo " - "; echo $data->jam_selesai; ?> </td>
-        <td><?php echo $data->nama_layanan; ?></td>
-        <td><?php echo $data->status_jadwal; ?></td>
-        <td><?php echo $data->tanggal_daftar; ?></td>
-        <td><?php echo $data->tanggal_ditangani; ?></td>
-        
+        <td><?php echo $data->id_resep; ?></td>
+        <td><?php echo $data->id_jadwal; ?></td>
+        <td><?php echo $data->keterangan_resep; ?></td>
+      
         <td>
        <!--    <a href="">Edit</a> -->
-          <a href="<?php echo site_url('jadwal/edit/' . $data->id_jadwal); ?>" class="btn btn-success btn-circle">
+          <a href="<?php echo site_url('resep/edit/' . $data->id_resep); ?>" class="btn btn-success btn-circle">
                     <i class="fas fa-edit"></i>
                   </a>
         <!--   <a href="">Hapus</a> -->
-           <a href="<?php echo site_url('jadwal/proses_hapus/' . $data->id_jadwal); ?>" class="btn btn-danger btn-circle">
+           <a href="<?php echo site_url('resep/proses_hapus/' . $data->id_resep); ?>" class="btn btn-danger btn-circle">
                     <i class="fas fa-trash"></i>
                   </a>
         </td>
@@ -132,7 +124,7 @@ defined('BASEPATH') or exit('No direct script');
       <?php } ?>
       <?php } else { ?>
       <tr>
-        <td colspan="4">Tidak ada jadwal</td>
+        <td colspan="4">Tidak ada hasil</td>
       </tr>
       <?php } ?>
                     

@@ -48,7 +48,7 @@ defined('BASEPATH') or exit('No direct script');
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Data Obat</h1>
+          <h1 class="h3 mb-2 text-gray-800">Hasil Pasien</h1>
          <!--  <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
           <?php  if($this->session->flashdata('fd_pesan')){?>
@@ -67,7 +67,7 @@ defined('BASEPATH') or exit('No direct script');
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
-                <a href="<?php echo site_url('obat/tambah'); ?>" class="btn btn-primary btn-icon-split">
+                <a href="<?php echo site_url('hasil/tambah'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
@@ -81,38 +81,38 @@ defined('BASEPATH') or exit('No direct script');
                   <thead>
                     <tr>
                      <th>#</th>
-                     <th>Nama Obat</th>
-                     <th>Harga Obat</th>
-                     <th>Keterangan Obat</th>
+                     <th>id hasil</th>
+                     <th>id jadwal</th>
+                     <th>Keterangan hasil</th>
                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                     <th>#</th>
-                     <th>Nama Obat</th>
-                     <th>Harga Obat</th>
-                     <th>Keterangan Obat</th>
-                      <th>Aksi</th>
+                    <th>#</th>
+                     <th>id hasil</th>
+                     <th>id jadwal</th>
+                     <th>Keterangan hasil</th>
+                     <th>Aksi</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                   <?php if(count($p_semuaobat) > 0) { ?>
+                   <?php if(count($p_semuahasil) > 0) { ?>
       <?php $no = 1; ?>
-      <?php foreach ($p_semuaobat as $data) { ?>
+      <?php foreach ($p_semuahasil as $data) { ?>
       <tr>
         <td><?php echo $no++; ?></td>
-        <td><?php echo $data->nama_obat; ?></td>
-        <td><?php echo get_rupiah($data->harga_obat); ?></td>
-        <td><?php echo $data->keterangan_obat; ?></td>
+        <td><?php echo $data->id_hasil; ?></td>
+        <td><?php echo $data->id_jadwal; ?></td>
+        <td><?php echo $data->keterangan_hasil; ?></td>
       
         <td>
        <!--    <a href="">Edit</a> -->
-          <a href="<?php echo site_url('obat/edit/' . $data->id_obat); ?>" class="btn btn-success btn-circle">
+          <a href="<?php echo site_url('hasil/edit/' . $data->id_hasil); ?>" class="btn btn-success btn-circle">
                     <i class="fas fa-edit"></i>
                   </a>
         <!--   <a href="">Hapus</a> -->
-           <a href="<?php echo site_url('obat/proses_hapus/' . $data->id_obat); ?>" class="btn btn-danger btn-circle">
+           <a href="<?php echo site_url('hasil/proses_hapus/' . $data->id_hasil); ?>" class="btn btn-danger btn-circle">
                     <i class="fas fa-trash"></i>
                   </a>
         </td>
@@ -120,7 +120,7 @@ defined('BASEPATH') or exit('No direct script');
       <?php } ?>
       <?php } else { ?>
       <tr>
-        <td colspan="4">Tidak ada obat</td>
+        <td colspan="4">Tidak ada hasil</td>
       </tr>
       <?php } ?>
                     

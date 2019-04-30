@@ -40,24 +40,28 @@ defined('BASEPATH') or exit('No direct script');
       <div id="content">
 
       <?php $this->load->view("template/topbar");?>
-
-
-        
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tambah Layanan</h1>
-          <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
- -->
-          <form class="user" action="<?php echo site_url('layanan/proses_tambah'); ?>" method="POST">
+          <h1 class="h3 mb-2 text-gray-800">Tambah Resep</h1>
+
+          <form class="user" action="<?php echo site_url('resep/proses_tambah'); ?>" method="POST">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="layananHelp" placeholder="Nama layanan" name="i_nama_layanan">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="id resep" name="i_id_resep">
                     </div>
-                  
-                     
-                   
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="id hasil" name="i_id_hasil">
+                    </div>
+                     <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="id obat" name="i_id_obat">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="jumlah obat" name="i_jumlah_obat">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="total harga" name="i_total_harga">
+                    </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Tambah
                  </button>

@@ -7,18 +7,18 @@ defined('BASEPATH') or exit('No direct script');
 	<title></title>
 </head>
 <body>
-	<form action="<?php echo site_url('obat/proses_tambah'); ?>" method="POST">
+	<form action="<?php echo site_url('hasil/proses_tambah'); ?>" method="POST">
 	<p>
-		<label for="i nama obat">Nama obat</label>
-		<input type="text" name="i_nama_obat"></input>
+		<label for="i nama hasil">id Hasil</label>
+		<input type="text" name="i_id_hasil"></input>
 	</p>
 	<p>
-		<label for="i harga obat">Harga obat</label>
-		<input type="text" name="i_harga_obat"></input>
+		<label for="i harga hasil">id Jadwal</label>
+		<input type="text" name="i_id_jadwal"></input>
 	</p>
 	<p>
-		<label for="i harga obat">Keterangan obat</label>
-		<input type="text" name="i_keterangan_obat"></input>
+		<label for="i harga hasil">Keterangan hasil</label>
+		<input type="text" name="i_keterangan_hasil"></input>
 	</p>
 	
 	<p>

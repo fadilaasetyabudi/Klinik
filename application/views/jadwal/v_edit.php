@@ -48,11 +48,9 @@ defined('BASEPATH') or exit('No direct script');
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Form Edit  Data jadwal</h1>
+          <h1 class="h3 mb-2 text-gray-800">Edit  Data jadwal</h1>
           <p class="mb-4"><a target="_blank" href="https://datatables.net"></a></p>
-
           <form class="user" action="<?php echo site_url('jadwal/proses_edit'); ?>" method="POST">
-
             <div class="form-group">                    
               <label for="i id pasien">ID Pasien</label>
               <select name="i_id_pasien" class="form-control form-control-user">

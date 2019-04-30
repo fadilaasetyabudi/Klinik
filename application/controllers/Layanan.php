@@ -58,7 +58,7 @@ class Layanan extends CI_Controller {
 		$parser = array(
 			'p_layanan' => $this->db->get_where('tb_layanan', array('id_layanan'=>$id_layanan))->row()
 			);
-		$this->load->view('layanan/edit', $parser);
+		$this->load->view('layanan/v_edit', $parser);
 	}
 	public function proses_edit()
 	{

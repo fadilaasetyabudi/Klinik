@@ -57,11 +57,8 @@ defined('BASEPATH') or exit('No direct script');
                     </div> -->
                     <div class="form-group">                    
                       <label for="i id pasien">ID Hasil</label>
-                      <select name="i_id_jadwal" class="form-control form-control-user">
-                        <?php foreach ($p_semuajadwal as $key) { ?>
-                          <option value="<?php echo $key->id_jadwal; ?>"><?php echo $key->nama_pasien; echo " "; ?> <?php echo $key->nama_dokter; ?> Hari <?php echo $key->hari; ?> Jam <?php echo $key->jam_mulai ?> - <?php echo $key->jam_selesai; ?> Tanggal Ditangani <?php echo $key->tanggal_ditangani ?></option>
-                        <?php } ?>
-                      </select>
+                      <input type="hidden" name="i_id_jadwal" value="<?php echo $p_jadwal->id_jadwal ?>">
+                      <input class="form-control form-control-user" type="text" value="<?php echo $p_jadwal->nama_pasien; echo " "; echo $p_jadwal->nama_dokter; echo " Jam "; echo $p_jadwal->jam_mulai; echo " - "; echo $p_jadwal->jam_selesai ?>" readonly="readonly">
                     </div>
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan hasil" name="i_keterangan_hasil">
