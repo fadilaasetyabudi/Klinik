@@ -36,6 +36,13 @@ class Pasien extends CI_Controller {
 	}
 	public function proses_tambah()
 	{
+		$this->load->library('ciqrcode'); 
+
+		$this->db->order_by('id_pasien', 'desc');
+		$pasien = $this->db->get('tb_pasien', 1)->row();
+		$id_pasien = $pasien->id_pasien + 1;
+
+
 		$v_nama_pasien = $this->input->post('i_nama_pasien');
 		$v_jenis_kelamin = $this->input->post('i_jenis_kelamin');
 		$v_email_pasien = $this->input->post('i_email_pasien');
@@ -46,6 +53,23 @@ class Pasien extends CI_Controller {
 		$v_password_pasien = $this->input->post('i_password_pasien');
 		$v_kode_verivikasi = $this->input->post('i_kode_verivikasi');
 		
+		$config['cacheable']    = true; //boolean, the default is true
+        $config['cachedir']     = './uploads/qrcode/'; //string, the default is application/cache/
+        $config['errorlog']     = './uploads/qrcode/'; //string, the default is application/logs/
+        $config['imagedir']     = './uploads/qrcode/'; //direktori penyimpanan qr code
+        $config['quality']      = true; //boolean, the default is true
+        $config['size']         = '1024'; //interger, the default is 1024
+        $config['black']        = array(224,255,255); // array, default is array(255,255,255)
+        $config['white']        = array(70,130,180); // array, default is array(0,0,0)
+        $this->ciqrcode->initialize($config);
+ 		
+ 		$image_name = $id_pasien.'.png'; //buat name dari qr code sesuai dengan nim
+ 		$params['data'] = $id_pasien; //data yang akan di jadikan QR CODE
+ 		$params['level'] = 'H'; //H=High
+ 		$params['size'] = 10;
+ 		$params['savename'] = FCPATH.$config['imagedir'].$image_name; //simpan image QR CODE ke folder assets/images/
+ 		$this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
+
 		$data_tambah = array(
 			'nama_pasien' => $v_nama_pasien,
 			'jenis_kelamin' => $v_jenis_kelamin,
@@ -54,7 +78,9 @@ class Pasien extends CI_Controller {
 			'alamat_pasien' => $v_alamat_pasien,
 			'tanggal_lahir' => $v_tanggal_lahir,
 			'golongan_darah' => 	$v_golongan_darah,
-			'kode_verivikasi' => $v_kode_verivikasi);
+			'kode_verivikasi' => $v_kode_verivikasi,
+			'qr_code' => $image_name
+		);
 		$tambah_data = $this->db->insert('tb_pasien', $data_tambah);
 
 		if($tambah_data) {

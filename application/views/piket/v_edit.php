@@ -43,29 +43,29 @@ defined('BASEPATH') or exit('No direct script');
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Form Data Penjualan</h1>
+          <h1 class="h3 mb-2 text-gray-800">Form Edit Piket</h1>
           <p class="mb-4"><a target="_blank" href="https://datatables.net"></a></p>
-          <form class="user" action="<?php echo site_url('penjualan/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">   
+          <form class="user" action="<?php echo site_url('piket/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">   
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="id Penjualan" name="i_id_penjualan" value="<?php echo $p_penjualan->id_penjualan; ?>" readonly="readonly">
-                    </div>
-                    <div class="form-group">
-                      <input type="date" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Penjualan" name="i_tanggal_penjualan" value="<?php echo $p_penjualan->tanggal_penjualan; ?>" readonly="readonly">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="id piket" name="i_id_piket" value="<?php echo $p_piket->id_piket; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jumlah Pembelian" name="i_jumlah_pembelian" value="<?php echo $p_penjualan->jumlah_pembelian; ?>">
-                    </div>
-                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Total Harga" name="i_total_harga" value="<?php echo $p_penjualan->total_harga; ?>">
-                    </div>
-                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="id Obat" name="i_id_obat" value="<?php echo $p_penjualan->id_obat; ?>">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="id dokter" name="i_id_dokter" value="<?php echo $p_piket->id_dokter; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="id Pasien" name="i_id_pasien" value="<?php echo $p_penjualan->id_pasien; ?>" readonly="readonly">
+                      <select name="i_hari" class="form-control form-control-user-combobox">
+                      <option value="senin" <?php echo ($p_piket->hari == 'senin' ? 'selected="selected"' : ''); ?>>Senin</option>
+                      <option value="selasa" <?php echo ($p_piket->hari == 'selasa' ? 'selected="selected"' : ''); ?>>Selasa</option>
+                      <option value="rabo" <?php echo ($p_piket->hari == 'rabo' ? 'selected="selected"' : ''); ?>>Rabo</option>
+                      <option value="kamis" <?php echo ($p_piket->hari == 'kamis' ? 'selected="selected"' : ''); ?>>Kamis</option>
+                      <option value="jumat" <?php echo ($p_piket->hari == 'jumat' ? 'selected="selected"' : ''); ?>>Jumat</option>
+                    </select>
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="id Resep" name="i_id_resep" value="<?php echo $p_penjualan->id_resep; ?>">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="jam mulai" name="i_jam-mulai" value="<?php echo $p_piket->jam_mulai; ?>">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="jam selesai" name="i_jam_selesai" value="<?php echo $p_piket->jam_selesai; ?>">
                     </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Kirim

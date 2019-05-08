@@ -90,6 +90,7 @@ defined('BASEPATH') or exit('No direct script');
                      <th>Golongan Darah</th>
                      <th>Kata Sandi</th>
                      <th>Kode Verivikasi</th>
+                     <th>Qr_code</th>
                      <th>Aksi</th>
                     </tr>
                   </thead>
@@ -104,6 +105,7 @@ defined('BASEPATH') or exit('No direct script');
                      <th>Golongan Darah</th>
                      <th>Kata Sandi</th>
                      <th>Kode Verivikasi</th>
+                     <th>Qr_code</th>
                       <th>Aksi</th>
                     </tr>
                   </tfoot>
@@ -121,6 +123,7 @@ defined('BASEPATH') or exit('No direct script');
         <td><?php echo $data->golongan_darah; ?></td>
         <td><?php echo $data->password_pasien; ?></td>
         <td><?php echo $data->kode_verivikasi; ?></td>
+        <td><img src="<?php echo base_url('uploads/qrcode/'); ?><?php echo $data->qr_code; ?>" width="100px"></td>
         <td>
        <!--    <a href="">Edit</a> -->
           <a href="<?php echo site_url('pasien/edit/' . $data->id_pasien); ?>" class="btn btn-success btn-circle">

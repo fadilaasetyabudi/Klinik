@@ -30,19 +30,19 @@ class Resep extends CI_Controller {
 		$this->load->view('resep/v_daftar', 
 			$parser);
 	}
+
 	public function tambah()
 	{
 		$this->load->view('resep/v_tambah');
 	}
+
 	public function proses_tambah()
 	{
-		$v_id_resep = $this->input->post('i_id_resep');
 		$v_id_hasil = $this->input->post('i_id_hasil');
 		$v_id_obat = $this->input->post('i_id_obat');
 		$v_jumlah_obat = $this->input->post('i_jumlah_obat');
 		$v_total_harga = $this->input->post('i_total_harga');
 		$data_tambah = array(
-			'id_resep' => $v_id_resep,
 			'id_hasil' => $v_id_hasil,
 			'id_obat' => $v_id_obat,
 			'jumlah_obat' =>  $v_jumlah_obat,
@@ -53,7 +53,7 @@ class Resep extends CI_Controller {
 			$this->session->set_flashdata('fd_pesan', 'Tambah resep berhasil.');
 			redirect('resep');
 		} else {
-			$this->session->set_flashdata('fd_pesan', 'Tmbah resep gagal.');
+			$this->session->set_flashdata('fd_pesan', 'Tambah resep gagal.');
 			redirect ('resep');
 		}
 	}
@@ -64,17 +64,14 @@ class Resep extends CI_Controller {
 			);
 		$this->load->view('resep/v_edit', $parser);
 	}
-	public function proses_edit($id_hasil)
+	public function proses_edit($id_resep)
 	{
-		$v_id_resep = $this->input->post('i_id_resep');
-		$v_id_hasil = $this->input->post('i_id_hasil');
 		$v_id_obat = $this->input->post('i_id_obat');
 		$v_jumlah_obat = $this->input->post('i_jumlah_obat');
 		$v_total_harga = $this->input->post('i_total_harga');
 
 		$data_tambah = array(
-			'id_resep' => $v_id_resep,
-			'id_hasil' => $v_id_hasil,
+			'id_obat' => $v_id_obat,
 			'jumlah_obat' => $v_jumlah_obat,
 			'total_harga' => $v_total_harga);
 
@@ -99,7 +96,7 @@ class Resep extends CI_Controller {
 			'id_resep' => $id_resep
 			);
 
-		$hapus_data = $this->db->delete('tb_resep', $data_where, $data_where);
+		$hapus_data = $this->db->delete('tb_resep', $data_where);
 
 		if($hapus_data) {
 			$this->session->set_flashdata('fd_pesan', 'Hapus resep berhasil.');

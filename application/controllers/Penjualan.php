@@ -32,20 +32,26 @@ class Penjualan extends CI_Controller {
 	}
 	public function tambah()
 	{
-		$this->load->view('penjualan/v_tambah');
+
+		$parser['p_obat'] = $this->db->get('tb_obat')->result();
+		$parser['p_pasien'] = $this->db->get('tb_pasien')->result();
+		$parser['p_resep'] = $this->db->get('tb_resep')->result();
+
+
+		$this->load->view('penjualan/v_tambah', $parser);
 	}
 	public function proses_tambah()
 	{
+		$date = date('Y-m-d H:i:s');
 		$v_id_penjualan = $this->input->post('i_id_penjualan');
-		$v_tanggal_penjualan = $this->input->post('i_tanggal_penjualan');
+		// $v_tanggal_penjualan = $this->input->post('i_tanggal_penjualan');
 		$v_jumlah_pembelian = $this->input->post('i_jumlah_pembelian');
 		$v_total_harga = $this->input->post('i_total_harga');
 		$v_id_obat = $this->input->post('i_id_obat');
 		$v_id_pasien = $this->input->post('i_id_pasien');
 		$v_id_resep = $this->input->post('i_id_resep');
 		$data_tambah = array(
-			'id_penjualan' => $v_id_penjualan,
-			'id_tanggal_penjualan' => $v_id_tanggal_penjualan,
+			'tanggal_penjualan' => $date,
 			'jumlah_pembelian' => $v_jumlah_pembelian,
 			'total_harga' => $v_total_harga,
 			'id_obat' => $v_id_obat,
@@ -104,7 +110,7 @@ class Penjualan extends CI_Controller {
 			'id_penjualan' => $id_penjualan
 			);
 
-		$hapus_data = $this->db->delete('tb_penjualan', $data_where, $data_where);
+		$hapus_data = $this->db->delete('tb_penjualan', $data_where);
 
 		if($hapus_data) {
 			$this->session->set_flashdata('fd_pesan', 'Hapus data penjualan berhasil.');

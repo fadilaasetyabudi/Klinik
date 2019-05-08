@@ -92,8 +92,9 @@ class Obat extends CI_Controller {
 			$data_where= array(
 			'id_obat' => $id_obat
 			);
-
-		$hapus_data = $this->db->delete('tb_obat', $data_where, $data_where);
+		$hapus_data = $this->db->delete('tb_penjualan', $data_where);
+		$hapus_data = $this->db->delete('tb_resep', $data_where);
+		$hapus_data = $this->db->delete('tb_obat', $data_where);
 
 		if($hapus_data) {
 			$this->session->set_flashdata('fd_pesan', 'Hapus obat berhasil.');
