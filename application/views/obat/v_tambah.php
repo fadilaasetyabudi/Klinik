@@ -25,45 +25,64 @@ defined('BASEPATH') or exit('No direct script');
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
-
 <body id="page-top">
-
   <!-- Page Wrapper -->
-  <div id="wrapper">
-
-    
+  <div id="wrapper">    
     <?php  $this->load->view("template/sidebar");?>
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-
       <!-- Main Content -->
       <div id="content">
-
       <?php $this->load->view("template/topbar");?>
-
-
-        
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Data Obat</h1>
-          <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
-
+          <br>
           <form class="user" action="<?php echo site_url('obat/proses_tambah'); ?>" method="POST">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="Nama obat" name="i_nama_obat">
+                      <label>Nama</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="Nama obat" name="i_nama_obat">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="harga obat" name="i_harga_obat">
+                    <!--   <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="Satuan" name="i_satuan"> -->
+                    <p>
+                    <label for="i bentuk">bentuk</label>
+                    <!-- <input type="text" name="i_jenis_kelamin"></input> -->
+                    <select name="i_bentuk" class="form-control">
+                      <option value="botol">Botol</option>
+                      <option value="strip">Strip</option>
+                      <option value="tube">Tube</option>
+                    </select>
+                  </p>
+                  </div>
+                  <div class="form-group">
+                      <label>Ukuran</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="Ukuran" name="i_ukuran">
+                    </div>
+                    <div class="form-group">
+                    <label for="i satuaan">satuaan</label>
+                    <!-- <input type="text" name="i_jenis_kelamin"></input> -->
+                    <select name="i_satuan" class="form-control">
+                      <option value="ML">ML</option>
+                      <option value="tablet">Tablet</option>
+                      <option value="kapsul">Kapsul</option>
+                      <option value="kaplet">Kaplet</option>
+                    </select>
+                  </p>
+                  </div>
+                    <div class="form-group">
+                      <label>Harga</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="harga obat" name="i_harga_obat">
                     </div>
                      <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan obat" name="i_keterangan_obat">
+                      <label>Keterangan</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan obat" name="i_keterangan_obat">
                     </div>
                      
                    
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" class="btn btn-primary btn-block">
                       Tambah
                  </button>
                   

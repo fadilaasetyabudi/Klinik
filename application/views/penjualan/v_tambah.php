@@ -51,18 +51,19 @@ defined('BASEPATH') or exit('No direct script');
                     <div class="form-group">
                       <input type="date" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Penjualan" name="i_tanggal_penjualan">
                     </div>
+                     <div class="form-group">
+                      <select name="i_id_obat" class="form-control form-control-user" onchange="getHarga()">
+                        <?php for($i = 0; $i<count($p_obat); $i++) { ?>
+                          <option value="<?php echo $p_obat[$i]->id_obat ?>"><?php echo $p_obat[$i]->nama_obat ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                    
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jumlah Pembelian" name="i_jumlah_pembelian">
                     </div>
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Total Harga" name="i_total_harga">
-                    </div>
-                     <div class="form-group">
-                      <select name="i_id_obat" class="form-control form-control-user">
-                        <?php foreach ($p_obat as $key) { ?>
-                          <option value="<?php echo $key->id_obat ?>"><?php echo $key->nama_obat ?></option>
-                        <?php } ?>
-                      </select>
                     </div>
                     <div class="form-group">
                       <select name="i_id_pasien" class="form-control form-control-user">
@@ -88,5 +89,10 @@ defined('BASEPATH') or exit('No direct script');
 
       </div>
       <!-- End of Main Content -->
+      <script type="text/javascript">
+        function getHarga() {
+          
+        }
+      </script>
 
      <?php $this->load->view("template/footer");?>

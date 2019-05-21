@@ -14,6 +14,9 @@ defined('BASEPATH') or exit('No direct script');
 			<tr>
 				<th>#</th>
 				<th>Nama Obat</th>
+				<th>Bentuk</th>
+				<th>Ukuran</th>
+				<th>Satuan</th>
 				<th>Harga Obat</th>
 				<th>keterangan Obat</th>
 				<th>Aksi</th>

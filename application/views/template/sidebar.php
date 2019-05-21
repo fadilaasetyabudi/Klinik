@@ -5,21 +5,21 @@
 
 
 <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul  class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: green;">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon ">
+          <img src="<?php echo base_url() ?>image/logo.jpg">
         </div>
-        <div class="sidebar-brand-text mx-3">Admin Klinik Dokter <sup>Lia</sup></div>
+<!--         <div class="sidebar-brand-text mx-3">Admin Klinik Dokter <sup>Lia</sup></div> -->
       </a>
 
       <!-- Divider -->
+      <br>
       <hr class="sidebar-divider my-0">
-
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>Components</span>
@@ -31,67 +31,78 @@
             <a class="collapse-item" href="cards.html">Cards</a>
           </div>
         </div>
-      </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('dokter'); ?>">
-          <i class="fas fa-fw fa-tag"></i>
-          <span>Dokter</span></a>
-      </li>
-
- <!-- Divider -->
-      <!-- <hr class="sidebar-divider my-2"> -->
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('hasil'); ?>">
-          <i class="fas fa-fw fa-archive"></i>
-          <span>Hasil</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('resep'); ?>">
-          <i class="fas fa-fw fa-archive"></i>
-          <span>Resep</span></a>
-      </li>
+      </li> -->
 
       <?php if ($this->session->userdata('level') == 'admin') { ?>
-      <li class="nav-item">
+      <li class="nav-item <?php if($this->uri->segment(1) == 'dokter') { echo "active"; } ?>">
+        <a class="nav-link" href="<?php echo site_url('dokter'); ?>">
+          <!-- <i class="fas fa-fw fa-tag"></i> -->
+          <span>Data Dokter</span></a>
+      </li>
+    <?php } else { ?>
+        <li class="nav-item <?php if($this->uri->segment(1) == 'profil') { echo "active"; } ?>">
+        <a class="nav-link" href="<?php echo site_url('profil'); ?>">
+          <!-- <i class="fas fa-fw fa-tag"></i> -->
+          <span>Data Dokter</span></a>
+      </li>
+    <?php } ?>
+      <hr class="sidebar-divider my-0">
+       <li class="nav-item <?php if($this->uri->segment(1) == 'piket') { echo "active"; } ?>">
+        <a class="nav-link" href="<?php echo site_url('piket'); ?>">
+          <span>Piket Dokter</span></a>
+      </li>
+      <hr class="sidebar-divider my-0">
+       <li class="nav-item">
+        <a class="nav-link" href="<?php echo site_url('pasien/scan_pasien'); ?>">
+          <span>Qr-Scanner</span></a>
+      </li>
+      <hr class="sidebar-divider my-0">
+       <li class="nav-item <?php if($this->uri->segment(1) == 'pasien') { echo "active"; } ?>">
+        <a class="nav-link" href="<?php echo site_url('pasien'); ?>">
+          <span>Pasien</span></a>
+      </li>
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item <?php if($this->uri->segment(1) == 'hasil') { echo "active"; } ?>">
+        <a class="nav-link" href="<?php echo site_url('hasil'); ?>">
+          <span>Hasil</span></a>
+      </li>
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item <?php if($this->uri->segment(1) == 'resep') { echo "active"; } ?>">
+        <a class="nav-link" href="<?php echo site_url('resep'); ?>">
+          <span>Resep</span></a>
+      </li>
+      <hr class="sidebar-divider my-0">
+      <?php if ($this->session->userdata('level') == 'admin') { ?>
+      <li class="nav-item <?php if($this->uri->segment(1) == 'layanan') { echo "active"; } ?>">
         <a class="nav-link" href="<?php echo site_url('layanan'); ?>">
-          <i class="fas fa-fw fa-archive"></i>
           <span>Layanan</span></a>
       </li>
-      <li class="nav-item">
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item <?php if($this->uri->segment(1) == 'obat') { echo "active"; } ?>">
         <a class="nav-link" href="<?php echo site_url('obat'); ?>">
-          <i class="fas fa-fw fa-archive"></i>
-          <span>Obat</span></a>
+          <span>Data Obat</span></a>
       </li>
+      <hr class="sidebar-divider my-0">
     
 
   <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
+     <!--  <li class="nav-item">
         <a class="nav-link" href="<?php echo site_url('pasien'); ?>">
           <i class="fas fa-fw fa-archive"></i>
           <span>Pasien</span></a>
+      </li> -->
+      <li class="nav-item <?php if($this->uri->segment(1) == 'jadwal') { echo "active"; } ?>">
+        <a class="nav-link" href="<?php echo site_url('jadwal'); ?>">
+          <span>Layanan Pasien</span></a>
       </li>
-       <!-- Nav Item - Dashboard -->
-      
-        <!-- Nav Item - Dashboard -->
-      
-        <li class="nav-item">
+            <hr class="sidebar-divider my-0">
+
+        <li class="nav-item <?php if($this->uri->segment(1) == 'penjualan') { echo "active"; } ?>">
         <a class="nav-link" href="<?php echo site_url('penjualan'); ?>">
-          <i class="fas fa-fw fa-archive"></i>
           <span>Penjualan</span></a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('jadwal'); ?>">
-          <i class="fas fa-fw fa-archive"></i>
-          <span>Jadwal</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('piket'); ?>">
-          <i class="fas fa-fw fa-archive"></i>
-          <span>Piket</span></a>
-      </li>
+      
       <?php } ?>
 
    

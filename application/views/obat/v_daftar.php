@@ -20,6 +20,7 @@ defined('BASEPATH') or exit('No direct script');
 
   <!-- Custom styles for this template -->
    <link href="<?php echo base_url(); ?>tema/admin/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>tema/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -82,6 +83,9 @@ defined('BASEPATH') or exit('No direct script');
                     <tr>
                      <th>#</th>
                      <th>Nama Obat</th>
+                     <th>Bentuk</th>
+                     <th>Ukuran</th>
+                     <th>Satuan</th>
                      <th>Harga Obat</th>
                      <th>Keterangan Obat</th>
                      <th>Aksi</th>
@@ -91,6 +95,9 @@ defined('BASEPATH') or exit('No direct script');
                     <tr>
                      <th>#</th>
                      <th>Nama Obat</th>
+                     <th>Bentuk</th>
+                     <th>Ukuran</th>                   
+                     <th>Satuan</th>
                      <th>Harga Obat</th>
                      <th>Keterangan Obat</th>
                       <th>Aksi</th>
@@ -103,6 +110,9 @@ defined('BASEPATH') or exit('No direct script');
       <tr>
         <td><?php echo $no++; ?></td>
         <td><?php echo $data->nama_obat; ?></td>
+        <td><?php echo $data->bentuk; ?></td>
+        <td><?php echo $data->ukuran; ?></td>
+        <td><?php echo $data->satuan; ?></td>
         <td><?php echo get_rupiah($data->harga_obat); ?></td>
         <td><?php echo $data->keterangan_obat; ?></td>
       

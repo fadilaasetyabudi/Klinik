@@ -45,38 +45,49 @@ defined('BASEPATH') or exit('No direct script');
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Form Tambah Data Pasien</h1>
+          <br>
           <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
           <form class="user" action="<?php echo site_url('pasien/proses_tambah'); ?>" method="POST">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama pasien" name="i_nama_pasien">
+                       <label for="i id pasien">Nama Pasien</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_nama_pasien">
                     </div>
                     <div class="form-group">
-                      <select name="i_jenis_kelamin" class="form-control form-control-user-combobox">
+                       <label for="i id pasien">Jenis Kelamin</label>
+                       <br>
+                      <select name="i_jenis_kelamin" class="form-control-combobox">
                          <option value="L" selected>Laki-laki</option>
                          <option value="P">Perempuan</option>
                       </select>
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Email pasien" name="i_email_pasien">
+                       <label for="i id pasien">Email</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_email_pasien">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kontak pasien" name="i_kontak_pasien">
+                       <label for="i id pasien">No.Hp</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_kontak_pasien">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Alamat Pasien" name="i_alamat_pasien">
+                       <label for="i id pasien">Alamat</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_alamat_pasien">
                     </div>
                      <div class="form-group">
-                      <input type="date" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal lahir" name="i_tanggal_lahir">
+                       <label for="i id pasien">Tanggal Lahir</label>
+                      <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_tanggal_lahir">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Golongan Darah" name="i_golongan_darah">
+                       <label for="i id pasien">Golongan Darah</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_golongan_darah">
                     </div>
                      <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kata Sandi" name="i_password_pasien">
+                       <label for="i id pasien">Password</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_password_pasien">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kode Verivikasi" name="i_kode_verivikasi">
+                       <label for="i id pasien">Verifikasi Password</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_kode_verivikasi">
                     </div>
                    
                     <button type="submit" class="btn btn-primary btn-user btn-block">

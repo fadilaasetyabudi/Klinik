@@ -24,6 +24,8 @@ defined('BASEPATH') or exit('No direct script');
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>tema/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -49,7 +51,7 @@ defined('BASEPATH') or exit('No direct script');
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800 text-primary">Daftar Jadwal</h1>
+          <h1 class="h3 mb-2 text-gray-800 text-primary">Daftar Layanan Pasien</h1>
           <!-- <p class="mb-4 text-primary">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
           <?php  if($this->session->flashdata('fd_pesan')){?>

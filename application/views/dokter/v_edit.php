@@ -43,19 +43,23 @@ defined('BASEPATH') or exit('No direct script');
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Form Edit  Data dokter</h1>
+          <h1 class="h3 mb-2 text-gray-800">Edit  Data dokter</h1>
           <p class="mb-4"><a target="_blank" href="https://datatables.net"></a></p>
           <form class="user" action="<?php echo site_url('dokter/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">   
+            <br>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama dokter" name="i_nama_dokter" value="<?php echo $p_dokter->nama_dokter; ?>">
+                      <label>Nama</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama dokter" name="i_nama_dokter" value="<?php echo $p_dokter->nama_dokter; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kontak dokter" name="i_email_dokter" value="<?php echo $p_dokter->email_dokter; ?>">
+                      <label>Email</label>
+                      <input type="text" class="form-control " id="exampleInputText" aria-describedby="emailHelp" placeholder="Kontak dokter" name="i_email_dokter" value="<?php echo $p_dokter->email_dokter; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Alamat dokter" name="i_password_dokter" value="<?php echo $p_dokter->password_dokter; ?>">
+                      <label>Password</label>
+                      <input type="text" class="form-control " id="exampleInputText" aria-describedby="emailHelp" placeholder="Alamat dokter" name="i_password_dokter" value="<?php echo $p_dokter->password_dokter; ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button style="background-color: purple; "type="submit" class="btn btn-primary ">
                       Kirim
                  </button>
                   

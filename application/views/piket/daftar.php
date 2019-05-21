@@ -14,7 +14,7 @@ defined('BASEPATH') or exit('No direct script');
 			<tr>
 				<th>#</th>
 				<th>id Piket</th>
-				<th>id Dokter</th>
+				<th>Nama Dokter</th>
 				<th>Hari</th>
 				<th>Jam Mulai</th>
 				<th>Jam Selesai</th>
@@ -28,7 +28,7 @@ defined('BASEPATH') or exit('No direct script');
 			<tr>
 				<td><?php echo $no++; ?></td>
 				<td><?php echo $data->id_piket; ?></td>
-				<td><?php echo $data->id_dokter; ?></td>
+				<td><?php echo $data->nama_dokter; ?></td>
 				<td><?php echo $data->hari; ?></td>
 				<td><?php echo $data->jam_mulai; ?></td>
 				<td><?php echo $data->jam_selesai; ?></td>

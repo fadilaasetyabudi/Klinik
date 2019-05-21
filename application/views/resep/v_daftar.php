@@ -82,10 +82,7 @@ defined('BASEPATH') or exit('No direct script');
                     <tr>
                     <th>#</th>
                      <th>id resep</th>
-                     <th>id hasil</th>
-                     <th>id obat</th>
-                     <th>jumlah obat</th>
-                     <th>total harga</th>
+                     <th>Hasil</th>
                      <th>Aksi</th>
                     </tr>
                   </thead>
@@ -96,12 +93,13 @@ defined('BASEPATH') or exit('No direct script');
       <tr>
         <td><?php echo $no++; ?></td>
         <td><?php echo $data->id_resep; ?></td>
-        <td><?php echo $data->id_hasil; ?></td>
-        <td><?php echo $data->id_obat; ?></td> 
-        <td><?php echo $data->jumlah_obat; ?></td>
-        <td><?php echo $data->total_harga; ?></td>
+        <td><?php echo $data->nama_pasien." | ".$data->nama_dokter." | ".$data->hari." - ".$data->jam_mulai." - ".$data->jam_selesai." | ".$data->nama_layanan." | ".$data->keterangan_hasil; ?></td>
         <td>
        <!--    <a href="">Edit</a> -->
+          <a href="<?php echo site_url('resep/lihatobat/' . $data->id_resep); ?>" class="btn btn-warning btn-circle">
+                    <i class="fas fa-eye"></i>
+                  </a>
+
           <a href="<?php echo site_url('resep/edit/' . $data->id_resep); ?>" class="btn btn-success btn-circle">
                     <i class="fas fa-edit"></i>
                   </a>
@@ -114,7 +112,7 @@ defined('BASEPATH') or exit('No direct script');
       <?php } ?>
       <?php } else { ?>
       <tr>
-        <td colspan="4">Tidak ada hasil</td>
+        <td colspan="7">Tidak ada hasil</td>
       </tr>
       <?php } ?>
                     

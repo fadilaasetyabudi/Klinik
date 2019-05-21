@@ -99,5 +99,7 @@ class Layanan extends CI_Controller {
 			redirect ('layanan');
 		}
 	}
+
+	
 }
 ?>

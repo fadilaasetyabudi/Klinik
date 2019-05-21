@@ -44,23 +44,27 @@ defined('BASEPATH') or exit('No direct script');
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Form Tambah Data Dokter</h1>
-          <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
+          <h1 class="h3 mb-2 text-gray-800">Tambah Data Dokter</h1>
+          <br>
 
           <form class="user" action="<?php echo site_url('dokter/proses_tambah'); ?>" method="POST">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama dokter" name="i_nama_dokter">
+                      <label>Nama</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama dokter" name="i_nama_dokter">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Email Dokter" name="i_email_dokter">
+                      <label>Email</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Email Dokter" name="i_email_dokter">
                     </div>
                       <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Password Dokter" name="i_password_dokter">
+                        <label>Password</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Password Dokter" name="i_password_dokter">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Current Password" name="i_current_password">
+                      <label>Verifikasi Password</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Current Password" name="i_current_password">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button style="background-color: purple; "type="submit" class="btn btn-primary" >
                       Tambah
                  </button>
                   </form>

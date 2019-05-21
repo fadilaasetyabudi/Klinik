@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2019 at 08:42 AM
+-- Generation Time: May 19, 2019 at 11:06 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -48,6 +48,28 @@ INSERT INTO `tb_admin` (`id_admin`, `nama_admin`, `email_admin`, `password_admin
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_detail_resep`
+--
+
+CREATE TABLE `tb_detail_resep` (
+  `id_detail_resep` bigint(20) NOT NULL,
+  `id_resep` bigint(20) NOT NULL,
+  `id_obat` bigint(20) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_detail_resep`
+--
+
+INSERT INTO `tb_detail_resep` (`id_detail_resep`, `id_resep`, `id_obat`, `jumlah`, `total`) VALUES
+(26, 1, 16, 2, 8000),
+(27, 1, 16, 3, 12000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_dokter`
 --
 
@@ -64,7 +86,7 @@ CREATE TABLE `tb_dokter` (
 --
 
 INSERT INTO `tb_dokter` (`id_dokter`, `nama_dokter`, `email_dokter`, `password_dokter`, `current_password`) VALUES
-(3, 'Dr.Lia', 'Liadamayati123@gmail.com', '458bbd6af620b5ab99419632f9c6f45d', 'drlia123'),
+(3, 'Dr.Lia', 'Liadamayati123@gmail.com', 'a1fb7f01ffe3fc76e0b997be59ae212f', 'drlia123'),
 (5, 'rini', 'rini12@gmail.com', 'a38307cc9b86899868c280ad4e043086', 'rini12');
 
 -- --------------------------------------------------------
@@ -84,10 +106,7 @@ CREATE TABLE `tb_hasil` (
 --
 
 INSERT INTO `tb_hasil` (`id_hasil`, `id_jadwal`, `keterangan_hasil`) VALUES
-(6, 16, 'Sakit perut Ya'),
-(7, 16, 'Sakit hati'),
-(8, 16, ''),
-(9, 16, 'Sakit');
+(1, 1, 'sakit perut');
 
 -- --------------------------------------------------------
 
@@ -110,8 +129,7 @@ CREATE TABLE `tb_jadwal` (
 --
 
 INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pasien`, `id_piket`, `id_layanan`, `status_jadwal`, `tanggal_daftar`, `tanggal_ditangani`) VALUES
-(16, 1, 1, 1, 'Sudah Ditangani', '2019-04-25', '2019-04-25'),
-(17, 2, 1, 2, 'Belum Ditangani', '0000-00-00', '0000-00-00');
+(1, 5, 1, 1, 'Sudah Ditangani', '2019-05-19', '2019-05-19');
 
 -- --------------------------------------------------------
 
@@ -161,6 +179,9 @@ INSERT INTO `tb_login` (`id_login`, `username`, `password`) VALUES
 CREATE TABLE `tb_obat` (
   `id_obat` bigint(20) NOT NULL,
   `nama_obat` varchar(30) NOT NULL,
+  `bentuk` enum('Botol','Strip','Tube') NOT NULL,
+  `ukuran` int(11) NOT NULL,
+  `satuan` enum('ML','Tablet','Kapsul','Kaplet') NOT NULL,
   `harga_obat` double NOT NULL,
   `keterangan_obat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -169,9 +190,8 @@ CREATE TABLE `tb_obat` (
 -- Dumping data for table `tb_obat`
 --
 
-INSERT INTO `tb_obat` (`id_obat`, `nama_obat`, `harga_obat`, `keterangan_obat`) VALUES
-(3, 'fatigon', 15000, 'vitamin'),
-(4, 'Amoxilin1', 5000, 'ygjhvkj');
+INSERT INTO `tb_obat` (`id_obat`, `nama_obat`, `bentuk`, `ukuran`, `satuan`, `harga_obat`, `keterangan_obat`) VALUES
+(16, 'betadine', 'Botol', 0, '', 4000, 'obat');
 
 -- --------------------------------------------------------
 
@@ -198,11 +218,12 @@ CREATE TABLE `tb_pasien` (
 --
 
 INSERT INTO `tb_pasien` (`id_pasien`, `nama_pasien`, `jenis_kelamin`, `email_pasien`, `kontak_pasien`, `alamat_pasien`, `tanggal_lahir`, `golongan_darah`, `password_pasien`, `kode_verivikasi`, `qr_code`) VALUES
-(1, 'fuad', 'P', '', '098765', 'malang', '2019-04-10', 'A', '', 'rini12', ''),
-(2, 'fadila', 'P', '', '081234567899', 'Malang', '2019-04-10', 'A', '', '', ''),
-(3, 'a', 'L', '', '', '', '0000-00-00', 'A', '', '', ''),
-(5, 'rini', 'L', '', '01823981238', 'Sukun', '2019-05-01', 'B', '', 'ya123', '5.png'),
-(6, 'della', 'L', '', '09876543', 'Sukun', '2019-05-05', 'AB', '', '123ab', '6.png');
+(5, 'rini12', 'P', 'anggraini@gmail.com', '01823981238', 'Sukun', '1998-12-12', 'A', '', 'ya123', '5.png'),
+(6, 'della', 'L', 'della@gmail.com', '09876543', 'Sukun', '2019-05-05', 'AB', '', '123ab', '6.png'),
+(7, 'amel', 'L', 'amel@gmail.com', '081315777', 'JOMBANG', '2019-06-05', 'A', '', 'amel12', '7.png'),
+(8, 'oooo', 'L', 'anggraini@gmail.com', '01823981238', 'Yaaaa', '1996-05-13', 'A', '', 'amel12', '8.png'),
+(9, 'alya', 'L', 'alya@gmail.com', '098765432', 'nsbcljwlic', '2019-03-08', 'AB', '', 'ya123', '9.png'),
+(10, 'sasdasd', 'L', 'anggraini@gmail.com', '01823981238', 'Sukun', '2000-06-14', 'A', '', 'ya123', '10.png');
 
 -- --------------------------------------------------------
 
@@ -239,10 +260,9 @@ CREATE TABLE `tb_piket` (
 --
 
 INSERT INTO `tb_piket` (`id_piket`, `id_dokter`, `hari`, `jam_mulai`, `jam_selesai`) VALUES
-(1, 3, 'selasa', '08:00:00', '08:30:00'),
+(1, 3, 'selasa', '00:00:00', '08:30:00'),
 (2, 3, 'senin', '00:00:00', '00:00:33'),
-(4, 3, 'rabo', '00:00:08', '00:00:09'),
-(5, 5, 'senin', '00:00:03', '00:00:33');
+(5, 5, 'senin', '08:00:00', '09:00:00');
 
 -- --------------------------------------------------------
 
@@ -252,11 +272,15 @@ INSERT INTO `tb_piket` (`id_piket`, `id_dokter`, `hari`, `jam_mulai`, `jam_seles
 
 CREATE TABLE `tb_resep` (
   `id_resep` bigint(20) NOT NULL,
-  `id_hasil` bigint(20) NOT NULL,
-  `id_obat` bigint(20) NOT NULL,
-  `jumlah_obat` int(11) NOT NULL,
-  `total_harga` double NOT NULL
+  `id_hasil` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_resep`
+--
+
+INSERT INTO `tb_resep` (`id_resep`, `id_hasil`) VALUES
+(1, 1);
 
 --
 -- Indexes for dumped tables
@@ -267,6 +291,12 @@ CREATE TABLE `tb_resep` (
 --
 ALTER TABLE `tb_admin`
   ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indexes for table `tb_detail_resep`
+--
+ALTER TABLE `tb_detail_resep`
+  ADD PRIMARY KEY (`id_detail_resep`);
 
 --
 -- Indexes for table `tb_dokter`
@@ -335,8 +365,7 @@ ALTER TABLE `tb_piket`
 --
 ALTER TABLE `tb_resep`
   ADD PRIMARY KEY (`id_resep`),
-  ADD KEY `id_hasil` (`id_hasil`),
-  ADD KEY `id_obat` (`id_obat`);
+  ADD KEY `id_hasil` (`id_hasil`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -349,6 +378,12 @@ ALTER TABLE `tb_admin`
   MODIFY `id_admin` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `tb_detail_resep`
+--
+ALTER TABLE `tb_detail_resep`
+  MODIFY `id_detail_resep` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
 -- AUTO_INCREMENT for table `tb_dokter`
 --
 ALTER TABLE `tb_dokter`
@@ -358,13 +393,13 @@ ALTER TABLE `tb_dokter`
 -- AUTO_INCREMENT for table `tb_hasil`
 --
 ALTER TABLE `tb_hasil`
-  MODIFY `id_hasil` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_hasil` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_jadwal` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_layanan`
@@ -382,13 +417,13 @@ ALTER TABLE `tb_login`
 -- AUTO_INCREMENT for table `tb_obat`
 --
 ALTER TABLE `tb_obat`
-  MODIFY `id_obat` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_obat` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_pasien`
 --
 ALTER TABLE `tb_pasien`
-  MODIFY `id_pasien` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pasien` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_penjualan`
@@ -406,7 +441,7 @@ ALTER TABLE `tb_piket`
 -- AUTO_INCREMENT for table `tb_resep`
 --
 ALTER TABLE `tb_resep`
-  MODIFY `id_resep` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_resep` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -444,8 +479,7 @@ ALTER TABLE `tb_piket`
 -- Constraints for table `tb_resep`
 --
 ALTER TABLE `tb_resep`
-  ADD CONSTRAINT `tb_resep_ibfk_1` FOREIGN KEY (`id_hasil`) REFERENCES `tb_hasil` (`id_hasil`),
-  ADD CONSTRAINT `tb_resep_ibfk_2` FOREIGN KEY (`id_obat`) REFERENCES `tb_obat` (`id_obat`);
+  ADD CONSTRAINT `tb_resep_ibfk_1` FOREIGN KEY (`id_hasil`) REFERENCES `tb_hasil` (`id_hasil`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

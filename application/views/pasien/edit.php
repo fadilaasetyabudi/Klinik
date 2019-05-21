@@ -22,6 +22,10 @@ defined('BASEPATH') or exit('No direct script');
 		</select>
 	</p>
 	<p>
+		<label for="i email pasien">Email Pasien</label>
+		<input type="text" name="i_email_pasien" value="<?php echo $p_pasien->email_pasien; ?>">
+	</p>
+	<p>
 		<label for="i kontak pasien">Kontak Pasien</label>
 		<input type="text" name="i_kontak_pasien" value="<?php echo $p_pasien->kontak_pasien; ?>">
 	</p>

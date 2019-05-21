@@ -15,8 +15,6 @@ defined('BASEPATH') or exit('No direct script');
 		<p>
 		<label for="i jenis kelamin">Jenis Kelamin</label>
 		<!-- <input type="text" name="i_jenis_kelamin"></input> -->
-
-	
 		<select name="i_jenis_kelamin">
 			<option value="L" <?php echo ($p_pasien->jenis_kelamin == 'L' ? 'selected="selected"' : ''); ?>>Laki-laki</option>
 			<option value="P" <?php echo ($p_pasien->jenis_kelamin == 'P' ? 'selected="selected"' : ''); ?>>Perempuan</option>

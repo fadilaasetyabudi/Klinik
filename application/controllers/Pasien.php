@@ -30,6 +30,21 @@ class Pasien extends CI_Controller {
 		$this->load->view('pasien/v_daftar', 
 			$parser);
 	}
+
+	public function scan_pasien(){
+		$this->load->view('pasien/webcam');
+	}
+
+	public function show($id){
+		$data_where = array(
+			'id_pasien' => $id);
+		$parser = array(
+			'p_pasien' => $this->db->get_where('tb_pasien',$data_where)->row()
+			);
+		$this->load->view('pasien/v_bio', 
+			$parser);
+	}
+	
 	public function tambah()
 	{
 		$this->load->view('pasien/v_tambah');
@@ -151,6 +166,12 @@ class Pasien extends CI_Controller {
 			$this->session->set_flashdata('fd_pesan', 'Hapus pasien gagal.');
 			redirect ('pasien');
 		}
+	}
+
+	public function json_pasien(){
+		$idPasien = $this->input->post('id_pasien');
+		$query = $this->db->query("SELECT * FROM tb_pasien WHERE id_pasien = '$idPasien'");
+		echo json_encode(array('data' => $query->result()));
 	}
 }
 ?>

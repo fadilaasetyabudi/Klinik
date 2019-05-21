@@ -53,18 +53,18 @@ defined('BASEPATH') or exit('No direct script');
 
           <form class="user" action="<?php echo site_url('hasil/proses_tambah'); ?>" method="POST">
                     <!-- <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="id hasil" name="i_id_hasil">
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="id hasil" name="i_id_hasil">
                     </div> -->
                     <div class="form-group">                    
                       <label for="i id pasien">ID Hasil</label>
-                      <select name="i_id_jadwal" class="form-control form-control-user">
+                      <select name="i_id_jadwal" class="form-control">
                         <?php foreach ($p_semuajadwal as $key) { ?>
                           <option value="<?php echo $key->id_jadwal; ?>"><?php echo $key->nama_pasien; echo " "; ?> <?php echo $key->nama_dokter; ?> Hari <?php echo $key->hari; ?> Jam <?php echo $key->jam_mulai ?> - <?php echo $key->jam_selesai; ?> Tanggal Ditangani <?php echo $key->tanggal_ditangani ?></option>
                         <?php } ?>
                       </select>
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan hasil" name="i_keterangan_hasil">
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan hasil" name="i_keterangan_hasil">
                     </div>
                     
                     

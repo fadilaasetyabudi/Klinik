@@ -47,25 +47,37 @@ defined('BASEPATH') or exit('No direct script');
           <p class="mb-4"><a target="_blank" href="https://datatables.net"></a></p>
           <form class="user" action="<?php echo site_url('pasien/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">   
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama pasien" name="i_nama_pasien" value="<?php echo $p_pasien->nama_pasien; ?>">
+                      <label>Nama</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Nama pasien" name="i_nama_pasien" value="<?php echo $p_pasien->nama_pasien; ?>">
                     </div>
                     <div class="form-group">
-                      <select name="i_jenis_kelamin" class="form-control form-control-user-combobox">
+                      <label>Jenis Kelamin</label>
+                      <br>
+                      <select name="i_jenis_kelamin" class="form-control-combobox">
                           <option value="L" <?php echo ($p_pasien->jenis_kelamin == 'L' ? 'selected="selected"' : ''); ?>>Laki-laki</option>
                          <option value="P" <?php echo ($p_pasien->jenis_kelamin == 'P' ? 'selected="selected"' : ''); ?>>Perempuan</option>
                       </select>
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kontak pasien" name="i_kontak_pasien" value="<?php echo $p_pasien->kontak_pasien; ?>">
+                      <label>Email Pasien</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Email pasien" name="i_email_pasien" value="<?php echo $p_pasien->email_pasien; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Alamat Pasien" name="i_alamat_pasien" value="<?php echo $p_pasien->alamat_pasien; ?>">
+                      <label>Kontak Pasien</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kontak pasien" name="i_kontak_pasien" value="<?php echo $p_pasien->kontak_pasien; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label>Alamat</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Alamat Pasien" name="i_alamat_pasien" value="<?php echo $p_pasien->alamat_pasien; ?>">
                     </div>
                      <div class="form-group">
-                      <input type="date" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal lahir" name="i_tanggal_lahir" value="<?php echo $p_pasien->tanggal_lahir; ?>">
+                      <label>Tanggal Lahir</label>
+                      <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal lahir" name="i_tanggal_lahir" value="<?php echo $p_pasien->tanggal_lahir; ?>">
                     </div>
                     <div class="form-group">
-                      <select name="i_golongan_darah" class="form-control form-control-user-combobox">
+                      <label>Golongan Darah</label>
+                      <br>
+                      <select name="i_golongan_darah" class="form-control-combobox">
                           <option value="A" <?php echo ($p_pasien->golongan_darah == 'A' ? 'selected="selected"' : ''); ?>>A</option>
                          <option value="B" <?php echo ($p_pasien->golongan_darah == 'B' ? 'selected="selected"' : ''); ?>>B</option>
                          <option value="AB" <?php echo ($p_pasien->golongan_darah == 'AB' ? 'selected="selected"' : ''); ?>>AB</option>
@@ -73,12 +85,14 @@ defined('BASEPATH') or exit('No direct script');
                       </select>
                     </div>
                      <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kata Sandi" name="i_password_pasien" value="<?php echo $p_pasien->password_pasien; ?>">
+                      <label>Password</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kata Sandi" name="i_password_pasien" value="<?php echo $p_pasien->password_pasien; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kode Verivikasi" name="i_kode_verivikasi" value="<?php echo $p_pasien->kode_verivikasi; ?>">
+                      <label>Kode Verifikasi</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kode Verivikasi" name="i_kode_verivikasi" value="<?php echo $p_pasien->kode_verivikasi; ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" class="btn btn-primary block">
                       Kirim
                  </button>
                   

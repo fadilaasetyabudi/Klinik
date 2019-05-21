@@ -50,10 +50,10 @@ defined('BASEPATH') or exit('No direct script');
               <label for="i id pasien">ID Hasil</label>
               <input type="hidden" name="i_id_hasil" value="<?php echo $p_hasil->id_hasil ?>">
               <input type="hidden" name="i_id_jadwal" value="<?php echo $p_hasil->id_jadwal ?>">
-              <input class="form-control form-control-user" type="text" value="<?php echo $p_hasil->nama_pasien; echo " "; echo $p_hasil->nama_dokter; echo " Jam "; echo $p_hasil->jam_mulai; echo " - "; echo $p_hasil->jam_selesai ?>" readonly="readonly">
+              <input class="form-control" type="text" value="<?php echo $p_hasil->nama_pasien; echo " "; echo $p_hasil->nama_dokter; echo " Jam "; echo $p_hasil->jam_mulai; echo " - "; echo $p_hasil->jam_selesai ?>" readonly="readonly">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan hasil" name="i_keterangan_hasil" value="<?php echo $p_hasil->keterangan_hasil ?>">
+              <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan hasil" name="i_keterangan_hasil" value="<?php echo $p_hasil->keterangan_hasil ?>">
             </div>
             <button type="submit" class="btn btn-primary btn-user btn-block">
               Kirim

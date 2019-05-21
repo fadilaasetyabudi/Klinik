@@ -22,8 +22,8 @@ defined('BASEPATH') or exit('No direct script');
    <link href="<?php echo base_url(); ?>tema/admin/css/sb-admin-2.min.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+  <link href="<?php echo base_url(); ?>tema/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <!-- ="<?php echo base_url(); ?>tema/admin/        data table -->
 </head>
 
 <body id="page-top">
@@ -41,18 +41,13 @@ defined('BASEPATH') or exit('No direct script');
 
       <?php $this->load->view("template/topbar");?>
 
-
-        
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Form Data Dokter</h1>
-          <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
-
+          <h1 class="h3 mb-2 text-gray-800">Data Dokter</h1>
+            <br>
           <?php  if($this->session->flashdata('fd_pesan')){?>
-
           <!-- Basic Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -67,7 +62,7 @@ defined('BASEPATH') or exit('No direct script');
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
-                <a href="<?php echo site_url('dokter/tambah'); ?>" class="btn btn-primary btn-icon-split">
+                <a style="background-color: purple;" href="<?php echo site_url('dokter/tambah'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>

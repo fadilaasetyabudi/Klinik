@@ -82,7 +82,7 @@ defined('BASEPATH') or exit('No direct script');
                     <tr>
                      <th>#</th>
                      <th>id hasil</th>
-                     <th>id jadwal</th>
+                     <th>Jadwal</th>
                      <th>Keterangan hasil</th>
                      <th>Aksi</th>
                     </tr>
@@ -91,7 +91,7 @@ defined('BASEPATH') or exit('No direct script');
                     <tr>
                     <th>#</th>
                      <th>id hasil</th>
-                     <th>id jadwal</th>
+                     <th>Jadwal</th>
                      <th>Keterangan hasil</th>
                      <th>Aksi</th>
                     </tr>
@@ -103,7 +103,7 @@ defined('BASEPATH') or exit('No direct script');
       <tr>
         <td><?php echo $no++; ?></td>
         <td><?php echo $data->id_hasil; ?></td>
-        <td><?php echo $data->id_jadwal; ?></td>
+        <td><?php echo $data->nama_pasien." | ".$data->nama_dokter." | ".$data->hari." - ".$data->jam_mulai." - ".$data->jam_selesai." | ".$data->nama_layanan; ?></td>
         <td><?php echo $data->keterangan_hasil; ?></td>
       
         <td>

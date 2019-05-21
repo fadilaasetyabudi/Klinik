@@ -47,24 +47,38 @@ defined('BASEPATH') or exit('No direct script');
           <h1 class="h3 mb-2 text-gray-800">Tambah Resep</h1>
 
           <form class="user" action="<?php echo site_url('resep/proses_tambah'); ?>" method="POST">
+                    
+
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="id resep" name="i_id_resep">
+                      <select class="form-control" name="i_id_hasil">
+                        <?php foreach ($p_hasil as $data) { ?>
+                          <option value="<?php echo $data->id_hasil ?>"><?php echo $data->nama_pasien." | ".$data->nama_dokter." | ".$data->hari." - ".$data->jam_mulai." - ".$data->jam_selesai." | ".$data->nama_layanan." | ".$data->keterangan_hasil; ?></option>
+                        <?php } ?>
+                        <option></option>
+                      </select>
+
                     </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="id hasil" name="i_id_hasil">
+                    <div id="obat">
+                      <button type="button" id="add">+</button>
+                     <div class="col-md-3">
+                      <select name="i_id_obat1" id="obat1" class="form-control">
+                        <?php foreach ($p_obat as $data) { ?>
+                          <option value="<?php echo $data->id_obat ?>"><?php echo $data->nama_obat; ?></option>
+                        <?php } ?>
+                      </select>
+                      <p id="satuan1"></p>
+                      </div>
+                      <div class="col-md-3">
+                     <input type="text"  class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="jumlah obat" name="i_jumlah_obat1">
+                     </div>
+                      <br>
+                      <br>
                     </div>
-                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="id obat" name="i_id_obat">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="jumlah obat" name="i_jumlah_obat">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="total harga" name="i_total_harga">
-                    </div>
+                    <input type="hidden" id="countObat" name="countObat">
+
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Tambah
-                 </button>
+                    </button>
                   
                   </form>
         </div>
@@ -72,5 +86,59 @@ defined('BASEPATH') or exit('No direct script');
 
       </div>
       <!-- End of Main Content -->
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+          var i = 1;
+          $('#countObat').attr("value" , i);
+          $('#add').click(function(){
+            i++;
+            $('#obat').append('<div class="col-md-3"><select name="i_id_obat'+i+'" id="obat'+i+'" class="form-control"><?php foreach ($p_obat as $data) { ?> <option value="<?php echo $data->id_obat ?>"><?php echo $data->nama_obat; ?></option> <?php } ?> </select><p id="satuan'+i+'"></p></div><div class="col-md-3"> <input type="text"  class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="jumlah obat" name="i_jumlah_obat'+i+'"></div><br><br>');
+            $('#countObat').attr("value", i);
+
+            $('#obat'+i).change(function(){
+            var base_url = "<?php echo base_url() ?>";
+            var id = $('#obat'+i).val();
+            $.ajax({
+              url: base_url+'index.php/resep/getDataObat/'+id,
+              type: "POST",
+              dataType: 'text',
+              success: function( response ) {
+                var obj = $.parseJSON(response);
+                
+                  $('#satuan'+i).text(obj['ukuran']+" "+obj['satuan']+" Per "+obj['bentuk']);
+
+                
+              }
+            });
+
+          });
+
+          });
+
+          $('#obat'+i).change(function(){
+            var base_url = "<?php echo base_url() ?>";
+            var id = $('#obat'+i).val();
+            $.ajax({
+              url: base_url+'index.php/resep/getDataObat/'+id,
+              type: "POST",
+              dataType: 'text',
+              success: function( response ) {
+                var obj = $.parseJSON(response);
+                
+                  $('#satuan'+i).text(obj['ukuran']+" "+obj['satuan']+" Per "+obj['bentuk']);
+
+                
+              }
+            });
+
+          });
+
+        
+          
+
+        });
+
+      </script>
 
      <?php $this->load->view("template/footer");?>

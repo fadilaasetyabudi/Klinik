@@ -23,10 +23,9 @@ class Piket extends CI_Controller {
 	// }
 	
 	public function index()
-	{
-		$parser = array(
-			'p_semuapiket' => $this->db->get_where('tb_piket')->result()
-			);
+	{	
+		$this->db->join('tb_dokter', 'tb_dokter.id_dokter = tb_piket.id_dokter');
+		$parser['p_semuapiket'] = $this->db->get('tb_piket')->result();
 		$this->load->view('piket/v_daftar', $parser);
 	}
 	public function tambah()
@@ -36,14 +35,14 @@ class Piket extends CI_Controller {
 	public function proses_tambah()
 	{
 		$v_id_piket = $this->input->post('i_id_piket');
-		$v_id_dokter = $this->input->post('i_id_dokter');
+		$v_nama_dokter = $this->input->post('i_nama_dokter');
 		$v_hari = $this->input->post('i_hari');
 		$v_jam_mulai = $this->input->post('i_jam_mulai');
 		$v_jam_selesai = $this->input->post('i_jam_selesai');
 		
 		$data_tambah = array(
 			'id_piket' 	=> $v_id_piket,
-			'id_dokter' => $v_id_dokter,
+			'nama_dokter' => $v_nama_dokter,
 			'hari' 		=> $v_hari,
 			'jam_mulai' => $v_jam_mulai,
 			'jam_selesai' => $v_jam_selesai);

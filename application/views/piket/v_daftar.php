@@ -18,6 +18,7 @@ defined('BASEPATH') or exit('No direct script');
   <!-- Custom fonts for this template -->
   <link href="<?php echo base_url(); ?>tema/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>tema/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
    <link href="<?php echo base_url(); ?>tema/admin/css/sb-admin-2.min.css" rel="stylesheet">
@@ -31,27 +32,19 @@ defined('BASEPATH') or exit('No direct script');
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-    
+  
     <?php  $this->load->view("template/sidebar");?>
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-
       <!-- Main Content -->
       <div id="content">
-
       <?php $this->load->view("template/topbar");?>
-
-
-        
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Form Daftar Piket</h1>
-          <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
-
+          <h1 class="h3 mb-2 text-gray-800">Daftar Piket</h1>
+          <br>
           <?php  if($this->session->flashdata('fd_pesan')){?>
 
           <!-- Basic Card Example -->
@@ -68,7 +61,7 @@ defined('BASEPATH') or exit('No direct script');
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
-                <a href="<?php echo site_url('piket/tambah'); ?>" class="btn btn-primary btn-icon-split">
+                <a style="background-color: purple; "href="<?php echo site_url('piket/tambah'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
@@ -83,7 +76,7 @@ defined('BASEPATH') or exit('No direct script');
                     <tr>
                      <th>#</th>
                       <th>id Piket</th>
-                      <th>id Dokter</th>
+                      <th>Nama Dokter</th>
                       <th>Hari</th>
                       <th>Jam Mulai</th>
                       <th>Jam Selesai</th>
@@ -98,7 +91,7 @@ defined('BASEPATH') or exit('No direct script');
       <tr>
         <td><?php echo $no++; ?></td>
         <td><?php echo $data->id_piket; ?></td>
-        <td><?php echo $data->id_dokter; ?></td>
+        <td><?php echo $data->nama_dokter; ?></td>
         <td><?php echo $data->hari; ?></td>
         <td><?php echo $data->jam_mulai; ?></td>
         <td><?php echo $data->jam_selesai; ?></td>

@@ -30,16 +30,16 @@ defined('BASEPATH') or exit('No direct script');
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-
     <?php  $this->load->view("template/sidebar");?>
+
+
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
       <div id="content">
 
-        <?php $this->load->view("template/topbar");?>
+    <?php $this->load->view("template/topbar");?>
 
 
         
@@ -48,13 +48,12 @@ defined('BASEPATH') or exit('No direct script');
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-
+          <h1 class="h3 mb-2 text-gray-800">Tambah Data Layanan</h1>
+          <br>
           <form class="user" action="<?php echo site_url('jadwal/proses_tambah'); ?>" method="POST">
             <div class="form-group">                    
-              <label for="i id pasien">ID Pasien</label>
-              <select name="i_id_pasien" class="form-control form-control-user">
+              <label for="i id pasien">Nama Pasien</label>
+              <select name="i_id_pasien" class="form-control">
                 <?php foreach ($p_semuapasien as $key) { ?>
                 <option value="<?php echo $key->id_pasien; ?>"><?php echo $key->nama_pasien; ?></option>
                 <?php } ?>
@@ -62,7 +61,7 @@ defined('BASEPATH') or exit('No direct script');
             </div>
             <div class="form-group">                    
               <label for="i id pasien">Piket</label>
-              <select name="i_id_piket" class="form-control form-control-user">
+              <select name="i_id_piket" class="form-control">
                 <?php foreach ($p_semuapiket as $key) { ?>
                 <option value="<?php echo $key->id_piket; ?>"><?php echo $key->nama_dokter; ?> Hari <?php echo $key->hari; ?> Jam <?php echo $key->jam_mulai ?> - <?php echo $key->jam_selesai; ?></option>
                 <?php } ?>
@@ -70,7 +69,7 @@ defined('BASEPATH') or exit('No direct script');
             </div>
             <div class="form-group">                    
               <label for="i id pasien">Layanan</label>
-              <select name="i_id_layanan" class="form-control form-control-user">
+              <select name="i_id_layanan" class="form-control">
                 <?php foreach ($p_semualayanan as $key) { ?>
                 <option value="<?php echo $key->id_layanan; ?>"><?php echo $key->nama_layanan; ?></option>
                 <?php } ?>
@@ -78,18 +77,21 @@ defined('BASEPATH') or exit('No direct script');
             </div>
 
             <div class="form-group">
-              <select name="i_status_jadwal" class="form-control form-control-user">
+            <label for="i id pasien">Status</label>
+              <select name="i_status_jadwal" class="form-control">
                 <option value="Belum Ditangani">Belum Ditangani</option>
                 <option value="Sudah Ditangani">Sudah Ditangani</option>
               </select>
             </div>
 
             <div class="form-group">
-              <input type="date" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Daftar " name="i_tanggal_daftar">
+            <label for="i id pasien">Tanggal Daftar</label>
+              <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Daftar " name="i_tanggal_daftar">
             </div>
         
             <div class="form-group">
-              <input type="date" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Ditangani " name="i_tanggal_ditangani">
+           <label for="i id pasien">Tanggal Ditangani</label>
+              <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Ditangani " name="i_tanggal_ditangani">
             </div>
             <div class="form-group">
 

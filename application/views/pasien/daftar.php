@@ -17,10 +17,9 @@ defined('BASEPATH') or exit('No direct script');
 				<th>Jenis Kelamin</th>
 				<th>Email Pasien</th>
 				<th>Kontak Pasien</th>
-				<th>Alamat Pasien/th>
+				<th>Alamat Pasien</th>
 				<th>Tanggal Lahir</th>
 				<th>Golongan Darah</th>
-				<th>Kata Sandi</th>
 				<th>Kode Verivikasi</th>
 				<th>Qr_code</th>
 				<th>Aksi</th>
@@ -39,7 +38,6 @@ defined('BASEPATH') or exit('No direct script');
 				<td><?php echo $data->alamat_pasien; ?></td>
 				<td><?php echo $data->tanggal_lahir; ?></td>
 				<td><?php echo $data->golongan_darah; ?></td>
-				<td><?php echo $data->kata_sandi; ?></td>
 				<td><?php echo $data->kode_verivikasi; ?></td>
 				<td><?php echo $data->qr_code; ?></td>
 				<td>

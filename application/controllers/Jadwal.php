@@ -132,6 +132,25 @@ class jadwal extends CI_Controller {
 			'id_jadwal' => $id_jadwal
 			);
 
+			$hasil = $this->db->get_where('tb_hasil', $data_where)->result();
+			foreach ($hasil as $key) {
+				$data_where2= array(
+					'id_hasil' => $key->id_hasil
+				);
+				$resep = $this->db->get_where('tb_resep', $data_where2)->result();
+				foreach ($resep as $key2) {
+					$data_where3= array(
+						'id_resep' => $key2->id_resep
+					);
+
+					$this->db->delete('tb_penjualan', $data_where3);
+				}
+
+				$this->db->delete('tb_resep', $data_where2);
+			}
+
+			$this->db->delete('tb_hasil', $data_where);
+
 		$hapus_data = $this->db->delete('tb_jadwal', $data_where, $data_where);
 
 		if($hapus_data) {

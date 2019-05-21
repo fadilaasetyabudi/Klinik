@@ -43,16 +43,46 @@ defined('BASEPATH') or exit('No direct script');
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Form Edit Data Obat</h1>
-          <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
           <form class="user" action="<?php echo site_url('obat/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="Nama obat" name="i_nama_obat" value="<?php echo $p_obat->nama_obat; ?>">
+                      <label>Nama Obat</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="Nama obat" name="i_nama_obat" value="<?php echo $p_obat->nama_obat; ?>">
+                    </div>
+                    <p>
+                    <div class="form-group">
+                    <label for="i bentuk">bentuk</label>
+                    <!-- <input type="text" name="i_jenis_kelamin"></input> -->
+                    <select name="i_bentuk" class="form-control">
+                      <option value="botol">Botol</option>
+                      <option value="strip">Strip</option>
+                      <option value="tube">Tube</option>
+                    </select>
+                  </p>
+                  </div>
+                  <div class="form-group">
+                    <label>Ukuran</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="Ukuran" name="i_ukuran_obat" value="<?php echo $p_obat->ukuran; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="harga obat" name="i_harga_obat" value="<?php echo $p_obat->harga_obat; ?>">
+                    <label for="i satuaan">satuaan</label>
+                    <!-- <input type="text" name="i_jenis_kelamin"></input> -->
+                    <select name="i_satuaan" class="form-control">
+                      <option value="ML">ML</option>
+                      <option value="tablet">Tablet</option>
+                      <option value="kapsul">Kapsul</option>
+                      <option value="kaplet">Kaplet</option>
+                    </select>
+                  </p>
+                    <div class="form-group">
+                      <label>Harga</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="harga obat" name="i_harga_obat" value="<?php echo $p_obat->harga_obat; ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <div class="form-group">
+                      <label>Keterangan Obat</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan obat obat" name="i_keterangan_obat" value="<?php echo $p_obat->keterangan_obat; ?>">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
                       Kirim
                  </button>
                   

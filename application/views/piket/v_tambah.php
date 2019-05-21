@@ -49,13 +49,17 @@ defined('BASEPATH') or exit('No direct script');
 
           <form class="user" action="<?php echo site_url('piket/proses_tambah'); ?>" method="POST">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="id piket" name="i_id_piket">
+                      <label>Id Piket</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="id piket" name="i_id_piket">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="id dokter" name="i_id_dokter">
+                      <label>Nama Dokter</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="nama dokter" name="i_nama_dokter">
                     </div>
                     <div class="form-group">
-                      <select name="i_hari" class="form-control form-control-user-combobox">
+                      <label>Hari</label>
+                      <br>
+                      <select name="i_hari" class="form-control-combobox">
                          <option value="senin" selected>Senin</option>
                          <option value="selasa">Selasa</option>
                          <option value="rabo">Rabo</option>
@@ -64,12 +68,14 @@ defined('BASEPATH') or exit('No direct script');
                       </select>
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jam Mulai" name="i_jam_mulai">
+                      <label>Jam Mulai</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jam Mulai" name="i_jam_mulai">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jam Selesai" name="i_jam_selesai">
+                      <label>Jam Selesai</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jam Selesai" name="i_jam_selesai">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button style="background-color: purple; "type="submit" class="btn btn-primary ">
                       Tambah
                  </button>
                   

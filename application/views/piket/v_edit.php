@@ -47,13 +47,17 @@ defined('BASEPATH') or exit('No direct script');
           <p class="mb-4"><a target="_blank" href="https://datatables.net"></a></p>
           <form class="user" action="<?php echo site_url('piket/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">   
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="id piket" name="i_id_piket" value="<?php echo $p_piket->id_piket; ?>">
+                      <label>Id Piket</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="id piket" name="i_id_piket" value="<?php echo $p_piket->id_piket; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="id dokter" name="i_id_dokter" value="<?php echo $p_piket->id_dokter; ?>">
+                      <label>Nama Dokter</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="id dokter" name="i_id_dokter" value="<?php echo $p_piket->id_dokter; ?>">
                     </div>
                     <div class="form-group">
-                      <select name="i_hari" class="form-control form-control-user-combobox">
+                      <label>Hari</label>
+                      <br>
+                      <select name="i_hari" class="form-control-combobox">
                       <option value="senin" <?php echo ($p_piket->hari == 'senin' ? 'selected="selected"' : ''); ?>>Senin</option>
                       <option value="selasa" <?php echo ($p_piket->hari == 'selasa' ? 'selected="selected"' : ''); ?>>Selasa</option>
                       <option value="rabo" <?php echo ($p_piket->hari == 'rabo' ? 'selected="selected"' : ''); ?>>Rabo</option>
@@ -62,12 +66,14 @@ defined('BASEPATH') or exit('No direct script');
                     </select>
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="jam mulai" name="i_jam-mulai" value="<?php echo $p_piket->jam_mulai; ?>">
+                      <label>Jam Mulai</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="jam mulai" name="i_jam-mulai" value="<?php echo $p_piket->jam_mulai; ?>">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="jam selesai" name="i_jam_selesai" value="<?php echo $p_piket->jam_selesai; ?>">
+                      <label>Jam Selesai</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="jam selesai" name="i_jam_selesai" value="<?php echo $p_piket->jam_selesai; ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button style="background-color: purple; "type="submit" class="btn btn-primary">
                       Kirim
                  </button>
                   

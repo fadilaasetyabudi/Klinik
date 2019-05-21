@@ -13,7 +13,7 @@ defined('BASEPATH') or exit('No direct script');
 		<input type="text" name="i_id_piket"></input>
 	</p>
 	<p>
-		<label for="i id dokter">id Dokter</label>
+		<label for="i nama dokter">Nama Dokter</label>
 		<input type="text" name="i_id_piket"></input>
 	</p>
 		<p>
