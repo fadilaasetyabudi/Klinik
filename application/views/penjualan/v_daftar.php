@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script');
    <link href="<?php echo base_url(); ?>tema/admin/css/sb-admin-2.min.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>tema/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -84,11 +84,8 @@ defined('BASEPATH') or exit('No direct script');
                      <th>#</th>
                         <th>id_Penjualan</th>
                         <th>Tanggal penjualan</th>
-                        <th>Jumlah pembelian</th>
                         <th>Total Harga</th>
-                        <th>id_Obat</th>
-                        <th>id_penjualan</th>
-                        <th>id_Resep</th>
+                        <th>Resep</th>
                         <th>Aksi</th>
                     </tr>
                   </thead>
@@ -97,11 +94,8 @@ defined('BASEPATH') or exit('No direct script');
                      <th>#</th>
                         <th>id_Penjualan</th>
                         <th>Tanggal penjualan</th>
-                        <th>Jumlah pembelian</th>
                         <th>Total Harga</th>
-                        <th>id_Obat</th>
-                        <th>id_penjualan</th>
-                        <th>id_Resep</th>
+                        <th>Resep</th>
                         <th>Aksi</th>
                     </tr>
                   </tfoot>
@@ -113,12 +107,12 @@ defined('BASEPATH') or exit('No direct script');
         <td><?php echo $no++; ?></td>
         <td><?php echo $data->id_penjualan; ?></td>
         <td><?php echo $data->tanggal_penjualan; ?></td>
-        <td><?php echo $data->jumlah_pembelian; ?></td>
         <td><?php echo $data->total_harga; ?></td>
-        <td><?php echo $data->id_obat; ?></td>
-        <td><?php echo $data->id_pasien; ?></td>
-        <td><?php echo $data->id_resep; ?></td>
+        <td><?php echo $data->nama_dokter." - ".$data->nama_pasien." - ".$data->keterangan_hasil ?></td>
         <td>
+          <a href="<?php echo site_url('penjualan/lihatobat/' . $data->id_resep); ?>" class="btn btn-warning btn-circle">
+                    <i class="fas fa-eye"></i>
+                  </a>
        <!--    <a href="">Edit</a> -->
           <a href="<?php echo site_url('penjualan/edit/' . $data->id_penjualan); ?>" class="btn btn-success btn-circle">
                     <i class="fas fa-edit"></i>

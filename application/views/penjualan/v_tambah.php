@@ -49,35 +49,29 @@ defined('BASEPATH') or exit('No direct script');
 
           <form class="user" action="<?php echo site_url('penjualan/proses_tambah'); ?>" method="POST">
                     <div class="form-group">
-                      <input type="date" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Penjualan" name="i_tanggal_penjualan">
+                      <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Penjualan" name="i_tanggal_penjualan" value="<?php echo date('Y-m-d'); ?>" readonly="readonly">
                     </div>
                      <div class="form-group">
-                      <select name="i_id_obat" class="form-control form-control-user" onchange="getHarga()">
-                        <?php for($i = 0; $i<count($p_obat); $i++) { ?>
-                          <option value="<?php echo $p_obat[$i]->id_obat ?>"><?php echo $p_obat[$i]->nama_obat ?></option>
-                        <?php } ?>
-                      </select>
-                    </div>
-                    
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jumlah Pembelian" name="i_jumlah_pembelian">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Total Harga" name="i_total_harga">
-                    </div>
-                    <div class="form-group">
-                      <select name="i_id_pasien" class="form-control form-control-user">
-                        <?php foreach ($p_pasien as $key) { ?>
-                          <option value="<?php echo $key->id_pasien ?>"><?php echo $key->nama_pasien ?></option>
-                        <?php } ?>
-                      </select>
-                    </div>
-                     <div class="form-group">
-                      <select name="i_id_resep" class="form-control form-control-user">
+                      <select name="i_id_resep" id="resep" class="form-control">
                         <?php foreach ($p_resep as $key) { ?>
-                          <option value="<?php echo $key->id_resep ?>"><?php echo $key->id_resep ?></option>
+                          <option value="<?php echo $key->id_resep ?>"><?php echo $key->nama_dokter." - ".$key->nama_pasien." - ".$key->keterangan_hasil ?></option>
                         <?php } ?>
                       </select>
+                    </div>
+
+                    <table class="table table-bordered">
+                      <thead>
+                        <th>Obat</th>
+                        <th>Jumlah</th>
+                        <th>Harga</th>
+                      </thead>
+                      <tbody id="tabelObat">
+                        
+                      </tbody>
+                    </table>
+
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="total_harga" aria-describedby="emailHelp" placeholder="Total Harga" name="i_total_harga" readonly="readonly">
                     </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Tambah
@@ -89,10 +83,62 @@ defined('BASEPATH') or exit('No direct script');
 
       </div>
       <!-- End of Main Content -->
-      <script type="text/javascript">
-        function getHarga() {
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+          var base_url = "<?php echo base_url() ?>";
+          var id = $('#resep').val();
+
+          $.ajax({
+              url: base_url+'index.php/penjualan/getDataObat/'+id,
+              type: "GET",
+              dataType: 'text',
+              success: function( response ) {
+                var obj = $.parseJSON(response);
+                var hargaTotal = 0;
+                  $.each(obj, function(index) {
+                      $('#tabelObat').empty();
+                      $('#tabelObat').append("<tr><td>"+obj[index]['nama_obat']+"</td><td>"+obj[index]['jumlah']+"</td><td align='right'>Rp. "+obj[index]['total']+"</td><tr>");
+
+                    hargaTotal += parseInt(obj[index]['total']);
+                  });
+
+                  $('#total_harga').val(hargaTotal);
+
+                
+              }
+            });
+            
+
+          $('#resep').change(function(){
+            var id = $('#resep').val();
+
+            $.ajax({
+                url: base_url+'index.php/penjualan/getDataObat/'+id,
+                type: "GET",
+                dataType: 'text',
+                success: function( response ) {
+                  var obj = $.parseJSON(response);
+                  var hargaTotal = 0;
+                    $('#tabelObat').empty();
+                    $.each(obj, function(index) {
+                      $('#tabelObat').append("<tr><td>"+obj[index]['nama_obat']+"</td><td>"+obj[index]['jumlah']+"</td><td align='right'>Rp. "+obj[index]['total']+"</td><tr>");
+                  
+                      hargaTotal += parseInt(obj[index]['total']);
+                    });
+                    $('#total_harga').val(hargaTotal);
+
+                  
+                }
+              });
+
+          });
+
+        
           
-        }
+
+        });
+
       </script>
 
      <?php $this->load->view("template/footer");?>

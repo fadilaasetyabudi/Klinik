@@ -22,38 +22,38 @@ class Login extends CI_Controller {
 			'password_admin' => md5($v_password)
 		);
 
-		$cek_login = $this->db->get_where('tb_admin', $data_where)->row();
+		$cek_login = $this->db->get_where('tb_admin', $data_where)->result();
 
 		if (count($cek_login) > 0) {
 			//jika data lebih dari 0 / jika data ada
 			$this->session->set_userdata('is_login', TRUE);
-			$this->session->set_userdata('id', $cek_login->id_admin);
+			$this->session->set_userdata('id', $cek_login[0]->id_admin);
 			$this->session->set_userdata('level', 'admin');
 
 			redirect("dokter");
 		
-		} else if (count($cek_login) > 0) {
+		} else if (count($cek_login) == 0) {
 
 			$data_where = array(
 				'email_dokter' => $v_email,
 				'password_dokter' => md5($v_password)
 			);
 			
-			$cek_login2 = $this->db->get_where('tb_dokter', $data_where)->row();			
+			$cek_login2 = $this->db->get_where('tb_dokter', $data_where)->result();			
 			
 			if (count($cek_login2) > 0) {
 				//jika data lebih dari 0 / jika data ada
 				$this->session->set_userdata('is_login', TRUE);
-				$this->session->set_userdata('id', $cek_login2->id_dokter);
+				$this->session->set_userdata('id', $cek_login2[0]->id_dokter);
 				$this->session->set_userdata('level', 'dokter');
 
-				redirect("profil");
+				redirect("Profil");
 		
-			} else {
-				//jika data tidak ada
-				redirect("login");
+			// } else {
+			// 	//jika data tidak ada
+			// 	redirect("login");
 
-			}
+			
 		// } else {
 		// 	$data_where = array(
 		// 		'email_pasien' => $v_email_pasien,
@@ -69,9 +69,8 @@ class Login extends CI_Controller {
 		// 		$this->session->set_userdata('level', 'pasien');
 
 		// 		redirect("profil");
-			} else {
-				redirect("login");
 		}
+	}
 	}
 
 	public function logout()

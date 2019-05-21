@@ -1,4 +1,3 @@
-
 <?php
 defined('BASEPATH') or exit('No direct script');
 ?>
@@ -21,7 +20,6 @@ defined('BASEPATH') or exit('No direct script');
 
   <!-- Custom styles for this template -->
    <link href="<?php echo base_url(); ?>tema/admin/css/sb-admin-2.min.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>tema/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
   <link href="<?php echo base_url(); ?>tema/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -43,10 +41,16 @@ defined('BASEPATH') or exit('No direct script');
 
       <?php $this->load->view("template/topbar");?>
 
+
+        
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
+
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Form Daftar pasien</h1>
+          <h1 class="h3 mb-2 text-gray-800">Resep Pasien</h1>
+         <!--  <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
+
           <?php  if($this->session->flashdata('fd_pesan')){?>
 
           <!-- Basic Card Example -->
@@ -63,12 +67,6 @@ defined('BASEPATH') or exit('No direct script');
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
-                <a style="background-color: purple; "href="<?php echo site_url('pasien/tambah'); ?>" class="btn btn-primary btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-plus"></i>
-                    </span>
-                    <span class="text">Tambah</span>
-                  </a>
               </h6>
             </div>
             <div class="card-body">
@@ -76,64 +74,26 @@ defined('BASEPATH') or exit('No direct script');
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                     <th>#</th>
-                      <th>Nama Pasien</th>
-                      <th>Jenis Kelamin</th>
-                      <th>Email Pasien</th>
-                      <th>Kontak Pasien</th>
-                      <th>Alamat Pasien</th>
-                      <th>Tanggal Lahir</th>
-                      <th>Golongan Darah</th>
-                      <th>Kode Verivikasi</th>
-                      <th>Qr_code</th>
-                      <th>Aksi</th>
+                    <th>#</th>
+                     <th>Nama Obat</th>
+                     <th>Jumlah</th>
+                     <th>Harga Total</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                     <th>#</th>
-                      <th>Nama Pasien</th>
-                      <th>Jenis Kelamin</th>
-                      <th>Email Pasien</th>
-                      <th>Kontak Pasien</th>
-                      <th>Alamat Pasien/th>
-                      <th>Tanggal Lahir</th>
-                      <th>Golongan Darah</th>
-                      <th>Kode Verivikasi</th>
-                      <th>Qr_code</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </tfoot>
                   <tbody>
-                   <?php if(count($p_semuapasien) > 0) { ?>
+                   <?php if(count($p_obat) > 0) { ?>
       <?php $no = 1; ?>
-      <?php foreach ($p_semuapasien as $data) { ?>
+      <?php foreach ($p_obat as $data) { ?>
       <tr>
         <td><?php echo $no++; ?></td>
-        <td><?php echo $data->nama_pasien; ?></td>
-        <td><?php echo $data->jenis_kelamin; ?></td>
-        <td><?php echo $data->email_pasien; ?></td>
-        <td><?php echo $data->kontak_pasien; ?></td>
-        <td><?php echo $data->alamat_pasien; ?></td>
-        <td><?php echo $data->tanggal_lahir; ?></td>
-        <td><?php echo $data->golongan_darah; ?></td>
-        <td><?php echo $data->kode_verivikasi; ?></td>
-        <td><img src="<?php echo base_url('uploads/qrcode/'); ?><?php echo $data->qr_code; ?>" width="100px"></td>
-        <td>
-       <!--    <a href="">Edit</a> -->
-          <a href="<?php echo site_url('pasien/edit/' . $data->id_pasien); ?>" class="btn btn-success btn-circle">
-                    <i class="fas fa-edit"></i>
-                  </a>
-        <!--   <a href="">Hapus</a> -->
-           <a href="<?php echo site_url('pasien/proses_hapus/' . $data->id_pasien); ?>" class="btn btn-danger btn-circle">
-                    <i class="fas fa-trash"></i>
-                  </a>
-        </td>
+        <td><?php echo $data->nama_obat; ?></td>
+        <td><?php echo $data->jumlah." ".$data->bentuk ?></td>
+        <td><?php echo $data->total; ?></td>
       </tr>
       <?php } ?>
       <?php } else { ?>
       <tr>
-        <td colspan="4">Tidak ada pasien</td>
+        <td colspan="7">Tidak ada hasil</td>
       </tr>
       <?php } ?>
                     

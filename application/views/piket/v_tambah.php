@@ -48,18 +48,19 @@ defined('BASEPATH') or exit('No direct script');
           <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
           <form class="user" action="<?php echo site_url('piket/proses_tambah'); ?>" method="POST">
-                    <div class="form-group">
-                      <label>Id Piket</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="id piket" name="i_id_piket">
-                    </div>
+                  
                     <div class="form-group">
                       <label>Nama Dokter</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="nama dokter" name="i_nama_dokter">
+                       <select name="i_id_dokter" class="form-control form-control-combobox">
+                         <?php foreach ($p_dokter as $key) { ?>
+                           <option value="<?php echo $key->id_dokter ?>"><?php echo $key->nama_dokter; ?></option>
+                         <?php } ?>
+                      </select>
                     </div>
                     <div class="form-group">
                       <label>Hari</label>
                       <br>
-                      <select name="i_hari" class="form-control-combobox">
+                      <select name="i_hari" class="form-control form-control-combobox">
                          <option value="senin" selected>Senin</option>
                          <option value="selasa">Selasa</option>
                          <option value="rabo">Rabo</option>
@@ -69,11 +70,11 @@ defined('BASEPATH') or exit('No direct script');
                     </div>
                     <div class="form-group">
                       <label>Jam Mulai</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jam Mulai" name="i_jam_mulai">
+                      <input type="time" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jam Mulai" name="i_jam_mulai">
                     </div>
                     <div class="form-group">
                       <label>Jam Selesai</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jam Selesai" name="i_jam_selesai">
+                      <input type="time" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Jam Selesai" name="i_jam_selesai">
                     </div>
                     <button style="background-color: purple; "type="submit" class="btn btn-primary ">
                       Tambah
