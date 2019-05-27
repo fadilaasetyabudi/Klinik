@@ -40,7 +40,7 @@ defined('BASEPATH') or exit('No direct script');
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Welcome</h1>
+          <h1 class="h3 mb-2 text-gray-800">Welcome Pasien</h1>
          <!--  <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
           <?php  if($this->session->flashdata('fd_pesan')){?>
@@ -63,9 +63,9 @@ defined('BASEPATH') or exit('No direct script');
               </h6>
             </div>
             <div class="card-body">
-              <?php echo $profil->nama_pasien; ?>
+              <?php echo $profil_pasien->nama_pasien; ?>
               <br>
-              <?php echo $profil->email_pasien; ?>
+              <?php echo $profil_pasien->email_pasien; ?>
             </div>
           </div>
 

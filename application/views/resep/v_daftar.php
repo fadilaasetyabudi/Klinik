@@ -65,6 +65,7 @@ defined('BASEPATH') or exit('No direct script');
               <?php } ?>
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
+           <?php if ($this->session->userdata('level') == 'dokter') { ?>
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
                 <a href="<?php echo site_url('resep/tambah'); ?>" class="btn btn-primary btn-icon-split">
@@ -75,6 +76,7 @@ defined('BASEPATH') or exit('No direct script');
                   </a>
               </h6>
             </div>
+            <?php } ?>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -99,6 +101,7 @@ defined('BASEPATH') or exit('No direct script');
           <a href="<?php echo site_url('resep/lihatobat/' . $data->id_resep); ?>" class="btn btn-warning btn-circle">
                     <i class="fas fa-eye"></i>
                   </a>
+             <?php if ($this->session->userdata('level') == 'dokter') { ?>
 
           <a href="<?php echo site_url('resep/edit/' . $data->id_resep); ?>" class="btn btn-success btn-circle">
                     <i class="fas fa-edit"></i>
@@ -108,6 +111,7 @@ defined('BASEPATH') or exit('No direct script');
                     <i class="fas fa-trash"></i>
                   </a>
         </td>
+         <?php } ?>
       </tr>
       <?php } ?>
       <?php } else { ?>

@@ -5,6 +5,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 * 
 */
 class Login extends CI_Controller {
+
+	public function __construct()
+	{
+		parent::__construct();
+		//Do your magic here
+		// var_dump($this->session->userdata());
+		// if ($this->uri->segment(3) != 'logout') {
+		// 	if ($this->session->userdata('is_login')) {
+		// 		if ($this->session->userdata('level') == 'admin') {
+		// 			redirect('dokter');
+		// 		} else if ($this->session->userdata('level') == 'dokter') {
+		// 			redirect('Profil');
+		// 		} else if ($this->session->userdata('level') == 'pasien') {
+		// 			redirect('Profil_pasien');
+		// 		}
+		// 	}
+		// }
+	}
 	
 	public function index()
 	{
@@ -49,32 +67,34 @@ class Login extends CI_Controller {
 
 				redirect("Profil");
 		
-			// } else {
-			// 	//jika data tidak ada
-			// 	redirect("login");
+			
+			}else if (count($cek_login2) == 0) {
 
+				$data_where = array(
+					'email_pasien' => $v_email,
+					'password_pasien' => md5($v_password)
+				);
 			
-		// } else {
-		// 	$data_where = array(
-		// 		'email_pasien' => $v_email_pasien,
-		// 		'password_pasien' => md5($v_password_pasien)
-		// 	);
+				$cek_login3 = $this->db->get_where('tb_pasien', $data_where)->result();			
 			
-		// 	$cek_login3 = $this->db->get_where('tb_pasien', $data_where)->row();			
-			
-		// 	if (count($cek_login2) > 0) {
-		// 		//jika data lebih dari 0 / jika data ada
-		// 		$this->session->set_userdata('is_login', TRUE);
-		// 		$this->session->set_userdata('id', $cek_login2->id_pasien);
-		// 		$this->session->set_userdata('level', 'pasien');
+				if (count($cek_login3) > 0) {
+					//jika data lebih dari 0 / jika data ada
+					$this->session->set_userdata('is_login', TRUE);
+					$this->session->set_userdata('id', $cek_login3[0]->id_pasien);
+					$this->session->set_userdata('level', 'pasien');
 
-		// 		redirect("profil");
+					redirect("Profil_pasien");
+		
+			
+				}
+			}
 		}
 	}
-	}
+	
 
 	public function logout()
 	{
+		$this->session->unset_userdata('is_login');
 		$this->session->sess_destroy();
 		redirect('login','refresh');	
 	}

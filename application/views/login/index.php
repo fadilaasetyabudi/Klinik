@@ -59,6 +59,14 @@ defined('BASEPATH') or exit('No direct script');
                     <div class="text-center"><button type="submit" class="btn btn-primary">
                       Login
                   </button></div>
+                   <br><br>
+          <center>
+          <a class="btn btn-default" href="<?php echo base_url('index.php/registrasi/create/') ?>"><font color="black">
+              Create new account
+              <i class="glyphicon glyphicon-arrow-right"></i>           
+            </a>
+            </center>
+
                     
                     <hr>
                   </form>

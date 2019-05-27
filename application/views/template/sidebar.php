@@ -1,3 +1,7 @@
+<!-- <?php 
+  // var_dump($this->session->userdata());
+  // die();
+ ?> -->
 <!--   <link rel="stylesheet" href="<?php //echo base_url().'tema/vendor/bootstrap/css/bootstrap.min.css'?>">
   <link rel="stylesheet" href="<?php //echo base_url().'tema/vendor/font-awesome/css/font-awesome.min.css'?>">
   <link rel="stylesheet" href="<?php //echo base_url().'tema/vendor/datatables/dataTables.bootstrap4.css'?>">
@@ -34,76 +38,103 @@
       </li> -->
 
       <?php if ($this->session->userdata('level') == 'admin') { ?>
-      <li class="nav-item <?php if($this->uri->segment(1) == 'dokter') { echo "active"; } ?>">
-        <a class="nav-link" href="<?php echo site_url('dokter'); ?>">
-          <!-- <i class="fas fa-fw fa-tag"></i> -->
-          <span>Data Dokter</span></a>
-      </li>
-    <?php } else { ?>
-        <li class="nav-item <?php if($this->uri->segment(1) == 'profil') { echo "active"; } ?>">
-        <a class="nav-link" href="<?php echo site_url('profil'); ?>">
-          <!-- <i class="fas fa-fw fa-tag"></i> -->
-          <span>Data Dokter</span></a>
-      </li>
-    <?php } ?>
-      <hr class="sidebar-divider my-0">
-       <li class="nav-item <?php if($this->uri->segment(1) == 'piket') { echo "active"; } ?>">
-        <a class="nav-link" href="<?php echo site_url('piket'); ?>">
-          <span>Piket Dokter</span></a>
-      </li>
-      <hr class="sidebar-divider my-0">
-       <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('pasien/scan_pasien'); ?>">
-          <span>Qr-Scanner</span></a>
-      </li>
-      <hr class="sidebar-divider my-0">
-       <li class="nav-item <?php if($this->uri->segment(1) == 'pasien') { echo "active"; } ?>">
-        <a class="nav-link" href="<?php echo site_url('pasien'); ?>">
-          <span>Pasien</span></a>
-      </li>
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item <?php if($this->uri->segment(1) == 'hasil') { echo "active"; } ?>">
-        <a class="nav-link" href="<?php echo site_url('hasil'); ?>">
-          <span>Hasil</span></a>
-      </li>
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item <?php if($this->uri->segment(1) == 'resep') { echo "active"; } ?>">
-        <a class="nav-link" href="<?php echo site_url('resep'); ?>">
-          <span>Resep</span></a>
-      </li>
-      <hr class="sidebar-divider my-0">
-      <?php if ($this->session->userdata('level') == 'admin') { ?>
-      <li class="nav-item <?php if($this->uri->segment(1) == 'layanan') { echo "active"; } ?>">
-        <a class="nav-link" href="<?php echo site_url('layanan'); ?>">
-          <span>Fasilitas</span></a>
-      </li>
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item <?php if($this->uri->segment(1) == 'obat') { echo "active"; } ?>">
-        <a class="nav-link" href="<?php echo site_url('obat'); ?>">
-          <span>Data Obat</span></a>
-      </li>
-      <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'dokter') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('dokter'); ?>">
+            <!-- <i class="fas fa-fw fa-tag"></i> -->
+            <span>Data Dokter</span></a>
+        </li>
     
-
-  <!-- Nav Item - Dashboard -->
-     <!--  <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('pasien'); ?>">
-          <i class="fas fa-fw fa-archive"></i>
-          <span>Pasien</span></a>
-      </li> -->
+        <hr class="sidebar-divider my-0">
+         <li class="nav-item <?php if($this->uri->segment(1) == 'piket') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('piket'); ?>">
+            <span>Piket Dokter</span></a>
+        </li>
+        
+        <hr class="sidebar-divider my-0">
+         <li class="nav-item">
+          <a class="nav-link" href="<?php echo site_url('pasien/scan_pasien'); ?>">
+            <span>Qr-Scanner</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
+         <li class="nav-item <?php if($this->uri->segment(1) == 'pasien') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('pasien'); ?>">
+            <span>Pasien</span></a>
+        </li>
+        
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'hasil') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('hasil'); ?>">
+            <span>Hasil</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'resep') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('resep'); ?>">
+            <span>Resep</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'layanan') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('layanan'); ?>">
+            <span>Layanan</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'obat') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('obat'); ?>">
+            <span>Data Obat</span></a>
+        </li>
       <li class="nav-item <?php if($this->uri->segment(1) == 'jadwal') { echo "active"; } ?>">
-        <a class="nav-link" href="<?php echo site_url('jadwal'); ?>">
-          <span>Layanan Pasien</span></a>
-      </li>
-            <hr class="sidebar-divider my-0">
-
-        <li class="nav-item <?php if($this->uri->segment(1) == 'penjualan') { echo "active"; } ?>">
-        <a class="nav-link" href="<?php echo site_url('penjualan'); ?>">
-          <span>Penjualan</span></a>
-      </li>
-
-      
+          <a class="nav-link" href="<?php echo site_url('jadwal'); ?>">
+            <span>Layanan Pasien</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
+          <li class="nav-item <?php if($this->uri->segment(1) == 'penjualan') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('penjualan'); ?>">
+            <span>Penjualan</span></a>
+        </li>      
       <?php } ?>
+
+      <?php if ($this->session->userdata('level') == 'dokter') { ?>
+        <li class="nav-item <?php if($this->uri->segment(1) == 'profil') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('profil'); ?>">
+            <!-- <i class="fas fa-fw fa-tag"></i> -->
+            <span>Data Dokter</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'jadwal') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('jadwal'); ?>">
+            <span>Layanan Pasien</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'hasil') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('hasil'); ?>">
+            <span>Hasil</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'resep') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('resep'); ?>">
+            <span>Resep</span></a>
+        </li>
+      <?php } ?>
+
+      <?php if ($this->session->userdata('level') == 'pasien') { ?>
+        <li class="nav-item <?php if($this->uri->segment(1) == 'profil_pasien') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('profil_pasien'); ?>">
+            <!-- <i class="fas fa-fw fa-tag"></i> -->
+            <span>Data Pasien</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'hasil') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('hasil'); ?>">
+            <span>Hasil</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'layanan') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('layanan'); ?>">
+            <span>Layanan</span></a>
+        </li>
+      <?php } ?>
+
+
+        <hr class="sidebar-divider my-0">
 
    
       <!-- Divider -->

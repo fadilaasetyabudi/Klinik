@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Profil extends CI_Controller {
+class Profil_pasien extends CI_Controller {
 
 	public function index()
 	{
@@ -14,7 +14,8 @@ class Profil extends CI_Controller {
 			$data['profil_pasien'] = $this->db->get('tb_admin')->row();
 		}
 
-		$this->load->view('profil/v_profil_pasien', $data);
+		$this->load->view('Profil/v_profil_pasien', $data);
+
 	}
 
 }
