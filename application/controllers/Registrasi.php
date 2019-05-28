@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Registrasi extends CI_Controller{
 	public function index() 
 	{
-		$this->load->model('regis_model');
 		
 		$this->load->view('daftar');
 	}
@@ -12,7 +11,6 @@ class Registrasi extends CI_Controller{
 
 	public function create()
 	{
-		$this->load->model('regis_model');
 		$this->form_validation->set_rules('nama_pasien', 'Nama Pasien', 'trim|required');
 		$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'trim|required');
 		$this->form_validation->set_rules('email_pasien', 'Email Pasien', 'trim|required');

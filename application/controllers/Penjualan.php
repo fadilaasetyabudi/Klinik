@@ -46,6 +46,7 @@ class Penjualan extends CI_Controller {
 		$this->db->join('tb_piket','tb_jadwal.id_piket = tb_piket.id_piket');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter = tb_dokter.id_dokter');
 		$this->db->join('tb_layanan', 'tb_jadwal.id_layanan = tb_layanan.id_layanan');
+		$this->db->where('tb_resep.id_resep NOT IN (select id_resep FROM tb_penjualan)', NULL, FALSE);
 		$parser['p_resep'] = $this->db->get('tb_resep')->result();
 		$this->load->view('penjualan/v_tambah', $parser);
 	}

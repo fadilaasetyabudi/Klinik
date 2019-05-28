@@ -74,13 +74,14 @@
         <hr class="sidebar-divider my-0">
         <li class="nav-item <?php if($this->uri->segment(1) == 'layanan') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('layanan'); ?>">
-            <span>Layanan</span></a>
+            <span>Fasilittas</span></a>
         </li>
         <hr class="sidebar-divider my-0">
         <li class="nav-item <?php if($this->uri->segment(1) == 'obat') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('obat'); ?>">
             <span>Data Obat</span></a>
         </li>
+     <hr class="sidebar-divider my-0">
       <li class="nav-item <?php if($this->uri->segment(1) == 'jadwal') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('jadwal'); ?>">
             <span>Layanan Pasien</span></a>

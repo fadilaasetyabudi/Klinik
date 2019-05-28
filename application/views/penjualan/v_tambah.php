@@ -96,16 +96,14 @@ defined('BASEPATH') or exit('No direct script');
               success: function( response ) {
                 var obj = $.parseJSON(response);
                 var hargaTotal = 0;
+                    $('#tabelObat').empty();
                   $.each(obj, function(index) {
-                      $('#tabelObat').empty();
-                      $('#tabelObat').append("<tr><td>"+obj[index]['nama_obat']+"</td><td>"+obj[index]['jumlah']+"</td><td align='right'>Rp. "+obj[index]['total']+"</td><tr>");
+                      $('#tabelObat').after("<tr><td>"+obj[index]['nama_obat']+"</td><td>"+obj[index]['jumlah']+"</td><td align='right'>Rp. "+obj[index]['total']+"</td><tr>");
 
                     hargaTotal += parseInt(obj[index]['total']);
                   });
 
                   $('#total_harga').val(hargaTotal);
-
-                
               }
             });
             
@@ -122,12 +120,11 @@ defined('BASEPATH') or exit('No direct script');
                   var hargaTotal = 0;
                     $('#tabelObat').empty();
                     $.each(obj, function(index) {
-                      $('#tabelObat').append("<tr><td>"+obj[index]['nama_obat']+"</td><td>"+obj[index]['jumlah']+"</td><td align='right'>Rp. "+obj[index]['total']+"</td><tr>");
+                      $('#tabelObat').after("<tr><td>"+obj[index]['nama_obat']+"</td><td>"+obj[index]['jumlah']+"</td><td align='right'>Rp. "+obj[index]['total']+"</td><tr>");
                   
                       hargaTotal += parseInt(obj[index]['total']);
                     });
                     $('#total_harga').val(hargaTotal);
-
                   
                 }
               });
