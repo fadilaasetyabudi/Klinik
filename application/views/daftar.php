@@ -22,14 +22,14 @@
 
 <body class="bg-gradient-primary">
 
-  <div class="container">
+  <div class="container" align="center">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-7">
 
-    <div class="card o-hidden border-0 shadow-lg my-5">
-      <div class="card-body p-0">
+    <div class="card o-hidden border-0 shadow-lg my-3" >
+      <div class="card-body p-0" >
         <!-- Nested Row within Card Body -->
-        <div class="row">
-          <div class="<!-- col-lg-5 d-none d-lg-block bg-register-image -->"></div>
-          <div class="col-lg-7">
+          <div class="col-lg-12">
             <div class="p-5">
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
@@ -40,13 +40,16 @@
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="nama_pasien"  name="nama_pasien" placeholder="Nama Pasien">
                 </div>
+              </div>
+              <div class="form-group" align="left">
                     <label for="id pasien">Jenis Kelamin</label>
                        <br>
-                      <select name="jenis_kelamin" class="form-control-combobox">
+                      <select name="jenis_kelamin" class="form form-control">
                          <option value="L" selected>Laki-laki</option>
                          <option value="P">Perempuan</option>
                       </select>
-               <br>
+                
+              </div>
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="email_pasien"  name="email_pasien" placeholder="email Pasien">
                 </div>
@@ -80,8 +83,11 @@
 
               </div>
             </div>
-
           </div>
+        </div>
+          
+
+        </div>
 
         </body>
 

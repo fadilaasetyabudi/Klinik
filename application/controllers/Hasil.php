@@ -53,6 +53,7 @@ class Hasil extends CI_Controller {
 		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
+		$this->db->order_by('tb_jadwal.id_jadwal', 'ASC');
 		$this->db->where('tb_jadwal.id_jadwal', $id_jadwal);
 		$data['p_jadwal'] = $this->db->get('tb_jadwal')->row();
 		$this->load->view('hasil/v_tambah2', $data);

@@ -63,9 +63,28 @@ defined('BASEPATH') or exit('No direct script');
               </h6>
             </div>
             <div class="card-body">
-              <?php echo $profil_pasien->nama_pasien; ?>
-              <br>
-              <?php echo $profil_pasien->email_pasien; ?>
+              <div class="container-fluid">
+                <table width="100%">
+                  <tr>
+                    <td align="left">
+                      <?php echo $profil_pasien->nama_pasien; ?>
+                      <br>
+                      <?php echo $profil_pasien->jenis_kelamin; ?>
+                      <br>
+                      <?php echo $profil_pasien->email_pasien; ?>
+                      <br>
+                      <?php echo $profil_pasien->kontak_pasien; ?>
+                      <br>
+                      <?php echo $profil_pasien->email_pasien; ?>
+                      <br>
+                      <?php echo $profil_pasien->alamat_pasien; ?>
+                    </td>
+                    <td align="right">
+                      <img src="<?php echo base_url('uploads/qrcode/').$profil_pasien->qr_code ?>" width="200px;">
+                    </td>
+                  </tr>
+                </table> 
+              </div>
             </div>
           </div>
 

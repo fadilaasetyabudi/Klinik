@@ -48,7 +48,7 @@ class Login extends CI_Controller {
 			$this->session->set_userdata('id', $cek_login[0]->id_admin);
 			$this->session->set_userdata('level', 'admin');
 
-			redirect("dokter");
+			redirect("pasien/scan_pasien");
 		
 		} else if (count($cek_login) == 0) {
 

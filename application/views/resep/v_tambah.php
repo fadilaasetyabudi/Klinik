@@ -51,9 +51,9 @@ defined('BASEPATH') or exit('No direct script');
 
                     <div class="form-group">
                       <select class="form-control" name="i_id_hasil">
-                        <?php foreach ($p_hasil as $data) { ?>
-                          <option value="<?php echo $data->id_hasil ?>"><?php echo $data->nama_pasien." | ".$data->nama_dokter." | ".$data->hari." - ".$data->jam_mulai." - ".$data->jam_selesai." | ".$data->nama_layanan." | ".$data->keterangan_hasil; ?></option>
-                        <?php } ?>
+                        <?php $no = 1;foreach ($p_hasil as $data) { ?>
+                          <option value="<?php echo $data->id_hasil ?>"><?php echo $no; echo " - "; echo $data->nama_pasien." | ".$data->nama_dokter." | ".$data->hari." - ".$data->jam_mulai." - ".$data->jam_selesai." | ".$data->nama_layanan." | ".$data->keterangan_hasil; ?></option>
+                        <?php $no++;} ?>
                         <option></option>
                       </select>
 

@@ -30,7 +30,6 @@ class Resep extends CI_Controller {
 		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
-
 		$parser['p_semuaresep'] = $this->db->get('tb_resep')->result(); 
 		$this->load->view('resep/v_daftar', 
 			$parser);
@@ -52,6 +51,7 @@ class Resep extends CI_Controller {
 		$this->db->join('tb_piket', 'tb_piket.id_piket = tb_jadwal.id_piket');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter = tb_dokter.id_dokter');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan = tb_jadwal.id_layanan');
+		$this->db->order_by('tb_hasil.id_hasil', 'asc');
 		$parser['p_hasil'] = $this->db->get('tb_hasil')->result();
 		$parser['p_obat'] = $this->db->get('tb_obat')->result();
 		$this->load->view('resep/v_tambah', $parser);

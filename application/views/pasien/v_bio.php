@@ -64,7 +64,7 @@ defined('BASEPATH') or exit('No direct script');
             <h2><?php echo $p_pasien->nama_pasien; ?></h2>
         </div>
         <!-- /.container-fluid -->
-        <div class="text-center"><a style="background-color: purple; "href="<?php echo site_url('jadwal/tambah'); ?>" class="btn btn-primary">
+        <div class="text-center"><a style="background-color: purple; "href="<?php echo site_url('jadwal/tambah2/'.$p_pasien->id_pasien); ?>" class="btn btn-primary">
                     <span class="icon text-white-50">
                     </span>
                     <span class="text">Layanan</span>

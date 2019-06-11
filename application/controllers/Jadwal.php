@@ -43,6 +43,17 @@ class jadwal extends CI_Controller {
 		$data['p_semualayanan'] = $this->db->get('tb_layanan')->result();
 		$this->load->view('jadwal/v_tambah', $data);
 	}
+
+	public function tambah2($id)
+	{
+		$this->db->where('id_pasien', $id);
+		$data['p_pasien'] = $this->db->get('tb_pasien')->row();
+		$this->db->join('tb_dokter', 'tb_dokter.id_dokter=tb_piket.id_dokter');
+		$data['p_semuapiket'] = $this->db->get('tb_piket')->result();
+		$data['p_semualayanan'] = $this->db->get('tb_layanan')->result();
+		$this->load->view('jadwal/v_tambah_2', $data);
+	}
+
 	public function proses_tambah()
 	{
 		$v_id_pasien = $this->input->post('i_id_pasien');

@@ -38,6 +38,13 @@
       </li> -->
 
       <?php if ($this->session->userdata('level') == 'admin') { ?>
+        <hr class="sidebar-divider my-0">
+         <li class="nav-item">
+          <a class="nav-link" href="<?php echo site_url('pasien/scan_pasien'); ?>">
+            <span>Qr-Scanner</span></a>
+        </li>
+        
+        <hr class="sidebar-divider my-0">
         <li class="nav-item <?php if($this->uri->segment(1) == 'dokter') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('dokter'); ?>">
             <!-- <i class="fas fa-fw fa-tag"></i> -->
@@ -49,12 +56,7 @@
           <a class="nav-link" href="<?php echo site_url('piket'); ?>">
             <span>Piket Dokter</span></a>
         </li>
-        
-        <hr class="sidebar-divider my-0">
-         <li class="nav-item">
-          <a class="nav-link" href="<?php echo site_url('pasien/scan_pasien'); ?>">
-            <span>Qr-Scanner</span></a>
-        </li>
+    
         <hr class="sidebar-divider my-0">
          <li class="nav-item <?php if($this->uri->segment(1) == 'pasien') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('pasien'); ?>">
