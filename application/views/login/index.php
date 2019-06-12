@@ -65,6 +65,7 @@ defined('BASEPATH') or exit('No direct script');
               Create new account
               <i class="glyphicon glyphicon-arrow-right"></i>           
             </a>
+         
             </center>
 
                     
