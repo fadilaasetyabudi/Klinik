@@ -30,6 +30,9 @@ class Resep extends CI_Controller {
 		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
+		if ($this->session->userdata('level') == 'pasien') {
+			$this->db->where('tb_jadwal.id_pasien', $this->session->userdata('id'));
+		}
 		$parser['p_semuaresep'] = $this->db->get('tb_resep')->result(); 
 		$this->load->view('resep/v_daftar', 
 			$parser);

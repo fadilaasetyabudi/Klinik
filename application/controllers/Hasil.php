@@ -29,6 +29,9 @@ class Hasil extends CI_Controller {
 		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
+		if ($this->session->userdata('level') == 'pasien') {
+			$this->db->where('tb_jadwal.id_pasien', $this->session->userdata('id'));
+		}
 		$parser['p_semuahasil'] = $this->db->get('tb_hasil')->result();
 		$this->load->view('hasil/v_daftar', $parser);
 	}
@@ -39,7 +42,7 @@ class Hasil extends CI_Controller {
 		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
-		$this->db->where('tb_jadwal.status_jadwal', 'Belum Ditangani');
+		$this->db->where('tb_jadwal.status_jadwal', 'Sudah Ditangani');
 		$data['p_semuajadwal'] = $this->db->get('tb_jadwal')->result();
 		//$this->db->join('tb_dokter', 'tb_dokter.id_dokter=tb_piket.id_dokter');
 		

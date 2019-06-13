@@ -134,6 +134,11 @@
           <a class="nav-link" href="<?php echo site_url('layanan'); ?>">
             <span>Layanan</span></a>
         </li>
+         <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'resep') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('resep'); ?>">
+            <span>Resep</span></a>
+        </li>
       <?php } ?>
 
 

@@ -4,9 +4,8 @@
                       Tambah
                  </button> -->
           <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+          
+             <a class="btn btn-primary" href="<?php echo base_url('index.php/pasien/scan_pasien') ?>">QRCode</a>
 
          
           <!-- Topbar Navbar -->

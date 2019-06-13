@@ -68,12 +68,14 @@ defined('BASEPATH') or exit('No direct script');
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
+                <?php if ($this->session->userdata('level') == 'admin') { ?>
                 <a href="<?php echo site_url('layanan/tambah'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
                     <span class="text">Tambah</span>
                   </a>
+                <?php } ?>
               </h6>
             </div>
             <div class="card-body">
@@ -106,6 +108,7 @@ defined('BASEPATH') or exit('No direct script');
       
         <td>
        <!--    <a href="">Edit</a> -->
+         <?php if ($this->session->userdata('level') == 'admin') { ?>
           <a href="<?php echo site_url('layanan/edit/' . $data->id_layanan); ?>" class="btn btn-success btn-circle">
                     <i class="fas fa-edit"></i>
                   </a>
@@ -113,6 +116,7 @@ defined('BASEPATH') or exit('No direct script');
            <a href="<?php echo site_url('layanan/proses_hapus/' . $data->id_layanan); ?>" class="btn btn-danger btn-circle">
                     <i class="fas fa-trash"></i>
                   </a>
+                  <?php } ?>
         </td>
       </tr>
       <?php } ?>
