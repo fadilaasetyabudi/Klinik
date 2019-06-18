@@ -17,9 +17,7 @@ defined('BASEPATH') or exit('No direct script');
 				<th>ID Piket<th>
 				<th>ID Layanan<th>
 				<th>Status Jadwal</th>
-				<th>Tanggal Daftar</th>
-				<th>Tanggal Ditangani</th>
-				
+				<th>Tanggal Daftar</th>				
 
 				<th>Aksi</th>
 			</tr>
@@ -35,7 +33,6 @@ defined('BASEPATH') or exit('No direct script');
 				<td><?php echo $data->id_layanan; ?></td>
 				<td><?php echo $data->status_jadwal; ?></td>
 				<td><?php echo $data->tanggal_daftar; ?></td>
-				<td><?php echo $data->tanggal_ditangani; ?></td>
 				
 				<td>
 					<a href="<?php echo site_url('jadwal/edit/' . $data->id_jadwal); ?>">Edit</a>

@@ -52,7 +52,7 @@ defined('BASEPATH') or exit('No direct script');
                     <div class="form-group">
                       <select class="form-control" name="i_id_hasil">
                         <?php $no = 1;foreach ($p_hasil as $data) { ?>
-                          <option value="<?php echo $data->id_hasil ?>"><?php echo $no; echo " - "; echo $data->nama_pasien." | ".$data->nama_dokter." | ".$data->hari." - ".$data->jam_mulai." - ".$data->jam_selesai." | ".$data->nama_layanan." | ".$data->keterangan_hasil; ?></option>
+                          <option value="<?php echo $data->id_hasil ?>"><?php echo $no; echo " - "; echo $data->nama_pasien." | ".$data->nama_dokter." | ".$data->hari." - ".$data->jam_mulai." - ".$data->jam_selesai." | ".$data->nama_layanan." | ".$data->nama_jasa." => ".$data->keterangan_hasil; ?></option>
                         <?php $no++;} ?>
                         <option></option>
                       </select>
@@ -90,13 +90,26 @@ defined('BASEPATH') or exit('No direct script');
       <script>
         $(document).ready(function(){
           var i = 1;
+
           $('#countObat').attr("value" , i);
+          addListener(i);
           $('#add').click(function(){
             i++;
             $('#obat').append('<div class="col-md-3"><select name="i_id_obat'+i+'" id="obat'+i+'" class="form-control"><?php foreach ($p_obat as $data) { ?> <option value="<?php echo $data->id_obat ?>"><?php echo $data->nama_obat; ?></option> <?php } ?> </select><p id="satuan'+i+'"></p></div><div class="col-md-3"> <input type="text"  class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="jumlah obat" name="i_jumlah_obat'+i+'"></div><br><br>');
             $('#countObat').attr("value", i);
 
+            addListener(i);
+
+          });
+
+          function addListener(i) {
+            setSatuanText(i);
             $('#obat'+i).change(function(){
+              setSatuanText(i);
+            });
+          }
+
+          function setSatuanText(i) {
             var base_url = "<?php echo base_url() ?>";
             var id = $('#obat'+i).val();
             $.ajax({
@@ -106,33 +119,11 @@ defined('BASEPATH') or exit('No direct script');
               success: function( response ) {
                 var obj = $.parseJSON(response);
                 
-                  $('#satuan'+i).text(obj['ukuran']+" "+obj['satuan']+" Per "+obj['bentuk']);
 
                 
               }
-            });
-
-          });
-
-          });
-
-          $('#obat'+i).change(function(){
-            var base_url = "<?php echo base_url() ?>";
-            var id = $('#obat'+i).val();
-            $.ajax({
-              url: base_url+'index.php/resep/getDataObat/'+id,
-              type: "POST",
-              dataType: 'text',
-              success: function( response ) {
-                var obj = $.parseJSON(response);
-                
-                  $('#satuan'+i).text(obj['ukuran']+" "+obj['satuan']+" Per "+obj['bentuk']);
-
-                
-              }
-            });
-
-          });
+              });
+          }
 
         
           

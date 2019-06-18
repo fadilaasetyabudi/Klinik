@@ -30,6 +30,20 @@ class Layanan extends CI_Controller {
 		$this->load->view('layanan/v_daftar', 
 			$parser);
 	}
+
+	public function piket()
+	{
+		$this->db->join('tb_dokter', 'tb_dokter.id_dokter = tb_piket.id_dokter');
+		$this->db->order_by('tb_piket.id_dokter', 'asc');
+		$this->db->order_by('FIELD(hari,"senin","selasa","rabo","kamis","jumat")');
+		$this->db->order_by('jam_mulai', 'asc');
+		$parser['p_semuapiket'] = $this->db->get('tb_piket')->result();
+
+		$this->load->view('layanan/piket_dokter', $parser);
+
+
+	}
+
 	public function tambah()
 	{
 		$this->load->view('layanan/v_tambah');

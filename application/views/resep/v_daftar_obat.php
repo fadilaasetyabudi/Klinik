@@ -81,9 +81,17 @@ defined('BASEPATH') or exit('No direct script');
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <?php $totalSemua = 0; $totalSemua+=$p_obat[0]->harga ?>
+
+                      <td>Jasa</td>
+                      <td><?php echo $p_obat[0]->nama_jasa; ?></td>
+                      <td></td>
+                      <td><?php echo $p_obat[0]->harga; ?></td>
+                    </tr>
                    <?php if(count($p_obat) > 0) { ?>
       <?php $no = 1; ?>
-      <?php foreach ($p_obat as $data) { ?>
+      <?php foreach ($p_obat as $data) { $totalSemua += $data->total; ?>
       <tr>
         <td><?php echo $no++; ?></td>
         <td><?php echo $data->nama_obat; ?></td>
@@ -93,9 +101,13 @@ defined('BASEPATH') or exit('No direct script');
       <?php } ?>
       <?php } else { ?>
       <tr>
-        <td colspan="7">Tidak ada hasil</td>
+        <td colspan="7">Tidak ada obat</td>
       </tr>
       <?php } ?>
+      <tr>
+        <td colspan="3">Total Harga</td>
+        <td><?php echo $totalSemua; ?></td>
+      </tr>
                     
                   </tbody>
                 </table>

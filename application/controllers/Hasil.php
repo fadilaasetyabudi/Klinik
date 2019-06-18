@@ -29,6 +29,7 @@ class Hasil extends CI_Controller {
 		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
+		$this->db->join('tb_jasa_layanan', 'tb_jasa_layanan.id_layanan=tb_hasil.id_jasa');
 		if ($this->session->userdata('level') == 'pasien') {
 			$this->db->where('tb_jadwal.id_pasien', $this->session->userdata('id'));
 		}
@@ -38,11 +39,12 @@ class Hasil extends CI_Controller {
 
 	public function tambah()
 	{
+
 		$this->db->join('tb_pasien', 'tb_pasien.id_pasien=tb_jadwal.id_pasien');
 		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
-		$this->db->where('tb_jadwal.status_jadwal', 'Sudah Ditangani');
+		$this->db->where('tb_jadwal.status_jadwal', 'Belum Ditangani');
 		$data['p_semuajadwal'] = $this->db->get('tb_jadwal')->result();
 		//$this->db->join('tb_dokter', 'tb_dokter.id_dokter=tb_piket.id_dokter');
 		
@@ -65,13 +67,12 @@ class Hasil extends CI_Controller {
 	{
 	
 		$v_id_jadwal = $this->input->post('i_id_jadwal');
+		$v_id_jasa = $this->input->post('i_id_jasa');
 		// $v_id_pasien = $this->input->post('i_id_pasien');
 		// $v_id_piket = $this->input->post('i_id_piket');
 		// $v_id_layanan = $this->input->post('i_id_layanan');
 		// $v_status_jadwal = $this->input->post('i_status_jadwal');
 		// $v_tanggal_daftar = $this->input->post('i_tanggal_daftar');
-		// $v_tanggal_ditangani = $this->input->post('i_tanggal_ditangani');
-
 		$v_keterangan_hasil = $this->input->post('i_keterangan_hasil');
 		
 		
@@ -79,6 +80,7 @@ class Hasil extends CI_Controller {
 		$data_tambah = array(
 			
 			'id_jadwal' => $v_id_jadwal,
+			'id_jasa' => $v_id_jasa,
 			'keterangan_hasil' => $v_keterangan_hasil);
 
 
@@ -159,6 +161,18 @@ class Hasil extends CI_Controller {
 			$this->session->set_flashdata('fd_pesan', 'Hapus hasil gagal.');
 			redirect ('hasil');
 		}
+	}
+
+	public function getJasa(){
+		$id_jadwal = $this->input->post('id_jadwal');
+		$this->db->where('id_jadwal', $id_jadwal);
+		$jadwal = $this->db->get('tb_jadwal')->row();
+
+		$this->db->where('kategori', $jadwal->id_layanan);
+		$jasa = $this->db->get('tb_jasa_layanan')->result();
+
+		echo json_encode($jasa);
+
 	}
 }
 ?>

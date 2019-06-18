@@ -61,18 +61,14 @@ class jadwal extends CI_Controller {
 		$v_id_layanan = $this->input->post('i_id_layanan');
 		$v_status_jadwal = $this->input->post('i_status_jadwal');
 		$v_tanggal_daftar = $this->input->post('i_tanggal_daftar');
-		$v_tanggal_ditangani = $this->input->post('i_tanggal_ditangani');
 
 		
-		
-
 		$data_tambah = array(
 			'id_pasien' => $v_id_pasien,
 			'id_piket' => $v_id_piket,
 			'id_layanan' => $v_id_layanan,
 			'status_jadwal' => $v_status_jadwal,
 			'tanggal_daftar' => $v_tanggal_daftar,
-			'tanggal_ditangani' => $v_tanggal_ditangani
 			);
 			
 		$tambah_data = $this->db->insert('tb_jadwal', $data_tambah);
@@ -109,8 +105,6 @@ class jadwal extends CI_Controller {
 		$v_id_layanan = $this->input->post('i_id_layanan');
 		$v_status_jadwal = $this->input->post('i_status_jadwal');
 		$v_tanggal_daftar = $this->input->post('i_tanggal_daftar');
-		$v_tanggal_ditangani = $this->input->post('i_tanggal_ditangani');
-
 		
 		$data_tambah = array(
 			'id_pasien' => $v_id_pasien,
@@ -118,7 +112,6 @@ class jadwal extends CI_Controller {
 			'id_layanan' => $v_id_layanan,
 			'status_jadwal' => $v_status_jadwal,
 			'tanggal_daftar' => $v_tanggal_daftar,
-			'tanggal_ditangani' => $v_tanggal_ditangani
 			);
 			
 

@@ -34,10 +34,6 @@ defined('BASEPATH') or exit('No direct script');
 		<input type="local-time" name="i_tanggal_daftar"></input>
 	</p>
 	<p>
-		<label for="i tanggal ditangani">Tanggal Ditangani</label>
-		<input type="local-time" name="i_tanggal_ditangani"></input>
-	</p>
-	<p>
 	
 	<p>
 		<button type="submit">Kirim</button>

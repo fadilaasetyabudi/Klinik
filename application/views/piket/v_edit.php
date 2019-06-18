@@ -67,7 +67,7 @@ defined('BASEPATH') or exit('No direct script');
                     </div>
                     <div class="form-group">
                       <label>Jam Mulai</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="jam mulai" name="i_jam-mulai" value="<?php echo $p_piket->jam_mulai; ?>">
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="jam mulai" name="i_jam_mulai" value="<?php echo $p_piket->jam_mulai; ?>">
                     </div>
                     <div class="form-group">
                       <label>Jam Selesai</label>

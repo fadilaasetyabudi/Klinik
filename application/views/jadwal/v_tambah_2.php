@@ -87,10 +87,6 @@ defined('BASEPATH') or exit('No direct script');
             </div>
         
             <div class="form-group">
-           <label for="i id pasien">Tanggal Ditangani</label>
-              <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Ditangani " name="i_tanggal_ditangani">
-            </div>
-            <div class="form-group">
 
 
 

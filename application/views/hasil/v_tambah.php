@@ -31,7 +31,7 @@ defined('BASEPATH') or exit('No direct script');
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    
+
     <?php  $this->load->view("template/sidebar");?>
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -56,27 +56,60 @@ defined('BASEPATH') or exit('No direct script');
                       <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="id hasil" name="i_id_hasil">
                     </div> -->
                     <div class="form-group">                    
-                      <label for="i id pasien">ID Hasil</label>
-                      <select name="i_id_jadwal" class="form-control">
+                      <label for="i id pasien">ID Jadwal</label>
+                      <select name="i_id_jadwal" class="form-control" id="jadwal">
                         <?php $no = 1; foreach ($p_semuajadwal as $key) { ?>
-                          <option value="<?php echo $key->id_jadwal; ?>"><?php echo $no; echo " - "; echo $key->nama_pasien; echo " "; ?> <?php echo $key->nama_dokter; ?> Hari <?php echo $key->hari; ?> Jam <?php echo $key->jam_mulai ?> - <?php echo $key->jam_selesai; ?> Tanggal Ditangani <?php echo $key->tanggal_ditangani ?></option>
-                        <?php $no++;} ?>
+                          <option value="<?php echo $key->id_jadwal; ?>"><?php echo $no; echo " - "; echo $key->nama_pasien; echo " "; ?> | <?php echo $key->nama_dokter; ?> | Hari <?php echo $key->hari; ?> | Jam <?php echo $key->jam_mulai ?> | <?php echo $key->nama_layanan; ?></option>
+                          <?php $no++;} ?>
+                        </select>
+                      </div>
+                      <div class="form-group">                    
+                      <label for="i id pasien">Jasa</label>
+                      <select name="i_id_jasa" class="form-control" id="jasa">
+                        
                       </select>
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan hasil" name="i_keterangan_hasil">
-                    </div>
-                    
-                    
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
-                      Tambah
-                    </button>
-                    
-                  </form>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan hasil" name="i_keterangan_hasil">
+                      </div>
+
+
+                      <button type="submit" class="btn btn-primary btn-user btn-block">
+                        Tambah
+                      </button>
+
+                    </form>
+                  </div>
+                  <!-- /.container-fluid -->
+
                 </div>
-                <!-- /.container-fluid -->
+                <!-- End of Main Content -->
 
-              </div>
-              <!-- End of Main Content -->
+                <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+                <script>
+                  $(document).ready(function() {
+                    getJasa();
 
-              <?php $this->load->view("template/footer");?>
+                    $('#jadwal').change(function(){
+                      getJasa();
+                    });
+
+                    function getJasa() {
+                      var id = $('#jadwal').val();
+                      $('#jasa').empty();
+                      $.ajax({
+                        url : "<?php echo base_url(); ?>index.php/hasil/getJasa/",
+                        type : "POST",
+                        dataType : "json",
+                        data : {"id_jadwal" : id},
+                        success : function(data) {
+                          $.each(data, function(index) {
+                              
+                              $('#jasa').append('<option value="'+data[index].id_layanan+'">'+data[index].nama_jasa+'</option>');
+                          });
+                        },
+                      })
+                    }
+                  })
+                </script>
+                <?php $this->load->view("template/footer");?>

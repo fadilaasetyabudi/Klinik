@@ -54,7 +54,7 @@
         <hr class="sidebar-divider my-0">
          <li class="nav-item <?php if($this->uri->segment(1) == 'piket') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('piket'); ?>">
-            <span>Piket Dokter</span></a>
+            <span>Praktek Dokter</span></a>
         </li>
     
         <hr class="sidebar-divider my-0">
@@ -125,14 +125,14 @@
             <span>Data Pasien</span></a>
         </li>
         <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'layanan') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('layanan/piket/'); ?>">
+            <span>Jadwal Praktek</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
         <li class="nav-item <?php if($this->uri->segment(1) == 'hasil') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('hasil'); ?>">
             <span>Hasil</span></a>
-        </li>
-        <hr class="sidebar-divider my-0">
-        <li class="nav-item <?php if($this->uri->segment(1) == 'layanan') { echo "active"; } ?>">
-          <a class="nav-link" href="<?php echo site_url('layanan'); ?>">
-            <span>Layanan</span></a>
         </li>
          <hr class="sidebar-divider my-0">
         <li class="nav-item <?php if($this->uri->segment(1) == 'resep') { echo "active"; } ?>">

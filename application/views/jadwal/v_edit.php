@@ -98,9 +98,6 @@ defined('BASEPATH') or exit('No direct script');
             </div>
 
             <div class="form-group">
-              <input type="date" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Ditangani " name="i_tanggal_ditangani" value="<?php echo $p_jadwal->tanggal_ditangani; ?>">
-            </div>
-            <div class="form-group">
 
             <input type="hidden" name="i_id_jadwal" value="<?php echo $p_jadwal->id_jadwal; ?>">
 

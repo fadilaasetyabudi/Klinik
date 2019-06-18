@@ -86,13 +86,9 @@ defined('BASEPATH') or exit('No direct script');
 
             <div class="form-group">
             <label for="i id pasien">Tanggal Daftar</label>
-              <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Daftar " name="i_tanggal_daftar">
+              <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Daftar " name="i_tanggal_daftar" value="<?php echo date('Y-m-d') ?>" readonly>
             </div>
         
-            <div class="form-group">
-           <label for="i id pasien">Tanggal Ditangani</label>
-              <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Ditangani " name="i_tanggal_ditangani">
-            </div>
             <div class="form-group">
 
 

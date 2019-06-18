@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2019 at 11:06 AM
+-- Generation Time: Jun 18, 2019 at 06:44 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -64,8 +64,26 @@ CREATE TABLE `tb_detail_resep` (
 --
 
 INSERT INTO `tb_detail_resep` (`id_detail_resep`, `id_resep`, `id_obat`, `jumlah`, `total`) VALUES
-(26, 1, 16, 2, 8000),
-(27, 1, 16, 3, 12000);
+(1, 3, 19, 2, 10000),
+(2, 4, 19, 2, 10000),
+(3, 3, 19, 3, 15000),
+(4, 1, 17, 2, 40000),
+(5, 1, 19, 1, 5000),
+(6, 2, 19, 1, 5000),
+(7, 3, 18, 2, 10000),
+(8, 3, 17, 1, 20000),
+(9, 4, 17, 2, 40000),
+(10, 4, 20, 1, 20000),
+(11, 5, 18, 2, 10000),
+(12, 5, 18, 1, 5000),
+(13, 6, 17, 1, 20000),
+(14, 6, 18, 2, 10000),
+(15, 7, 17, 3, 60000),
+(16, 7, 18, 2, 10000),
+(17, 8, 19, 2, 10000),
+(18, 8, 20, 1, 20000),
+(19, 9, 19, 1, 5000),
+(20, 10, 20, 1, 20000);
 
 -- --------------------------------------------------------
 
@@ -86,8 +104,10 @@ CREATE TABLE `tb_dokter` (
 --
 
 INSERT INTO `tb_dokter` (`id_dokter`, `nama_dokter`, `email_dokter`, `password_dokter`, `current_password`) VALUES
-(3, 'Dr.Lia', 'Liadamayati123@gmail.com', 'a1fb7f01ffe3fc76e0b997be59ae212f', 'drlia123'),
-(5, 'rini', 'rini12@gmail.com', 'a38307cc9b86899868c280ad4e043086', 'rini12');
+(3, 'Dr.Lia', 'Liadamayati123@gmail.com', '7221a94c235586d29ccf3ad9e12bf7ad', 'drlia123'),
+(5, 'rini', 'rini12@gmail.com', 'a38307cc9b86899868c280ad4e043086', 'rini12'),
+(6, 'della', 'della@gmail.com', '66be74fbb3086ea7b774f393cd264671', 'della123'),
+(7, 'Dr.Rahmat', 'drrahmat@gmail.com', 'af2a4c9d4c4956ec9d6ba62213eed568', 'rahmat');
 
 -- --------------------------------------------------------
 
@@ -98,6 +118,7 @@ INSERT INTO `tb_dokter` (`id_dokter`, `nama_dokter`, `email_dokter`, `password_d
 CREATE TABLE `tb_hasil` (
   `id_hasil` bigint(20) NOT NULL,
   `id_jadwal` bigint(20) NOT NULL,
+  `id_jasa` bigint(20) NOT NULL,
   `keterangan_hasil` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -105,8 +126,15 @@ CREATE TABLE `tb_hasil` (
 -- Dumping data for table `tb_hasil`
 --
 
-INSERT INTO `tb_hasil` (`id_hasil`, `id_jadwal`, `keterangan_hasil`) VALUES
-(1, 1, 'sakit perut');
+INSERT INTO `tb_hasil` (`id_hasil`, `id_jadwal`, `id_jasa`, `keterangan_hasil`) VALUES
+(1, 4, 1, 'perawatan kulit wajah'),
+(2, 7, 1, ''),
+(3, 8, 2, ''),
+(4, 8, 1, 'Asam Urat'),
+(5, 5, 3, 'perawatan kulit wajah'),
+(6, 7, 4, 'perawatan kulit wajah'),
+(7, 11, 2, 'sakit perut'),
+(8, 9, 4, 'perawatan kulit wajah');
 
 -- --------------------------------------------------------
 
@@ -120,16 +148,53 @@ CREATE TABLE `tb_jadwal` (
   `id_piket` bigint(20) NOT NULL,
   `id_layanan` bigint(20) NOT NULL,
   `status_jadwal` enum('Belum Ditangani','Sudah Ditangani') NOT NULL,
-  `tanggal_daftar` date NOT NULL,
-  `tanggal_ditangani` date NOT NULL
+  `tanggal_daftar` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_jadwal`
 --
 
-INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pasien`, `id_piket`, `id_layanan`, `status_jadwal`, `tanggal_daftar`, `tanggal_ditangani`) VALUES
-(1, 5, 1, 1, 'Sudah Ditangani', '2019-05-19', '2019-05-19');
+INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pasien`, `id_piket`, `id_layanan`, `status_jadwal`, `tanggal_daftar`) VALUES
+(4, 5, 1, 2, 'Sudah Ditangani', '0000-00-00'),
+(5, 6, 7, 2, 'Sudah Ditangani', '0000-00-00'),
+(6, 7, 1, 2, 'Sudah Ditangani', '2019-05-29'),
+(7, 17, 2, 2, 'Sudah Ditangani', '0000-00-00'),
+(8, 14, 1, 1, 'Sudah Ditangani', '0000-00-00'),
+(9, 6, 7, 2, 'Sudah Ditangani', '2019-06-13'),
+(10, 17, 7, 2, 'Belum Ditangani', '2019-06-13'),
+(11, 10, 7, 1, 'Sudah Ditangani', '2019-06-13'),
+(12, 17, 1, 1, 'Belum Ditangani', '2019-06-13'),
+(13, 6, 1, 2, 'Belum Ditangani', '0000-00-00'),
+(14, 17, 1, 2, 'Belum Ditangani', '2019-06-18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_jasa_layanan`
+--
+
+CREATE TABLE `tb_jasa_layanan` (
+  `id_layanan` bigint(20) NOT NULL,
+  `nama_jasa` varchar(100) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `kategori` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_jasa_layanan`
+--
+
+INSERT INTO `tb_jasa_layanan` (`id_layanan`, `nama_jasa`, `harga`, `kategori`) VALUES
+(1, 'Cek Asam Urat', 20000, 1),
+(2, 'Cek Gula Darah', 20000, 1),
+(3, 'Cauter', 35000, 2),
+(4, 'Dermaroller', 75000, 2),
+(5, 'Cek Kolestrol', 25000, 1),
+(6, 'HBM', 0, 1),
+(7, 'Injeksi', 30000, 1),
+(8, 'Injeksi Benodon', 30000, 1),
+(9, 'Injeksi KB', 30000, 1);
 
 -- --------------------------------------------------------
 
@@ -191,7 +256,10 @@ CREATE TABLE `tb_obat` (
 --
 
 INSERT INTO `tb_obat` (`id_obat`, `nama_obat`, `bentuk`, `ukuran`, `satuan`, `harga_obat`, `keterangan_obat`) VALUES
-(16, 'betadine', 'Botol', 0, '', 4000, 'obat');
+(17, 'fatigon', 'Strip', 10, 'Kapsul', 20000, 'obat'),
+(18, 'betadine', 'Botol', 100, 'ML', 5000, 'obat'),
+(19, 'cream malem', 'Tube', 10, 'ML', 5000, 'vitamin'),
+(20, 'Amoxilin1', 'Strip', 10, 'Kapsul', 20000, 'antibiotik');
 
 -- --------------------------------------------------------
 
@@ -208,7 +276,7 @@ CREATE TABLE `tb_pasien` (
   `alamat_pasien` text NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `golongan_darah` enum('A','B','O','AB') NOT NULL,
-  `password_pasien` varchar(32) NOT NULL,
+  `password_pasien` varchar(255) NOT NULL,
   `kode_verivikasi` varchar(6) NOT NULL,
   `qr_code` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -221,9 +289,16 @@ INSERT INTO `tb_pasien` (`id_pasien`, `nama_pasien`, `jenis_kelamin`, `email_pas
 (5, 'rini12', 'P', 'anggraini@gmail.com', '01823981238', 'Sukun', '1998-12-12', 'A', '', 'ya123', '5.png'),
 (6, 'della', 'L', 'della@gmail.com', '09876543', 'Sukun', '2019-05-05', 'AB', '', '123ab', '6.png'),
 (7, 'amel', 'L', 'amel@gmail.com', '081315777', 'JOMBANG', '2019-06-05', 'A', '', 'amel12', '7.png'),
-(8, 'oooo', 'L', 'anggraini@gmail.com', '01823981238', 'Yaaaa', '1996-05-13', 'A', '', 'amel12', '8.png'),
+(8, 'rini', 'L', 'anggraini@gmail.com', '01823981238', 'Yaaaa', '1996-05-13', 'A', '', 'amel12', '8.png'),
 (9, 'alya', 'L', 'alya@gmail.com', '098765432', 'nsbcljwlic', '2019-03-08', 'AB', '', 'ya123', '9.png'),
-(10, 'sasdasd', 'L', 'anggraini@gmail.com', '01823981238', 'Sukun', '2000-06-14', 'A', '', 'ya123', '10.png');
+(10, 'Anggraini kushayati Harjanto', 'P', 'anggraini@gmail.com', '01823981238', 'Sukun', '2000-06-14', 'A', '821cc4f42a28a476b456b0869d1429eb', 'ya123', '10.png'),
+(13, 'ahayy', 'L', 'ahayy@gmail.com', '082193123', 'Jl. pondok Bestari Indah', '2019-05-27', 'O', 'ahayy', 'ahayy', '13.png'),
+(14, 'fauzi', 'L', 'fauzi@gmail.com', '0987654321', 'Sidoarjo', '1997-06-20', 'A', '', 'fauzi1', '14.png'),
+(15, 'safira', 'P', 'safira@gmail.com', '3456789898', 'Lamongan', '1996-09-07', 'AB', '', 'safira', '15.png'),
+(16, 'naili', 'P', 'naili@gmail.com', '56789876543', 'Kepanjen', '1998-07-05', 'B', '', 'naili1', '16.png'),
+(17, 'dini', 'P', 'dini@gmail.com', '987654323', 'Turen', '1999-07-31', 'A', 'ed0c216375d7785b0d83d9b21aa5aa3b', 'dini12', '17.png'),
+(18, 'verlia', 'P', 'verlia@gmail.com', '654234567', 'Malang', '1999-07-05', 'AB', '', 'verlia', '18.png'),
+(19, '', 'L', '', '', '', '0000-00-00', '', '', '', '19.png');
 
 -- --------------------------------------------------------
 
@@ -234,12 +309,20 @@ INSERT INTO `tb_pasien` (`id_pasien`, `nama_pasien`, `jenis_kelamin`, `email_pas
 CREATE TABLE `tb_penjualan` (
   `id_penjualan` bigint(20) NOT NULL,
   `tanggal_penjualan` date NOT NULL,
-  `jumlah_pembelian` int(11) NOT NULL,
   `total_harga` int(11) NOT NULL,
-  `id_obat` bigint(20) NOT NULL,
-  `id_pasien` bigint(20) NOT NULL,
   `id_resep` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_penjualan`
+--
+
+INSERT INTO `tb_penjualan` (`id_penjualan`, `tanggal_penjualan`, `total_harga`, `id_resep`) VALUES
+(1, '2019-05-28', 45000, 1),
+(2, '2019-06-13', 30000, 8),
+(3, '2019-06-13', 30000, 6),
+(4, '2019-06-13', 5000, 9),
+(5, '2019-06-13', 20000, 10);
 
 -- --------------------------------------------------------
 
@@ -262,7 +345,11 @@ CREATE TABLE `tb_piket` (
 INSERT INTO `tb_piket` (`id_piket`, `id_dokter`, `hari`, `jam_mulai`, `jam_selesai`) VALUES
 (1, 3, 'selasa', '00:00:00', '08:30:00'),
 (2, 3, 'senin', '00:00:00', '00:00:33'),
-(5, 5, 'senin', '08:00:00', '09:00:00');
+(5, 5, 'senin', '08:00:00', '09:00:00'),
+(6, 5, 'selasa', '00:00:08', '00:00:09'),
+(7, 3, 'senin', '15:11:00', '12:31:00'),
+(8, 3, 'senin', '00:00:00', '01:00:00'),
+(9, 3, 'kamis', '08:00:00', '10:00:00');
 
 -- --------------------------------------------------------
 
@@ -280,7 +367,11 @@ CREATE TABLE `tb_resep` (
 --
 
 INSERT INTO `tb_resep` (`id_resep`, `id_hasil`) VALUES
-(1, 1);
+(1, 1),
+(6, 3),
+(8, 5),
+(9, 6),
+(10, 7);
 
 --
 -- Indexes for dumped tables
@@ -309,7 +400,8 @@ ALTER TABLE `tb_dokter`
 --
 ALTER TABLE `tb_hasil`
   ADD PRIMARY KEY (`id_hasil`),
-  ADD KEY `id_jadwal` (`id_jadwal`);
+  ADD KEY `id_jadwal` (`id_jadwal`),
+  ADD KEY `id_jasa` (`id_jasa`);
 
 --
 -- Indexes for table `tb_jadwal`
@@ -319,6 +411,13 @@ ALTER TABLE `tb_jadwal`
   ADD KEY `id_pasien` (`id_pasien`),
   ADD KEY `id_piket` (`id_piket`),
   ADD KEY `id_layanan` (`id_layanan`);
+
+--
+-- Indexes for table `tb_jasa_layanan`
+--
+ALTER TABLE `tb_jasa_layanan`
+  ADD PRIMARY KEY (`id_layanan`),
+  ADD KEY `kategori` (`kategori`);
 
 --
 -- Indexes for table `tb_layanan`
@@ -349,8 +448,6 @@ ALTER TABLE `tb_pasien`
 --
 ALTER TABLE `tb_penjualan`
   ADD PRIMARY KEY (`id_penjualan`),
-  ADD KEY `id_obat` (`id_obat`),
-  ADD KEY `id_pasien` (`id_pasien`),
   ADD KEY `id_resep` (`id_resep`);
 
 --
@@ -381,25 +478,31 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_detail_resep`
 --
 ALTER TABLE `tb_detail_resep`
-  MODIFY `id_detail_resep` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_detail_resep` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tb_dokter`
 --
 ALTER TABLE `tb_dokter`
-  MODIFY `id_dokter` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_dokter` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_hasil`
 --
 ALTER TABLE `tb_hasil`
-  MODIFY `id_hasil` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_hasil` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_jadwal` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `tb_jasa_layanan`
+--
+ALTER TABLE `tb_jasa_layanan`
+  MODIFY `id_layanan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_layanan`
@@ -417,31 +520,31 @@ ALTER TABLE `tb_login`
 -- AUTO_INCREMENT for table `tb_obat`
 --
 ALTER TABLE `tb_obat`
-  MODIFY `id_obat` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_obat` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tb_pasien`
 --
 ALTER TABLE `tb_pasien`
-  MODIFY `id_pasien` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pasien` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tb_penjualan`
 --
 ALTER TABLE `tb_penjualan`
-  MODIFY `id_penjualan` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_penjualan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_piket`
 --
 ALTER TABLE `tb_piket`
-  MODIFY `id_piket` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_piket` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_resep`
 --
 ALTER TABLE `tb_resep`
-  MODIFY `id_resep` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_resep` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -451,7 +554,8 @@ ALTER TABLE `tb_resep`
 -- Constraints for table `tb_hasil`
 --
 ALTER TABLE `tb_hasil`
-  ADD CONSTRAINT `tb_hasil_ibfk_1` FOREIGN KEY (`id_jadwal`) REFERENCES `tb_jadwal` (`id_jadwal`);
+  ADD CONSTRAINT `tb_hasil_ibfk_1` FOREIGN KEY (`id_jadwal`) REFERENCES `tb_jadwal` (`id_jadwal`),
+  ADD CONSTRAINT `tb_hasil_ibfk_2` FOREIGN KEY (`id_jasa`) REFERENCES `tb_jasa_layanan` (`id_layanan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tb_jadwal`
@@ -462,11 +566,15 @@ ALTER TABLE `tb_jadwal`
   ADD CONSTRAINT `tb_jadwal_ibfk_3` FOREIGN KEY (`id_layanan`) REFERENCES `tb_layanan` (`id_layanan`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `tb_jasa_layanan`
+--
+ALTER TABLE `tb_jasa_layanan`
+  ADD CONSTRAINT `tb_jasa_layanan_ibfk_1` FOREIGN KEY (`kategori`) REFERENCES `tb_layanan` (`id_layanan`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `tb_penjualan`
 --
 ALTER TABLE `tb_penjualan`
-  ADD CONSTRAINT `tb_penjualan_ibfk_1` FOREIGN KEY (`id_obat`) REFERENCES `tb_obat` (`id_obat`),
-  ADD CONSTRAINT `tb_penjualan_ibfk_2` FOREIGN KEY (`id_pasien`) REFERENCES `tb_pasien` (`id_pasien`),
   ADD CONSTRAINT `tb_penjualan_ibfk_3` FOREIGN KEY (`id_resep`) REFERENCES `tb_resep` (`id_resep`);
 
 --

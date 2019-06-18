@@ -81,6 +81,7 @@ defined('BASEPATH') or exit('No direct script');
                     </td>
                     <td align="right">
                       <img src="<?php echo base_url('uploads/qrcode/').$profil_pasien->qr_code ?>" width="200px;">
+                      <br>
                          <a href="<?php echo base_url('uploads/qrcode/').$profil_pasien->qr_code ?>" download="<?php echo $profil_pasien->nama_pasien . ".png"; ?>" target="_blank" class="btn btn-success">Download QR Code Disini</a> 
                     </td>
                      
