@@ -105,28 +105,62 @@ class Resep extends CI_Controller {
 		}
 	}
 	public function edit($id_resep)
-	{
-		$parser = array(
-			'p_resep' => $this->db->get_where('tb_resep', array('id_resep'=>$id_resep))->row()
-			);
-		$this->load->view('resep/v_edit', $parser);
+	{	
+		$this->db->join('tb_jadwal', 'tb_jadwal.id_jadwal = tb_hasil.id_jadwal');
+		$this->db->join('tb_pasien', 'tb_pasien.id_pasien = tb_jadwal.id_pasien');
+		$this->db->join('tb_piket', 'tb_piket.id_piket = tb_jadwal.id_piket');
+		$this->db->join('tb_dokter', 'tb_piket.id_dokter = tb_dokter.id_dokter');
+		$this->db->join('tb_layanan', 'tb_layanan.id_layanan = tb_jadwal.id_layanan');
+		$this->db->join('tb_jasa_layanan', 'tb_jasa_layanan.id_layanan=tb_hasil.id_jasa');	
+		$this->db->where('tb_hasil.id_hasil NOT IN (SELECT id_hasil FROM tb_resep)');
+		$this->db->order_by('tb_hasil.id_hasil', 'asc');
+		$data['p_hasil'] = $this->db->get('tb_hasil')->result();
+		$this->db->where('id_resep', $id_resep);
+		$data['p_resep'] = $this->db->get('tb_resep')->row();
+		$this->db->join('tb_jadwal', 'tb_jadwal.id_jadwal = tb_hasil.id_jadwal');
+		$this->db->join('tb_pasien', 'tb_pasien.id_pasien = tb_jadwal.id_pasien');
+		$this->db->join('tb_piket', 'tb_piket.id_piket = tb_jadwal.id_piket');
+		$this->db->join('tb_dokter', 'tb_piket.id_dokter = tb_dokter.id_dokter');
+		$this->db->join('tb_layanan', 'tb_layanan.id_layanan = tb_jadwal.id_layanan');
+		$this->db->join('tb_jasa_layanan', 'tb_jasa_layanan.id_layanan=tb_hasil.id_jasa');	
+		$this->db->where('tb_hasil.id_hasil', $data['p_resep']->id_hasil);
+		$data['p_hasildipilih'] = $this->db->get('tb_hasil')->row();
+
+		$this->db->where('id_resep', $data['p_resep']->id_resep);
+		$data['p_jumlahobat'] = $this->db->get('tb_detail_resep')->num_rows();
+		$data['p_obat'] = $this->db->get('tb_obat')->result();
+		$this->db->where('id_resep', $data['p_resep']->id_resep);
+		$data['p_obatlist'] = $this->db->get('tb_detail_resep')->result();
+		$this->load->view('resep/v_edit', $data);
 	}
 	public function proses_edit($id_resep)
 	{
-		$v_id_obat = $this->input->post('i_id_obat');
-		$v_jumlah_obat = $this->input->post('i_jumlah_obat');
-		$v_total_harga = $this->input->post('i_total_harga');
-
-		$data_tambah = array(
-			'id_obat' => $v_id_obat,
-			'jumlah_obat' => $v_jumlah_obat,
-			'total_harga' => $v_total_harga);
-
-		$data_where= array(
-			'id_resep' => $v_id_resep
-			);
+		$v_id_hasil = $this->input->post('i_id_hasil');
+		$jumlah = $this->input->post('countObat');
+		$data_update = array(
+			'id_hasil' => $v_id_hasil);
 		$this->db->where('id_resep', $id_resep);
-		$tambah_data = $this->db->update('tb_resep', $data_tambah);
+		$tambah_data = $this->db->update('tb_resep', $data_update);
+
+		$this->db->where('id_resep', $id_resep);
+		$this->db->delete('tb_detail_resep');
+
+		for ($i=1; $i < $jumlah+1 ; $i++) { 
+
+			$this->db->where('id_obat', $this->input->post('i_id_obat'.$i));
+			$hargaobat = $this->db->get('tb_obat', 1)->row()->harga_obat;
+			
+			$total = $hargaobat * $this->input->post('i_jumlah_obat'.$i);
+
+			$data_tambah = array(
+				'id_resep' => $id_resep,
+				'id_obat' => $this->input->post('i_id_obat'.$i),
+				'jumlah' => $this->input->post('i_jumlah_obat'.$i),
+				'total' => $total
+			);
+
+			$this->db->insert('tb_detail_resep', $data_tambah);
+		}
 
 		if($tambah_data) {
 			$this->session->set_flashdata('fd_pesan', 'Edit resep berhasil.');
