@@ -43,14 +43,14 @@ defined('BASEPATH') or exit('No direct script');
           <form class="user" action="<?php echo site_url('obat/proses_tambah'); ?>" method="POST">
                     <div class="form-group">
                       <label>Nama</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="Nama obat" name="i_nama_obat">
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="Nama obat" name="i_nama_obat" required="required">
                     </div>
                     <div class="form-group">
                     <!--   <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="Satuan" name="i_satuan"> -->
                     <p>
                     <label for="i bentuk">bentuk</label>
                     <!-- <input type="text" name="i_jenis_kelamin"></input> -->
-                    <select name="i_bentuk" class="form-control">
+                    <select name="i_bentuk" class="form-control" required="required">
                       <option value="botol">Botol</option>
                       <option value="strip">Strip</option>
                       <option value="tube">Tube</option>
@@ -59,12 +59,12 @@ defined('BASEPATH') or exit('No direct script');
                   </div>
                   <div class="form-group">
                       <label>Ukuran</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="Ukuran" name="i_ukuran">
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="Ukuran" name="i_ukuran" required="required">
                     </div>
                     <div class="form-group">
                     <label for="i satuaan">satuaan</label>
                     <!-- <input type="text" name="i_jenis_kelamin"></input> -->
-                    <select name="i_satuan" class="form-control">
+                    <select name="i_satuan" class="form-control" required="required">
                       <option value="ML">ML</option>
                       <option value="tablet">Tablet</option>
                       <option value="kapsul">Kapsul</option>
@@ -74,11 +74,11 @@ defined('BASEPATH') or exit('No direct script');
                   </div>
                     <div class="form-group">
                       <label>Harga</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="harga obat" name="i_harga_obat">
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="harga obat" name="i_harga_obat" required="required">
                     </div>
                      <div class="form-group">
                       <label>Keterangan</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan obat" name="i_keterangan_obat">
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan obat" name="i_keterangan_obat" required="required">
                     </div>
                      
                    

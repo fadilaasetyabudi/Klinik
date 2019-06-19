@@ -92,6 +92,12 @@
           <li class="nav-item <?php if($this->uri->segment(1) == 'penjualan') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('penjualan'); ?>">
             <span>Penjualan</span></a>
+        </li>
+        <hr class="sidebar-divider my-0">
+         <li class="nav-item <?php if($this->uri->segment(1) == 'rekapitulasi') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('rekapitulasi'); ?>">
+            <!-- <i class="fas fa-fw fa-tag"></i> -->
+            <span>Rekapitulasi</span></a>
         </li>      
       <?php } ?>
 
