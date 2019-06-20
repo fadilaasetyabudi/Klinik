@@ -4,8 +4,14 @@
                       Tambah
                  </button> -->
           <!-- Sidebar Toggle (Topbar) -->
-          
-             <a class="btn btn-primary" href="<?php echo base_url('index.php/pasien/scan_pasien') ?>">QRCode</a>
+          <?php if ($this->session->userdata('level') == 'admin') { ?>
+             <a href="<?php echo base_url('index.php/pasien/scan_pasien') ?>">
+
+             <img src="<?php echo base_url('image/QR.png') ?>" width="100" height="70"/>
+
+             </a>
+            <?php } ?>
+
 
          
           <!-- Topbar Navbar -->

@@ -84,6 +84,11 @@
             <span>Data Obat</span></a>
         </li>
      <hr class="sidebar-divider my-0">
+      <li class="nav-item <?php if($this->uri->segment(1) == 'jasa_layanan') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('jasa_layanan'); ?>">
+            <span>Jasa Layanan</span></a>
+        </li>
+         <hr class="sidebar-divider my-0">
       <li class="nav-item <?php if($this->uri->segment(1) == 'jadwal') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('jadwal'); ?>">
             <span>Layanan Pasien</span></a>

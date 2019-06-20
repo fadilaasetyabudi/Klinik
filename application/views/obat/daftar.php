@@ -14,9 +14,7 @@ defined('BASEPATH') or exit('No direct script');
 			<tr>
 				<th>#</th>
 				<th>Nama Obat</th>
-				<th>Bentuk</th>
-				<th>Ukuran</th>
-				<th>Satuan</th>
+				<th>Kategori</th>
 				<th>Harga Obat</th>
 				<th>keterangan Obat</th>
 				<th>Aksi</th>
@@ -29,7 +27,9 @@ defined('BASEPATH') or exit('No direct script');
 			<tr>
 				<td><?php echo $no++; ?></td>
 				<td><?php echo $data->nama_obat; ?></td>
-				<td><?php echo $data->hargahhghg_obat; ?></td>
+				<td><?php echo $data->kategori; ?></td>
+				<td><?php echo $data->harga_obat; ?></td>
+				<td><?php echo $data->keterangan_obat; ?></td>
 				
 				<td>
 					<a href="<?php echo site_url('obat/edit/' . $data->id_obat); ?>">Edit</a>

@@ -14,16 +14,8 @@ defined('BASEPATH') or exit('No direct script');
 		<input type="text" name="i_nama_obat" value="<?php echo $p_obat->nama_obat; ?>">
 	</p>
 	<p>
-		<label for="i bentuk">Bentuk</label>
-		<input type="text" name="i_bentuk" value="<?php echo $p_obat->bentuk; ?>">
-	</p>
-	<p>
-		<label for="i ukuran">Ukuran</label>
-		<input type="text" name="i_ukuran" value="<?php echo $p_obat->ukuran; ?>">
-	</p>
-	<p>
-		<label for="i satuan">Satuan</label>
-		<input type="text" name="i_satuan" value="<?php echo $p_obat->satuan; ?>">
+		<label for="i kategori">Kategori</label>
+		<input type="text" name="i_kategori" value="<?php echo $p_obat->kategori; ?>">
 	</p>
 	<p>
 		<label for="i harga obat">Harga Obat</label>

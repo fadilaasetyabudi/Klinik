@@ -63,10 +63,10 @@ defined('BASEPATH') or exit('No direct script');
               </h6>
             </div>
             <div class="card-body">
-              <?php echo $profil->nama_dokter; ?>
+            <td>Nama Dokter :</td> <?php echo $profil->nama_dokter ; ?>
               <br>
-              <?php echo $profil->email_dokter; ?>
-            </div>
+            <td>Email Dokter :</td> <?php echo $profil->email_dokter; ?>
+            </div> 
           </div>
 
         </div>

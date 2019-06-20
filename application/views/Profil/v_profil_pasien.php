@@ -56,6 +56,7 @@ defined('BASEPATH') or exit('No direct script');
               </div>
               <?php } ?>
           <!-- DataTales Example -->
+
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
@@ -64,31 +65,34 @@ defined('BASEPATH') or exit('No direct script');
             </div>
             <div class="card-body">
               <div class="container-fluid">
-                <table width="100%">
+               
                   <tr>
-                    <td align="left">
-                      <?php echo $profil_pasien->nama_pasien; ?>
+                   <td align="left">
+                     <td>Nama : </td><?php echo $profil_pasien->nama_pasien; ?>
+                     <br>
+                       <td>Jenis Kelamin : </td><?php echo $profil_pasien->jenis_kelamin; ?>
                       <br>
-                      <?php echo $profil_pasien->jenis_kelamin; ?>
+                       <td>Email Pasien : </td><?php echo $profil_pasien->email_pasien; ?>
                       <br>
-                      <?php echo $profil_pasien->email_pasien; ?>
+                       <td>Kontak Pasien : </td><?php echo $profil_pasien->kontak_pasien; ?>
                       <br>
-                      <?php echo $profil_pasien->kontak_pasien; ?>
-                      <br>
-                      <?php echo $profil_pasien->email_pasien; ?>
-                      <br>
-                      <?php echo $profil_pasien->alamat_pasien; ?>
+                      <td>Alamat Pasien : </td><?php echo $profil_pasien->alamat_pasien; ?>                        
+         
+           
                     </td>
+                      <table width="100%">
                     <td align="right">
                       <img src="<?php echo base_url('uploads/qrcode/').$profil_pasien->qr_code ?>" width="200px;">
                       <br>
                          <a href="<?php echo base_url('uploads/qrcode/').$profil_pasien->qr_code ?>" download="<?php echo $profil_pasien->nama_pasien . ".png"; ?>" target="_blank" class="btn btn-success">Download QR Code Disini</a> 
-                    </td>
+
+                   </td>
+                   </table>  
                      
                 
 
                   </tr>
-                </table> 
+              <!--   -->
               </div>
             </div>
           </div>

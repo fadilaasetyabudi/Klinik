@@ -13,27 +13,14 @@ defined('BASEPATH') or exit('No direct script');
 		<input type="text" name="i_nama_obat"></input>
 	</p>
 	<p>
-		<label for="i bentuk">Bentuk</label>
-		<select name="i_bentuk">
-			<option value="Botol" <?php echo ($p_obat->bentuk == 'Botol' ? 'selected="selected"' : ''); ?>></option>
-			<option value="Stripe" <?php echo ($p_obat->bentuk == 'Stripe' ? 'selected="selected"' : ''); ?>></option>
-			<option value="Tube" <?php echo ($p_obat->bentuk == 'Tube' ? 'selected="selected"' : ''); ?>></option>
-		</select>
-		<!-- <input type="text" name="i_bentuk"></input> -->
+		<label for="i kategori">Kategori</label>
+		<select name="i_kategori">
+			<option value="Krim" <?php echo ($p_obat->kategori == 'Krim' ? 'selected="selected"' : ''); ?>></option>
+			<option value="Obat" <?php echo ($p_obat->kategori == 'Obat' ? 'selected="selected"' : ''); ?>></option>
+			
+		<!-- <input type="text" name="i_kategori"></input> -->
 	</p>
-	<p>
-		<label for="i ukuran">Ukuran</label>
-		<input type="text" name="i_ukuran"></input>
-	</p>
-	<p>
-		<label for="i satuan">Satuan</label>
-		<select name="i_satuan">
-			<option value="ML" <?php echo ($p_satuan->satuan == 'ML' ? 'selected="selected"' : ''); ?>></option>
-			<option value="Tablet" <?php echo ($p_satuan->satuan == 'Tablet' ? 'selected="selected"' : ''); ?>></option>
-			<option value="Kapsul" <?php echo ($p_satuan->satuan == 'Kapsul' ? 'selected="selected"' : ''); ?>></option>
-			<option value="Kaplet" <?php echo ($p_satuan->satuan == 'Kaplet' ? 'selected="selected"' : ''); ?>></option>
-		</select>
-	</p>
+	
 	<p>
 		<label for="i harga obat">Harga obat</label>
 		<input type="text" name="i_harga_obat"></input>

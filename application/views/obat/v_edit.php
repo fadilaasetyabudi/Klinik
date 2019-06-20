@@ -51,29 +51,16 @@ defined('BASEPATH') or exit('No direct script');
                     </div>
                     <p>
                     <div class="form-group">
-                    <label for="i bentuk">bentuk</label>
+                    <label for="i kategori">Kategori</label>
                     <!-- <input type="text" name="i_jenis_kelamin"></input> -->
-                    <select name="i_bentuk" class="form-control">
-                      <option value="botol">Botol</option>
-                      <option value="strip">Strip</option>
-                      <option value="tube">Tube</option>
+                    <select name="i_kategori" class="form-control">
+                      <option value="krim">Krim</option>
+                      <option value="obat">Obat</option>
+                     
                     </select>
                   </p>
                   </div>
-                  <div class="form-group">
-                    <label>Ukuran</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="Ukuran" name="i_ukuran_obat" value="<?php echo $p_obat->ukuran; ?>">
-                    </div>
-                    <div class="form-group">
-                    <label for="i satuaan">satuaan</label>
-                    <!-- <input type="text" name="i_jenis_kelamin"></input> -->
-                    <select name="i_satuaan" class="form-control">
-                      <option value="ML">ML</option>
-                      <option value="tablet">Tablet</option>
-                      <option value="kapsul">Kapsul</option>
-                      <option value="kaplet">Kaplet</option>
-                    </select>
-                  </p>
+                 
                     <div class="form-group">
                       <label>Harga</label>
                       <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="harga obat" name="i_harga_obat" value="<?php echo $p_obat->harga_obat; ?>">

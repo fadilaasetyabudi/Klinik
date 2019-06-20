@@ -48,27 +48,12 @@ defined('BASEPATH') or exit('No direct script');
                     <div class="form-group">
                     <!--   <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="obatHelp" placeholder="Satuan" name="i_satuan"> -->
                     <p>
-                    <label for="i bentuk">bentuk</label>
+                    <label for="i kategori">Kategori</label>
                     <!-- <input type="text" name="i_jenis_kelamin"></input> -->
-                    <select name="i_bentuk" class="form-control" required="required">
-                      <option value="botol">Botol</option>
-                      <option value="strip">Strip</option>
-                      <option value="tube">Tube</option>
-                    </select>
-                  </p>
-                  </div>
-                  <div class="form-group">
-                      <label>Ukuran</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="Ukuran" name="i_ukuran" required="required">
-                    </div>
-                    <div class="form-group">
-                    <label for="i satuaan">satuaan</label>
-                    <!-- <input type="text" name="i_jenis_kelamin"></input> -->
-                    <select name="i_satuan" class="form-control" required="required">
-                      <option value="ML">ML</option>
-                      <option value="tablet">Tablet</option>
-                      <option value="kapsul">Kapsul</option>
-                      <option value="kaplet">Kaplet</option>
+                    <select name="i_kategori" class="form-control" required="required">
+                      <option value="krim">Krim</option>
+                      <option value="obat">Obat</option>
+                     
                     </select>
                   </p>
                   </div>

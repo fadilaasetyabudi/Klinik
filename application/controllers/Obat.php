@@ -37,17 +37,13 @@ class Obat extends CI_Controller {
 	public function proses_tambah()
 	{
 		$v_nama_obat = $this->input->post('i_nama_obat');
-		$v_bentuk = $this->input->post('i_bentuk');
-		$v_ukuran = $this->input->post('i_ukuran');
-		$v_satuan = $this->input->post('i_satuan');
+		$v_kategori = $this->input->post('i_kategori');
 		$v_harga_obat = $this->input->post('i_harga_obat');
 		$v_keterangan_obat = $this->input->post('i_keterangan_obat');
 		
 		$data_tambah = array(
 			'nama_obat' => $v_nama_obat,
-			'bentuk' => $v_bentuk,
-			'ukuran' => $v_ukuran,
-			'satuan' => $v_satuan,
+			'kategori' => $v_kategori,
 			'harga_obat' => $v_harga_obat,
 			'keterangan_obat' => $v_keterangan_obat);
 		$tambah_data = $this->db->insert('tb_obat', $data_tambah);
@@ -70,17 +66,13 @@ class Obat extends CI_Controller {
 	public function proses_edit($id_obat)
 	{
 		$v_nama_obat = $this->input->post('i_nama_obat');
-		$v_bentuk = $this->input->post('i_bentuk');
-		$v_ukuran = $this->input->post('i_ukuran');
-		$v_satuan = $this->input->post('i_satuan');
+		$v_kategori = $this->input->post('i_kategori');
 		$v_harga_obat = $this->input->post('i_harga_obat');
 		$v_keterangan_obat = $this->input->post('i_keterangan_obat');
 		
 		$data_tambah = array(
 			'nama_obat' => $v_nama_obat,
-			'bentuk' => $v_bentuk,
-			'ukuran' => $v_ukuran,
-			'satuan' => $v_satuan,
+			'kategori' => $v_kategori,
 			'harga_obat' => $v_harga_obat,
 			'keterangan_obat' => $v_keterangan_obat);
 		$data_where= array(
@@ -103,8 +95,8 @@ class Obat extends CI_Controller {
 			$data_where= array(
 			'id_obat' => $id_obat
 			);
-		$hapus_data = $this->db->delete('tb_penjualan', $data_where);
-		$hapus_data = $this->db->delete('tb_detail_resep', $data_where);
+		// $hapus_data = $this->db->delete('tb_penjualan', $data_where);
+		// $hapus_data = $this->db->delete('tb_detail_resep', $data_where);
 		$hapus_data = $this->db->delete('tb_obat', $data_where);
 
 		if($hapus_data) {
