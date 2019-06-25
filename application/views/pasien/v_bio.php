@@ -54,7 +54,7 @@ defined('BASEPATH') or exit('No direct script');
 
           <?php  if($this->session->flashdata('fd_pesan')){}?>
 
-            <h2><?php echo $p_pasien->nama_pasien; ?></h2>
+             <h2><?php echo $p_pasien->nama_pasien; ?></h2>
             <h2><?php echo $p_pasien->jenis_kelamin; ?></h2>
             <h2><?php echo $p_pasien->email_pasien; ?></h2>
             <h2><?php echo $p_pasien->kontak_pasien; ?></h2>
