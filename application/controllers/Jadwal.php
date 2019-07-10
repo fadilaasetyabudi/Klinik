@@ -59,7 +59,6 @@ class jadwal extends CI_Controller {
 		$v_id_pasien = $this->input->post('i_id_pasien');
 		$v_id_piket = $this->input->post('i_id_piket');
 		$v_id_layanan = $this->input->post('i_id_layanan');
-		$v_status_jadwal = $this->input->post('i_status_jadwal');
 		$v_tanggal_daftar = $this->input->post('i_tanggal_daftar');
 
 		
@@ -67,7 +66,6 @@ class jadwal extends CI_Controller {
 			'id_pasien' => $v_id_pasien,
 			'id_piket' => $v_id_piket,
 			'id_layanan' => $v_id_layanan,
-			'status_jadwal' => $v_status_jadwal,
 			'tanggal_daftar' => $v_tanggal_daftar,
 			);
 			
@@ -91,10 +89,12 @@ class jadwal extends CI_Controller {
 	{
 		
 		$parser['p_semuapasien'] = $this->db->get('tb_pasien')->result();
+
+		$this->db->where('id_jadwal', $id_jadwal);
+		$parser['p_jadwal'] = $this->db->get('tb_jadwal')->row();
 		$this->db->join('tb_dokter', 'tb_dokter.id_dokter=tb_piket.id_dokter');
 		$parser['p_semuapiket'] = $this->db->get('tb_piket')->result();
 		$parser['p_semualayanan'] = $this->db->get('tb_layanan')->result();
-		$parser['p_jadwal'] = $this->db->get_where('tb_jadwal', array('id_jadwal'=>$id_jadwal))->row();
 		$this->load->view('jadwal/v_edit', $parser);
 	}
 	public function proses_edit()
@@ -103,14 +103,12 @@ class jadwal extends CI_Controller {
 		$v_id_pasien = $this->input->post('i_id_pasien');
 		$v_id_piket = $this->input->post('i_id_piket');
 		$v_id_layanan = $this->input->post('i_id_layanan');
-		$v_status_jadwal = $this->input->post('i_status_jadwal');
 		$v_tanggal_daftar = $this->input->post('i_tanggal_daftar');
 		
 		$data_tambah = array(
 			'id_pasien' => $v_id_pasien,
 			'id_piket' => $v_id_piket,
 			'id_layanan' => $v_id_layanan,
-			'status_jadwal' => $v_status_jadwal,
 			'tanggal_daftar' => $v_tanggal_daftar,
 			);
 			

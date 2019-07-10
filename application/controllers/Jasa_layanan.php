@@ -24,11 +24,10 @@ class Jasa_layanan extends CI_Controller {
 	
 	public function index()
 	{
-		// $this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jasa_layanan.id_layanan');
-
-		$parser = array(
-			'p_semuajasa_layanan' => $this->db->get_where('tb_jasa_layanan')->result()
-			);
+		
+		$this->db->select('tb_jasa_layanan.id_layanan, tb_jasa_layanan.nama_jasa, tb_jasa_layanan.harga, tb_layanan.nama_layanan');
+		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jasa_layanan.kategori');
+		$parser['p_semuajasa_layanan'] = $this->db->get('tb_jasa_layanan')->result();
 		$this->load->view('jasa_layanan/v_daftar', 
 			$parser);
 	}
@@ -37,16 +36,20 @@ class Jasa_layanan extends CI_Controller {
 
 	public function tambah()
 	{
-		$this->load->view('jasa_layanan/v_tambah');
+		$parser['p_layanan'] = $this->db->get('tb_layanan')->result();
+		$this->load->view('jasa_layanan/v_tambah', $parser);
 	}
 	public function proses_tambah()
 	{
-		$v_nama_jasa = $this->input->post('i_nama_jasa');
-		$v_harga = $this->input->post('harga');
+		$v_nama_jasa = $this->input->post('i_nama_jasa_layanan');
+		$v_jenis_layanan = $this->input->post('i_layanan');
+		$v_harga = $this->input->post('i_harga');
 		
 		$data_tambah = array(
 			'nama_jasa' => $v_nama_jasa,
-			'harga'		=> $v_harga);
+			'harga'		=> $v_harga,
+			'kategori' => $v_jenis_layanan
+		);
 		
 			
 		$tambah_data = $this->db->insert('tb_jasa_layanan', $data_tambah);
@@ -62,23 +65,26 @@ class Jasa_layanan extends CI_Controller {
 	public function edit($id_layanan)
 	{
 		
-		$parser = array(
-			'p_jasa_layanan' => $this->db->get_where('tb_jasa_layanan', array('id_layanan'=>$id_layanan))->row()
-			);
+		$parser['p_layanan'] = $this->db->get('tb_layanan')->result();
+		$parser['p_jasa_layanan'] = $this->db->get_where('tb_jasa_layanan', array('id_layanan'=>$id_layanan))->row();
 		$this->load->view('jasa_layanan/v_edit', $parser);
 	}
-	public function proses_edit()
+	public function proses_edit($id_layanan)
 	{
+
 		$v_nama_jasa = $this->input->post('i_nama_jasa');
+		$v_jenis_layanan = $this->input->post('i_layanan');
 		$v_harga = $this->input->post('i_harga');
+
 		
 		$data_tambah = array(
 			'nama_jasa' => $v_nama_jasa,
-			'harga' => $harga);
+			'harga' => $v_harga,
+			'kategori' => $v_jenis_layanan);
 		
 
 		$data_where= array(
-			'id_layanan' => $v_id_layanan
+			'id_layanan' => $id_layanan
 			);
 
 		$tambah_data = $this->db->update('tb_jasa_layanan', $data_tambah, $data_where);

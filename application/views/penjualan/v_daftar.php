@@ -68,7 +68,7 @@ defined('BASEPATH') or exit('No direct script');
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
-                <a href="<?php echo site_url('penjualan/tambah'); ?>" class="btn btn-primary btn-icon-split">
+                <a style="background-color: purple; "href="<?php echo site_url('penjualan/tambah'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
@@ -113,10 +113,10 @@ defined('BASEPATH') or exit('No direct script');
           <a href="<?php echo site_url('penjualan/lihatobat/' . $data->id_resep); ?>" class="btn btn-warning btn-circle">
                     <i class="fas fa-eye"></i>
                   </a>
-       <!--    <a href="">Edit</a> -->
+       <!--    <a href="">Edit</a> --><!-- 
           <a href="<?php echo site_url('penjualan/edit/' . $data->id_penjualan); ?>" class="btn btn-success btn-circle">
                     <i class="fas fa-edit"></i>
-                  </a>
+                  </a> -->
         <!--   <a href="">Hapus</a> -->
            <a href="<?php echo site_url('penjualan/proses_hapus/' . $data->id_penjualan); ?>" class="btn btn-danger btn-circle">
                     <i class="fas fa-trash"></i>

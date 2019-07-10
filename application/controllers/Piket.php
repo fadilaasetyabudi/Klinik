@@ -58,7 +58,9 @@ class Piket extends CI_Controller {
 	public function edit($id_piket)
 	{
 		$parser = array(
-			'p_piket' => $this->db->get_where('tb_piket', array('id_piket'=>$id_piket))->row()
+			'p_piket' => $this->db->get_where('tb_piket', array('id_piket'=>$id_piket))->row(),
+			'p_dokter' => $this->db->get('tb_dokter')->result(),
+
 			);
 		$this->load->view('piket/v_edit', $parser);
 	}

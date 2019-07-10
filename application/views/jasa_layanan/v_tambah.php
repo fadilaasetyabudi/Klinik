@@ -49,18 +49,25 @@ defined('BASEPATH') or exit('No direct script');
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Tambah Jasa Layanan</h1>
-          <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
- -->
           <form class="user" action="<?php echo site_url('jasa_layanan/proses_tambah'); ?>" method="POST">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="layananHelp" placeholder="Nama Jasa layanan" name="i_nama_jasa_layanan">
+                      <label>Nama Layanan</label>
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="layananHelp" placeholder="Nama Jasa layanan" name="i_nama_jasa_layanan" required="required">
+                    </div>
+
+                    <div class="form-group">
+                     <label>Kategori</label>
+                      <select class="form form-control" name="i_layanan" required="required">
+                        <?php foreach ($p_layanan as $key) { ?>
+                          <option value="<?php echo $key->id_layanan ?>"><?php echo $key->nama_layanan; ?></option>
+                        <?php } ?>
+                      </select>
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="layananHelp" placeholder="Harga " name="i_nama_harga">
+                      <label>Harga</label>
+                      <input type="text" class="form-control " id="exampleInputText" aria-describedby="layananHelp" placeholder="Harga " name="i_harga" required="required">
                     </div>
-                     
-                   
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" class="btn btn-primary btn-block">
                       Tambah
                  </button>
                   

@@ -65,33 +65,31 @@ defined('BASEPATH') or exit('No direct script');
             </div>
             <div class="card-body">
               <div class="container-fluid">
-               
-                  <tr>
-                   <td align="left">
-                     <td>Nama : </td><?php echo $profil_pasien->nama_pasien; ?>
+                    <table width="100%">
+                      <tr>
+                      <td align="left">
+                      Nama : <?php echo $profil_pasien->nama_pasien; ?>
                      <br>
-                       <td>Jenis Kelamin : </td><?php echo $profil_pasien->jenis_kelamin; ?>
+                       Jenis Kelamin : <?php echo $profil_pasien->jenis_kelamin; ?>
                       <br>
-                       <td>Email Pasien : </td><?php echo $profil_pasien->email_pasien; ?>
+                       Email Pasien : <?php echo $profil_pasien->email_pasien; ?>
                       <br>
-                       <td>Kontak Pasien : </td><?php echo $profil_pasien->kontak_pasien; ?>
+                       Kontak Pasien : <?php echo $profil_pasien->kontak_pasien; ?>
                       <br>
-                      <td>Alamat Pasien : </td><?php echo $profil_pasien->alamat_pasien; ?>                        
-         
-           
+                      Alamat Pasien : <?php echo $profil_pasien->alamat_pasien; ?>
+                      <br>
+                      Tanggal Lahir : <?php echo $profil_pasien->tanggal_lahir; ?>
+                      <br>
+                      Golongan Darah : <?php echo $profil_pasien->golongan_darah; ?>                    
                     </td>
-                      <table width="100%">
                     <td align="right">
                       <img src="<?php echo base_url('uploads/qrcode/').$profil_pasien->qr_code ?>" width="200px;">
                       <br>
                          <a href="<?php echo base_url('uploads/qrcode/').$profil_pasien->qr_code ?>" download="<?php echo $profil_pasien->nama_pasien . ".png"; ?>" target="_blank" class="btn btn-success">Download QR Code Disini</a> 
 
                    </td>
+                 </tr>
                    </table>  
-                     
-                
-
-                  </tr>
               <!--   -->
               </div>
             </div>

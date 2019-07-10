@@ -42,15 +42,15 @@ defined('BASEPATH') or exit('No direct script');
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Edit Data layanan</h1>
+          <h1 class="h3 mb-2 text-gray-800">Edit Data layanan Fasilitas</h1>
           <p class="mb-4"><a target="_blank" href="https://datatables.net"></a></p>
           <form class="user" action="<?php echo site_url('layanan/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">
                     <div class="form-group">
                       <label for="i nama layanan">nama layanan</label>
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="layananHelp" placeholder="Nama layanan" name="i_nama_layanan" value="<?php echo $p_layanan->nama_layanan; ?>">
+                      <input type="text" class="form-control form" id="exampleInputText" aria-describedby="layananHelp" placeholder="Nama layanan" name="i_nama_layanan" value="<?php echo $p_layanan->nama_layanan; ?>">
                     </div>
                   
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" class="btn btn-primary btn-block">
                       Kirim
                  </button>
                   

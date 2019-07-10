@@ -63,7 +63,7 @@ defined('BASEPATH') or exit('No direct script');
                     </div>
                      <div class="form-group">
                       <label>Keterangan</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan obat" name="i_keterangan_obat" required="required">
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan obat" name="i_keterangan_obat">
                     </div>
                      
                    

@@ -77,14 +77,6 @@ defined('BASEPATH') or exit('No direct script');
             </div>
 
             <div class="form-group">
-            <label for="i id pasien">Status</label>
-              <select name="i_status_jadwal" class="form-control">
-                <option value="Belum Ditangani">Belum Ditangani</option>
-                <option value="Sudah Ditangani">Sudah Ditangani</option>
-              </select>
-            </div>
-
-            <div class="form-group">
             <label for="i id pasien">Tanggal Daftar</label>
               <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Daftar " name="i_tanggal_daftar" value="<?php echo date('Y-m-d') ?>" readonly>
             </div>
@@ -93,7 +85,7 @@ defined('BASEPATH') or exit('No direct script');
 
 
 
-              <button type="submit" class="btn btn-primary btn-user btn-block">
+              <button type="submit" class="btn btn-primary btn-block">
                 Tambah
               </button>
 

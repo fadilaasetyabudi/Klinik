@@ -45,16 +45,27 @@ defined('BASEPATH') or exit('No direct script');
           <h1 class="h3 mb-2 text-gray-800">Edit Data Jasa layanan</h1>
           <p class="mb-4"><a target="_blank" href="https://datatables.net"></a></p>
           <form class="user" action="<?php echo site_url('jasa_layanan/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">
+                  
                     <div class="form-group">
                       <label for="i nama jasa_layanan">Nama Jasa layanan</label>
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="layananHelp" placeholder="Nama Jasa layanan" name="i_nama_jasa" value="<?php echo $p_jasa_layanan->nama_jasa; ?>">
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="layananHelp" placeholder="Nama Jasa layanan" name="i_nama_jasa" value="<?php echo $p_jasa_layanan->nama_jasa; ?>" required="required">
+                    </div>
+                    <div class="form-group">
+                      Layanan : 
+                      <select class="form form-control" name="i_layanan" required="required">
+                        <?php foreach ($p_layanan as $key) { ?>
+                          <option value="<?php echo $key->id_layanan ?>" <?php if ($key->id_layanan == $p_jasa_layanan->kategori) {
+                            echo "selected";
+                          } ?>><?php echo $key->nama_layanan; ?></option>
+                        <?php } ?>
+                      </select>
                     </div>
                     <div class="form-group">
                       <label for="i harga">Harga</label>
-                      <input type="text" class="form-control form-control-user" id="exampleInputText" aria-describedby="layananHelp" placeholder="Harga" name="i_harga" value="<?php echo $p_jasa_layanan->harga; ?>">
+                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="layananHelp" placeholder="Harga" name="i_harga" value="<?php echo $p_jasa_layanan->harga; ?>" required="required">
                     </div>
                   
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" class="btn btn-primary btn-block">
                       Kirim
                  </button>
                   

@@ -53,7 +53,7 @@ defined('BASEPATH') or exit('No direct script');
           <form class="user" action="<?php echo site_url('jadwal/proses_edit'); ?>" method="POST">
             <div class="form-group">                    
               <label for="i id pasien">ID Pasien</label>
-              <select name="i_id_pasien" class="form-control form-control-user">
+              <select name="i_id_pasien" class="form-control">
                 <?php foreach ($p_semuapasien as $key) { ?>
                 <option value="<?php echo $key->id_pasien; ?>" <?php if ($p_jadwal->id_pasien == $key->id_pasien) {
                   echo "Selected";
@@ -63,7 +63,7 @@ defined('BASEPATH') or exit('No direct script');
             </div>
             <div class="form-group">                    
               <label for="i id pasien">Piket</label>
-              <select name="i_id_piket" class="form-control form-control-user">
+              <select name="i_id_piket" class="form-control">
                 <?php foreach ($p_semuapiket as $key) { ?>
                 <option value="<?php echo $key->id_piket; ?>" <?php if ($p_jadwal->id_piket == $key->id_piket) {
                   echo "Selected";
@@ -73,7 +73,7 @@ defined('BASEPATH') or exit('No direct script');
             </div>
             <div class="form-group">                    
               <label for="i id pasien">Layanan</label>
-              <select name="i_id_layanan" class="form-control form-control-user">
+              <select name="i_id_layanan" class="form-control">
                 <?php foreach ($p_semualayanan as $key) { ?>
                 <option value="<?php echo $key->id_layanan; ?>" <?php if ($p_jadwal->id_layanan == $key->id_layanan) {
                   echo "Selected";
@@ -83,18 +83,7 @@ defined('BASEPATH') or exit('No direct script');
             </div>
 
             <div class="form-group">
-              <select name="i_status_jadwal" class="form-control form-control-user">
-                <option value="Belum Ditangani" <?php if ($p_jadwal->status_jadwal == "Belum Ditangani") {
-                  echo "Selected";
-                } ?>>Belum Ditangani</option>
-                <option value="Sudah Ditangani" <?php if ($p_jadwal->status_jadwal == "Sudah Ditangani") {
-                  echo "Selected";
-                } ?>>Sudah Ditangani</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <input type="date" class="form-control form-control-user" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Daftar " name="i_tanggal_daftar" value="<?php echo $p_jadwal->tanggal_daftar; ?>">
+              <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Daftar " name="i_tanggal_daftar" value="<?php echo $p_jadwal->tanggal_daftar ?>">
             </div>
 
             <div class="form-group">

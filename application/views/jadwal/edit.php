@@ -16,14 +16,6 @@ defined('BASEPATH') or exit('No direct script');
 	</p>
 	
 	<p>
-		<label for="i status jadwal">Status Jadwal/label>
-		<!-- <input type="text" name="i_jenis_kelamin" value="<?php echo $p_jadwal->jenis_kelamin; ?>"> -->
-		<select name="i_status_jadwal">
-			<option value="L" <?php echo ($p_jadwal->status_jadwal == 'B' ? 'selected="selected"' : ''); ?>>Belum Ditangani</option>
-			<option value="P" <?php echo ($p_jadwal->sudah_ditangani == 'S' ? 'selected="selected"' : ''); ?>>Sudah Ditangani</option>
-		</select>
-	</p>
-	<p>
 		<label for="i tanggal ditangani">Tanggal Daftar</label>
 		<input type="local-time" name="i_tanggal_daftar" value="<?php echo $p_jadwal->tanggal_daftar; ?>">
 	</p>

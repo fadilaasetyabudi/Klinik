@@ -2,7 +2,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <img src="<?php echo base_url() ?>image/logo.jpg">
+            <img src="<?php echo base_url() ?>image/logo2.png">
             <br>
             <span>Klinik Dr.Lia</span>
           </div>
@@ -29,7 +29,7 @@
       
         </div>
       
-        <div class="modal-body">Klik Button "logout" jika anda ingin keluar dari sistem dan Klik Button "cancel" jika anda tidak jadi keluar dari sistem.</div>
+        <div class="modal-body">Klik Button "logout" jika anda ingin keluar dari sistem </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="<?php echo base_url('index.php/login/logout') ?>">Logout</a>

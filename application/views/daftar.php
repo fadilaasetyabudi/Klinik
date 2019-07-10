@@ -20,9 +20,9 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-primary" >
 
-  <div class="container" align="center">
+  <div class="container" align="center" style="background-color: green;">
     <div class="col-lg-3"></div>
     <div class="col-lg-7">
 
@@ -32,13 +32,14 @@
           <div class="col-lg-12">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                <h1 class="h4 text-gray-900 mb-4">Silahkan Isi Form Registrasi</h1>
               </div>
               <?php echo form_open('registrasi/create'); ?>
               <?php echo validation_errors(); ?>
               <div class="form-group">
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="nama_pasien"  name="nama_pasien" placeholder="Nama Pasien">
+                <div class="form-group" align="left">
+                  <label>Nama</label>
+                  <input type="text" class="form-control form-control-user" id="nama_pasien"  name="nama_pasien" placeholder=" "required="required">
                 </div>
               </div>
               <div class="form-group" align="left">
@@ -48,34 +49,51 @@
                          <option value="L" selected>Laki-laki</option>
                          <option value="P">Perempuan</option>
                       </select>
-                
               </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="email_pasien"  name="email_pasien" placeholder="email Pasien">
+                <div class="form-group" align="left">
+                  <label>Email</label>
+                  <input type="text" class="form-control form-control-user" id="email_pasien"  name="email_pasien" placeholder=" " required="required">
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="kontak_pasien"  name="kontak_pasien" placeholder="Kontak Pasien">
+                <div class="form-group" align="left">
+                  <label>No.Hp</label>
+                  <input type="text" class="form-control form-control-user" id="kontak_pasien"  name=" " placeholder=" " required="required">
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="alamat_pasien"  name="alamat_pasien" placeholder="Alamat Pasien">
+                <div class="form-group" align="left">
+                  <label>Alamat</label>
+                  <input type="text" class="form-control form-control-user" id="alamat_pasien"  name="alamat_pasien" placeholder=" " required="required">
                 </div>
-                <div class="form-group">
-                  <input type="date" class="form-control form-control-user" id="tanggal_lahir"  name="tanggal_lahir" placeholder="Tanggal Lahir">
+                <div class="form-group" align="left">
+                  <label>Tanggal Lahir</label>
+                  <input type="date" class="form-control form-control-user" id="tanggal_lahir"  name="tanggal_lahir" placeholder=" " required="required">
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="golongan_darah"  name="golongan_darah" placeholder="Golongan Darah">
-                </div>
-                <div class="form-group row">
+                <div class="form-group" align="left">
+                    <label for="id pasien">Golongan Darah</label>
+                       <br>
+                      <select name="golongan_darah" class="form form-control">
+                         <option value="A" selected>A</option>
+                         <option value="B">B</option>
+                         <option value="AB">AB</option>
+                         <option value="O">O</option>
+                      </select>
+                      <br>
+                <div class="form-group row" align="left">
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="password_pasien" name="password_pasien" placeholder="Kata Sandi">
+                    <label>Kata Sandi</label>
+                    <input type="text" class="form-control form-control-user" id="password_pasien" name="password_pasien" placeholder=" " required="required">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="kode_verivikasi" name="kode_verivikasi" placeholder="Kode Verivikasi">
+                    <label>Kode Verifikasi</label>
+                    <input type="text" class="form-control form-control-user" id="kode_verivikasi" name="kode_verivikasi" placeholder=" " required="required">
                   </div>
                 </div>
               </div>
-              <button type="submit"   class="btn btn-primary btn-user btn-block">Register Account</button>
+              <button type="submit"  required="required" class="btn btn-primary btn-user btn-block">Daftar</button>
 
+              <br>
+
+              <a href="<?php echo base_url('index.php/login') ?>">
+              Sudah memiliki aku? Kembali ke halaman Login!         
+              </a>
           
                
              <?php echo form_close(); ?>

@@ -54,8 +54,12 @@ defined('BASEPATH') or exit('No direct script');
                     <label for="i kategori">Kategori</label>
                     <!-- <input type="text" name="i_jenis_kelamin"></input> -->
                     <select name="i_kategori" class="form-control">
-                      <option value="krim">Krim</option>
-                      <option value="obat">Obat</option>
+                      <option value="Krim" <?php if ($p_obat->kategori == 'Krim') {
+                        echo "selected";
+                      } ?>>Krim</option>
+                      <option value="Obat" <?php if ($p_obat->kategori == 'Obat') {
+                        echo "selected";
+                      } ?>>Obat</option>
                      
                     </select>
                   </p>

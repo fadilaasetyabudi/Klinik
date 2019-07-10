@@ -46,6 +46,7 @@ class Penjualan extends CI_Controller {
 		$this->db->join('tb_piket','tb_jadwal.id_piket = tb_piket.id_piket');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter = tb_dokter.id_dokter');
 		$this->db->join('tb_layanan', 'tb_jadwal.id_layanan = tb_layanan.id_layanan');
+		$this->db->join('tb_jasa_layanan', 'tb_jasa_layanan.id_layanan=tb_hasil.id_jasa');
 		$this->db->where('tb_resep.id_resep NOT IN (select id_resep FROM tb_penjualan)', NULL, FALSE);
 		$parser['p_resep'] = $this->db->get('tb_resep')->result();
 		$this->load->view('penjualan/v_tambah', $parser);
@@ -66,6 +67,7 @@ class Penjualan extends CI_Controller {
 		$v_jumlah_pembelian = $this->input->post('i_jumlah_pembelian');
 		$v_total_harga = $this->input->post('i_total_harga');
 		$v_id_resep = $this->input->post('i_id_resep');
+		$v_jasa_layana = $this->input->post('i_jasa_layanan');
 		$data_tambah = array(
 			'tanggal_penjualan' => $date,
 			'total_harga' => $v_total_harga,
@@ -140,6 +142,14 @@ class Penjualan extends CI_Controller {
 		$this->db->join('tb_obat', 'tb_obat.id_obat = tb_detail_resep.id_obat');
 		$this->db->where('id_resep', $id);
 		echo json_encode($this->db->get('tb_detail_resep')->result());
+	}
+
+	public function getJasa($id)
+	{	
+		$this->db->join('tb_hasil','tb_hasil.id_hasil = tb_resep.id_hasil');
+		$this->db->join('tb_jasa_layanan', 'tb_jasa_layanan.id_layanan=tb_hasil.id_jasa');	
+		$this->db->where('id_resep', $id);
+		echo json_encode($this->db->get('tb_resep')->row());
 	}
 }
 ?>

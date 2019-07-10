@@ -6,7 +6,9 @@
 <body>
 <table align="center" width="1000px;" border="1px">
 	<tr align="center">
-		<td colspan="6"><b><h2>Laporan Data Rekapitulasi Klinik Dr.Lia <?php echo $p_tanggal; ?> <?php echo $p_bulan; ?> Tahun <?php echo $p_tahun; ?> Hingga <?php echo $p_sampai; ?> <?php echo $p_bulansampai; ?> Tahun <?php echo $p_tahunsampai; ?></h2></b><b><h3>Kesehatan dan Kecantikan</h3></b></td>
+		<td colspan="6"><b><h2>Laporan Data Rekapitulasi Klinik Dr.Lia 
+      <br> 
+      <?php echo $p_tanggal; ?> <?php echo $p_bulan; ?> Tahun <?php echo $p_tahun; ?> Hingga <?php echo $p_sampai; ?> <?php echo $p_bulansampai; ?> Tahun <?php echo $p_tahunsampai; ?></h2></b><b><h3>Kesehatan dan Kecantikan</h3></b></td>
 	</tr>
 	<tr align="center">
 		

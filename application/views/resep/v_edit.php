@@ -44,7 +44,7 @@ defined('BASEPATH') or exit('No direct script');
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tambah Resep</h1>
+          <h1 class="h3 mb-2 text-gray-800">Edit Resep</h1>
 
           <form class="user" action="<?php echo site_url('resep/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">
                     
@@ -68,6 +68,7 @@ defined('BASEPATH') or exit('No direct script');
                            <option value="<?php echo $data->id_obat ?>" <?php if ($p_obatlist[$i-1]->id_obat == $data->id_obat) { echo " selected='selected'";} ?> ><?php echo $data->nama_obat; ?></option>
                           <?php } ?>
                         </select>
+                        <br>
                       </div>
                       <div class="col-md-3">
                      <input type="text"  class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="jumlah obat" name="i_jumlah_obat<?php echo $i ?>" value="<?php echo $p_obatlist[$i-1]->jumlah ?>">

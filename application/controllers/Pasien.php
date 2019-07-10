@@ -93,6 +93,7 @@ class Pasien extends CI_Controller {
 			'alamat_pasien' => $v_alamat_pasien,
 			'tanggal_lahir' => $v_tanggal_lahir,
 			'golongan_darah' => 	$v_golongan_darah,
+			'password_pasien' => md5($v_password_pasien),
 			'kode_verivikasi' => $v_kode_verivikasi,
 			'qr_code' => $image_name
 		);

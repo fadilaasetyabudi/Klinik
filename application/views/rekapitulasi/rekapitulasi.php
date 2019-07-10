@@ -72,7 +72,8 @@ defined('BASEPATH') or exit('No direct script');
               </h6>
             </div>
             <div class="card-body">
-              <a href="<?php echo base_url('index.php/rekapitulasi/print_waktu/') ?>" class="btn btn-primary">Download Laporan</a>
+              <a style="background-color: purple; "href="<?php echo base_url('index.php/rekapitulasi/print_waktu/'); ?>" class="btn btn-primary">
+              Download Laporan</a>
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>

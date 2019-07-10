@@ -87,7 +87,7 @@ defined('BASEPATH') or exit('No direct script');
       <tr>
         <td><?php echo $no++; ?></td>
         <td><?php echo $data->nama_obat; ?></td>
-        <td><?php echo $data->jumlah." ".$data->bentuk ?></td>
+        <td><?php echo $data->jumlah." ".$data->kategori ?></td>
         <td><?php echo $data->total; ?></td>
       </tr>
       <?php } ?>

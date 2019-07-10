@@ -73,13 +73,6 @@ defined('BASEPATH') or exit('No direct script');
               </select>
             </div>
 
-            <div class="form-group">
-            <label for="i id pasien">Status</label>
-              <select name="i_status_jadwal" class="form-control">
-                <option value="Belum Ditangani">Belum Ditangani</option>
-                <option value="Sudah Ditangani">Sudah Ditangani</option>
-              </select>
-            </div>
 
             <div class="form-group">
             <label for="i id pasien">Tanggal Daftar</label>

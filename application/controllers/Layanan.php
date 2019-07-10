@@ -74,7 +74,7 @@ class Layanan extends CI_Controller {
 			);
 		$this->load->view('layanan/v_edit', $parser);
 	}
-	public function proses_edit()
+	public function proses_edit($id_layanan)
 	{
 		$v_nama_layanan = $this->input->post('i_nama_layanan');
 		
@@ -83,7 +83,7 @@ class Layanan extends CI_Controller {
 		
 
 		$data_where= array(
-			'id_layanan' => $v_id_layanan
+			'id_layanan' => $id_layanan
 			);
 
 		$tambah_data = $this->db->update('tb_layanan', $data_tambah, $data_where);

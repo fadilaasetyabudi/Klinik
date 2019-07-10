@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script');
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Data layanan</h1>
+          <h1 class="h3 mb-2 text-gray-800">Data layanan Fasilitas</h1>
          <!--  <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
           <?php  if($this->session->flashdata('fd_pesan')){?>
@@ -66,7 +66,7 @@ defined('BASEPATH') or exit('No direct script');
               <?php } ?>
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            <div class="card-header py-3">
+            <!-- <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
                 <?php if ($this->session->userdata('level') == 'admin') { ?>
                 <a href="<?php echo site_url('layanan/tambah'); ?>" class="btn btn-primary btn-icon-split">
@@ -77,7 +77,7 @@ defined('BASEPATH') or exit('No direct script');
                   </a>
                 <?php } ?>
               </h6>
-            </div>
+            </div> -->
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

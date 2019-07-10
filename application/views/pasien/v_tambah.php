@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script');
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+  <link href="<?php echo base_url(); ?>tema/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -78,8 +78,14 @@ defined('BASEPATH') or exit('No direct script');
                       <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_tanggal_lahir">
                     </div>
                     <div class="form-group">
-                       <label for="i id pasien">Golongan Darah</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_golongan_darah">
+                      <label>Golongan Darah</label>
+                      <br>
+                      <select name="i_golongan_darah" class="form-control-combobox">
+                          <option value="A" >A</option>
+                         <option value="B" >B</option>
+                         <option value="AB" >AB</option>
+                         <option value="O" >O</option>
+                      </select>
                     </div>
                      <div class="form-group">
                        <label for="i id pasien">Password</label>
@@ -90,7 +96,7 @@ defined('BASEPATH') or exit('No direct script');
                       <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_kode_verivikasi">
                     </div>
                    
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" class="btn btn-primary btn-block">
                       Tambah
                  </button>
                   

@@ -12,16 +12,10 @@ defined('BASEPATH') or exit('No direct script');
 	
 		<label for="i nama jasa">Nama Jasa Layanan</label>
 		<input type="text" name="i_nama_jasa"></input>
-
-
-	
 	<p>
 		<label for="i harga ">Harga </label>
 		<input type="text" name="i_harga"></input>
 	</p>
-
-	
-	
 	<p>
 		<button type="submit">Kirim</button>
 	</p>

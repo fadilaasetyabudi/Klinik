@@ -69,7 +69,7 @@ defined('BASEPATH') or exit('No direct script');
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
                 <?php if ($this->session->userdata('level') == 'admin') { ?>
-                <a href="<?php echo site_url('jasa_layanan/tambah'); ?>" class="btn btn-primary btn-icon-split">
+                  <a style="background-color: purple; "href="<?php echo site_url('jasa_layanan/tambah'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
@@ -85,6 +85,7 @@ defined('BASEPATH') or exit('No direct script');
                     <tr>
                      <th>#</th>
                      <th>Nama Jasa layanan</th>
+                     <th>Jenis Jasa layanan</th>
                      <th>Harga</th>
                   
                      <th>Aksi</th>
@@ -94,6 +95,7 @@ defined('BASEPATH') or exit('No direct script');
                     <tr>
                      <th>#</th>
                      <th>Nama layanan</th>
+                     <th>Jenis Jasa layanan</th>
                      <th>Harga</th>
                    
                       <th>Aksi</th>
@@ -106,6 +108,7 @@ defined('BASEPATH') or exit('No direct script');
       <tr>
         <td><?php echo $no++; ?></td>
         <td><?php echo $data->nama_jasa; ?></td>
+        <td><?php echo $data->nama_layanan; ?></td>
           <td><?php echo $data->harga; ?></td>
         
       

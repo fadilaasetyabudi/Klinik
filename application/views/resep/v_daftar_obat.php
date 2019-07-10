@@ -71,6 +71,7 @@ defined('BASEPATH') or exit('No direct script');
             </div>
             <div class="card-body">
               <div class="table-responsive">
+                
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
@@ -95,7 +96,7 @@ defined('BASEPATH') or exit('No direct script');
       <tr>
         <td><?php echo $no++; ?></td>
         <td><?php echo $data->nama_obat; ?></td>
-        <td><?php echo $data->jumlah." ".$data->bentuk ?></td>
+        <td><?php echo $data->jumlah; ?></td>
         <td><?php echo $data->total; ?></td>
       </tr>
       <?php } ?>

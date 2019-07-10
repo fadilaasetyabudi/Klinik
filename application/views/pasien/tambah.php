@@ -34,7 +34,12 @@ defined('BASEPATH') or exit('No direct script');
 	</p>
 	<p>
 		<label for="i golongan darah">Golongan Darah</label>
-		<input type="text" name="i_golongan_darah"></input>
+		<select name="i_jenis_kelamin">
+			<option value="A">A</option>
+			<option value="B">B</option>
+			<option value="AB">AB</option>
+			<option value="O">O</option>
+		</select>
 	</p>
 	<p>
 		<label for="i kata sandi">Kata Sandi</label>

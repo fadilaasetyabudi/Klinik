@@ -46,18 +46,21 @@ defined('BASEPATH') or exit('No direct script');
           <h1 class="h3 mb-2 text-gray-800">Form Edit Piket</h1>
           <p class="mb-4"><a target="_blank" href="https://datatables.net"></a></p>
           <form class="user" action="<?php echo site_url('piket/proses_edit/'.$this->uri->segment(3)); ?>" method="POST">   
-                    <div class="form-group">
-                      <label>Id Piket</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="id piket" name="i_id_piket" value="<?php echo $p_piket->id_piket; ?>">
-                    </div>
-                    <div class="form-group">
+                   <div class="form-group">
                       <label>Nama Dokter</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="id dokter" name="i_id_dokter" value="<?php echo $p_piket->id_dokter; ?>">
+                       <select name="i_id_dokter" class="form-control form-control-combobox">
+                         <?php foreach ($p_dokter as $key) { ?>
+                           <option value="<?php echo $key->id_dokter ?>" <?php if ($key->id_dokter == $p_piket->id_dokter): ?>
+                             selected
+                           <?php endif ?>><?php echo $key->nama_dokter; ?></option>
+                         <?php } ?>
+                      </select>
                     </div>
+
                     <div class="form-group">
                       <label>Hari</label>
                       <br>
-                      <select name="i_hari" class="form-control-combobox">
+                      <select name="i_hari" class="form-control">
                       <option value="senin" <?php echo ($p_piket->hari == 'senin' ? 'selected="selected"' : ''); ?>>Senin</option>
                       <option value="selasa" <?php echo ($p_piket->hari == 'selasa' ? 'selected="selected"' : ''); ?>>Selasa</option>
                       <option value="rabo" <?php echo ($p_piket->hari == 'rabo' ? 'selected="selected"' : ''); ?>>Rabo</option>

@@ -65,15 +65,18 @@ defined('BASEPATH') or exit('No direct script');
                         <th>Jumlah</th>
                         <th>Harga</th>
                       </thead>
-                      <tbody id="tabelObat">
+                      <tr id="tabelObat">
                         
-                      </tbody>
+                      </tr>
+                        <tr id="jasa">
+                        
+                        </tr>
                     </table>
 
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="total_harga" aria-describedby="emailHelp" placeholder="Total Harga" name="i_total_harga" readonly="readonly">
+                      <input type="text" class="form-control" id="total_harga" aria-describedby="emailHelp" placeholder="Total Harga" name="i_total_harga" readonly="readonly">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" class="btn btn-primary btn-block">
                       Tambah
                  </button>
                   
@@ -83,53 +86,64 @@ defined('BASEPATH') or exit('No direct script');
 
       </div>
       <!-- End of Main Content -->
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <script>
         $(document).ready(function(){
           var base_url = "<?php echo base_url() ?>";
           var id = $('#resep').val();
+          var hargaTotal = 0;
+          getObat();
+          getJasa();
 
-          $.ajax({
+          function getObat() {
+            $.ajax({
               url: base_url+'index.php/penjualan/getDataObat/'+id,
               type: "GET",
               dataType: 'text',
               success: function( response ) {
                 var obj = $.parseJSON(response);
-                var hargaTotal = 0;
-                    $('#tabelObat').empty();
+                hargaTotal = 0;
+                $('#tabelObat').empty();
                   $.each(obj, function(index) {
                       $('#tabelObat').after("<tr><td>"+obj[index]['nama_obat']+"</td><td>"+obj[index]['jumlah']+"</td><td align='right'>Rp. "+obj[index]['total']+"</td><tr>");
 
-                    hargaTotal += parseInt(obj[index]['total']);
+                      hargaTotal+=parseInt(obj[index]['total']);
+                      
+                  
                   });
 
-                  $('#total_harga').val(hargaTotal);
               }
             });
+          }
+
+          function getJasa() {
+            $.ajax({
+              url: base_url+'index.php/penjualan/getJasa/'+id,
+              type: "GET",
+              dataType: 'text',
+              success: function( response ) {
+                var obj = $.parseJSON(response);
+                    $('#jasa').empty();
+                    $('#jasa').after("<td colspan='2'>"+obj['nama_jasa']+"</td><td align='right'>Rp. "+obj['harga']+"</td>");
+
+                    hargaTotal+=parseInt(obj['harga']);
+                    $('#total_harga').val(hargaTotal);
+              }
+            });
+          }
             
 
           $('#resep').change(function(){
             var id = $('#resep').val();
-
-            $.ajax({
-                url: base_url+'index.php/penjualan/getDataObat/'+id,
-                type: "GET",
-                dataType: 'text',
-                success: function( response ) {
-                  var obj = $.parseJSON(response);
-                  var hargaTotal = 0;
-                    $('#tabelObat').empty();
-                    $.each(obj, function(index) {
-                      $('#tabelObat').after("<tr><td>"+obj[index]['nama_obat']+"</td><td>"+obj[index]['jumlah']+"</td><td align='right'>Rp. "+obj[index]['total']+"</td><tr>");
-                  
-                      hargaTotal += parseInt(obj[index]['total']);
-                    });
-                    $('#total_harga').val(hargaTotal);
-                  
-                }
-              });
+            //hargaTotal = 0;
+            getObat();
+            
 
           });
+
+          function setTotal(increment) {
+            hargaTotal += increment;
+          }
 
         
           

@@ -52,7 +52,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Data Transaksi Pengeluaran Stok Benih Offline</h1>
+          <h1 class="h3 mb-2 text-gray-800">Data Rekapitulasi Layanan Klinik Dr.Lia</h1>
       
           <?php if ($this->session->flashdata('fd_pesan')) { ?>
 
@@ -94,6 +94,7 @@
                 <br>
                 <br>
                 <button type="submit" class="btn btn-success">Download</button>
+                <a href="<?php echo site_url('rekapitulasi'); ?>" class="btn btn-success">Kembali</a>
                 </form>
               </div>
             </div>

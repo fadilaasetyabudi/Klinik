@@ -79,6 +79,7 @@ class Obat extends CI_Controller {
 			'id_obat' => $v_id_obat
 		);
 			
+			$this->db->where('id_obat', $id_obat);
 		$tambah_data = $this->db->update('tb_obat', $data_tambah);
 
 		if($tambah_data) {

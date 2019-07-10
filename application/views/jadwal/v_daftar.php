@@ -70,7 +70,7 @@ defined('BASEPATH') or exit('No direct script');
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
-                <a href="<?php echo site_url('jadwal/tambah'); ?>" class="btn btn-primary btn-icon-split">
+                <a style="background-color: purple; "href="<?php echo site_url('jadwal/tambah'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
@@ -87,7 +87,6 @@ defined('BASEPATH') or exit('No direct script');
                      <th>Nama Pasien</th>
                      <th>Jadwal Piket</th>
                      <th>Nama Layanan</th>
-                     <th>Status Jadwal</th>
                      <th>Tanggal Daftar</th>                    
                      <th>Aksi</th>
                     </tr>
@@ -98,7 +97,6 @@ defined('BASEPATH') or exit('No direct script');
                      <th>Nama Pasien</th>
                      <th>Jadwal Piket</th>
                      <th>Nama Layanan</th>
-                    <th>Status Jadwal</th>
                      <th>Tanggal Daftar</th>                    
                       <th>Aksi</th>
                     </tr>
@@ -112,7 +110,6 @@ defined('BASEPATH') or exit('No direct script');
         <td><?php echo $data->nama_pasien; ?></td>
         <td><?php echo $data->nama_dokter; echo " Hari "; echo $data->hari; echo " Jam "; echo $data->jam_mulai; echo " - "; echo $data->jam_selesai; ?> </td>
         <td><?php echo $data->nama_layanan; ?></td>
-        <td><?php echo $data->status_jadwal; ?></td>
         <td><?php echo $data->tanggal_daftar; ?></td>
         
         <td>

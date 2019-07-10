@@ -23,9 +23,9 @@ defined('BASEPATH') or exit('No direct script');
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-primary" >
 
-  <div class="container" >
+  <div class="container" style="background-color: green;">
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
@@ -61,9 +61,8 @@ defined('BASEPATH') or exit('No direct script');
                   </button></div>
                    <br><br>
           <center>
-          <a class="btn btn-default" href="<?php echo base_url('index.php/registrasi/create/') ?>"><font color="black">
-              Create new account
-              <i class="glyphicon glyphicon-arrow-right"></i>           
+          <a href="<?php echo base_url('index.php/registrasi/create/') ?>">
+              Create new account           
             </a>
          
             </center>

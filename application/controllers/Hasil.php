@@ -44,7 +44,7 @@ class Hasil extends CI_Controller {
 		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
-		$this->db->where('tb_jadwal.status_jadwal', 'Belum Ditangani');
+		$this->db->where('tb_jadwal.id_jadwal NOT IN (select id_jadwal from tb_hasil)');
 		$data['p_semuajadwal'] = $this->db->get('tb_jadwal')->result();
 		//$this->db->join('tb_dokter', 'tb_dokter.id_dokter=tb_piket.id_dokter');
 		
@@ -87,12 +87,12 @@ class Hasil extends CI_Controller {
 			
 		$tambah_data = $this->db->insert('tb_hasil', $data_tambah);
 
-		$data_update = array(
-			'status_jadwal' => 'Sudah ditangani'
-		);
+		// $data_update = array(
+		// 	'status_jadwal' => 'Sudah ditangani'
+		// );
 
 		$this->db->where('id_jadwal', $v_id_jadwal);
-		$this->db->update('tb_jadwal', $data_update);
+		// $this->db->update('tb_jadwal', $data_update);
 
 
 
