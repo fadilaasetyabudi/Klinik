@@ -73,7 +73,7 @@ defined('BASEPATH') or exit('No direct script');
                       <label>Keterangan Obat</label>
                       <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan obat obat" name="i_keterangan_obat" value="<?php echo $p_obat->keterangan_obat; ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">
+                    <button style="background-color: purple; type="submit" class="btn btn-primary btn-block">
                       Kirim
                  </button>
                   

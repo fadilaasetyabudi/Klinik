@@ -94,6 +94,7 @@ defined('BASEPATH') or exit('No direct script');
                     </div>
                 </div>
                 </div>
+
         <!-- <script type="text/javascript" src="js/filereader.js"></script> -->
         <!-- Using jquery version: -->
             <script type="text/javascript">
@@ -107,4 +108,6 @@ defined('BASEPATH') or exit('No direct script');
         <!-- <script type="text/javascript" src="js/webcodecamjs.js"></script> -->
         <!-- <script type="text/javascript" src="js/main.js"></script> -->
     </body>
+     
 </html>
+

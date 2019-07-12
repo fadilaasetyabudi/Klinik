@@ -56,7 +56,7 @@ defined('BASEPATH') or exit('No direct script');
             <div class="form-group">
               <input type="text" class="form-control" id="exampleInputText" aria-describedby="obatHelp" placeholder="keterangan hasil" name="i_keterangan_hasil" value="<?php echo $p_hasil->keterangan_hasil ?>">
             </div>
-            <button type="submit" class="btn btn-primary btn-user btn-block">
+            <button style="background-color: purple; type="submit" class="btn btn-primary btn-user btn-block">
               Kirim
             </button>
 

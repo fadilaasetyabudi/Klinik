@@ -69,7 +69,7 @@ defined('BASEPATH') or exit('No direct script');
            <?php if ($this->session->userdata('level') == 'dokter') { ?>
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">
-                <a href="<?php echo site_url('resep/tambah'); ?>" class="btn btn-primary btn-icon-split">
+               <a style="background-color: purple; "href="<?php echo site_url('resep/tambah'); ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>

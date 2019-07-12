@@ -66,7 +66,7 @@ defined('BASEPATH') or exit('No direct script');
                     </div>
                     
                     
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button style="background-color: purple; type="submit" class="btn btn-primary btn-user btn-block">
                       Tambah
                     </button>
                     

@@ -50,7 +50,7 @@ defined('BASEPATH') or exit('No direct script');
                       <input type="text" class="form-control form" id="exampleInputText" aria-describedby="layananHelp" placeholder="Nama layanan" name="i_nama_layanan" value="<?php echo $p_layanan->nama_layanan; ?>">
                     </div>
                   
-                    <button type="submit" class="btn btn-primary btn-block">
+                    <button style="background-color: purple; type="submit" class="btn btn-primary btn-block">
                       Kirim
                  </button>
                   

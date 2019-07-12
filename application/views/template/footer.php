@@ -4,7 +4,7 @@
           <div class="copyright text-center my-auto">
             <img src="<?php echo base_url() ?>image/logo2.png">
             <br>
-            <span>Klinik Dr.Lia</span>
+          
           </div>
         </div>
       </footer>

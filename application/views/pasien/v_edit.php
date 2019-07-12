@@ -92,7 +92,7 @@ defined('BASEPATH') or exit('No direct script');
                       <label>Kode Verifikasi</label>
                       <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Kode Verivikasi" name="i_kode_verivikasi" value="<?php echo $p_pasien->kode_verivikasi; ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary block">
+                    <button style="background-color: purple; type="submit" class="btn btn-primary block">
                       Simpan
                  </button>
                   

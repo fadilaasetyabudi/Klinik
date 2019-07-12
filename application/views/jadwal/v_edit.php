@@ -90,7 +90,7 @@ defined('BASEPATH') or exit('No direct script');
 
             <input type="hidden" name="i_id_jadwal" value="<?php echo $p_jadwal->id_jadwal; ?>">
 
-              <button type="submit" class="btn btn-primary btn-user btn-block">
+              <button style="background-color: purple; type="submit" class="btn btn-primary btn-user btn-block">
                 Tambah
               </button>
 

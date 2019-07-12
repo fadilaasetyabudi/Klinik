@@ -23,9 +23,9 @@ defined('BASEPATH') or exit('No direct script');
 
 </head>
 
-<body class="bg-gradient-primary" >
+<!-- <body class="bg-gradient-primary"  > -->
 
-  <div class="container" style="background-color: green;">
+  <div class="bg-container-primary" style="background-color: green;">
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
@@ -39,12 +39,12 @@ defined('BASEPATH') or exit('No direct script');
              <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <img src="<?php echo base_url() ?>image/logo.jpg">
+                    <img src="<?php echo base_url() ?>image/logo1.jpg">
                   </div>
               <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <h3 class="h3 text-gray-900 mb-4">Klinik Kecantikan Dokter Lia</h3>
+                    <h3 style="color: green;  class="h3 text-gray-900 mb-4">Klinik Kecantikan Dokter Lia</h3>
                   </div>
                   <br>
                   <form method="POST" action="<?php echo site_url('login/proses_login');?>" class="user">
@@ -56,12 +56,12 @@ defined('BASEPATH') or exit('No direct script');
                     </div>
                    
                     </div>
-                    <div class="text-center"><button type="submit" class="btn btn-primary">
+                    <div class="text-center"><button  type="submit" class="btn btn-primary">
                       Login
                   </button></div>
                    <br><br>
           <center>
-          <a href="<?php echo base_url('index.php/registrasi/create/') ?>">
+          <a  href="<?php echo base_url('index.php/registrasi/create/') ?>">
               Create new account           
             </a>
          

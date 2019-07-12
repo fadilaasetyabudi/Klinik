@@ -96,7 +96,7 @@ defined('BASEPATH') or exit('No direct script');
                       <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_kode_verivikasi">
                     </div>
                    
-                    <button type="submit" class="btn btn-primary btn-block">
+                    <button style="background-color: purple; type="submit" class="btn btn-primary btn-block">
                       Tambah
                  </button>
                   

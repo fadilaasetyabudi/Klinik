@@ -67,7 +67,7 @@ defined('BASEPATH') or exit('No direct script');
                       <label>Harga</label>
                       <input type="text" class="form-control " id="exampleInputText" aria-describedby="layananHelp" placeholder="Harga " name="i_harga" required="required">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">
+                    <button style="background-color: purple; type="submit" class="btn btn-primary btn-block">
                       Tambah
                  </button>
                   
