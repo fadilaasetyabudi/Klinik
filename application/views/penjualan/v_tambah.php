@@ -76,7 +76,7 @@ defined('BASEPATH') or exit('No direct script');
                     <div class="form-group">
                       <input type="text" class="form-control" id="total_harga" aria-describedby="emailHelp" placeholder="Total Harga" name="i_total_harga" readonly="readonly">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">
+                    <button style="background-color: purple; type="submit" class="btn btn-primary btn-block">
                       Tambah
                  </button>
                   

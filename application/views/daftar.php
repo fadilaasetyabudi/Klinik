@@ -20,9 +20,9 @@
 
 </head>
 
-<body class="bg-gradient-primary" >
+<!-- <body class="bg-gradient-primary" > -->
 
-  <div class="container" align="center" style="background-color: green;">
+  <div class="bg-container-primary" align="center" style="background-color: green;">
     <div class="col-lg-3"></div>
     <div class="col-lg-7">
 

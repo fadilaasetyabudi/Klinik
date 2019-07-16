@@ -93,8 +93,8 @@
               
                 <br>
                 <br>
-                <button type="submit" class="btn btn-success">Download</button>
-                <a href="<?php echo site_url('rekapitulasi'); ?>" class="btn btn-success">Kembali</a>
+                <button style="background-color: purple; type="submit" class="btn btn-success">Download</button>
+                <a href="<?php echo site_url('rekapitulasi'); ?>"  class="btn btn-success" >Kembali</a>
                 </form>
               </div>
             </div>

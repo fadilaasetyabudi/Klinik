@@ -87,7 +87,7 @@ defined('BASEPATH') or exit('No direct script');
                      <th>Nama Pasien</th>
                      <th>Jadwal Piket</th>
                      <th>Nama Layanan</th>
-                     <th>Tanggal Daftar</th>                    
+                     <th>Tanggal Daftar</th>                   
                      <th>Aksi</th>
                     </tr>
                   </thead>
