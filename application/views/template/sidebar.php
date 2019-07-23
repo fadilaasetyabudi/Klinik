@@ -63,18 +63,18 @@
         <hr class="sidebar-divider my-0">
          <li class="nav-item <?php if($this->uri->segment(1) == 'pasien') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('pasien'); ?>">
-            <span>Pasien</span></a>
+            <span>Data Pasien</span></a>
         </li>
         
         <hr class="sidebar-divider my-0">
         <li class="nav-item <?php if($this->uri->segment(1) == 'hasil') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('hasil'); ?>">
-            <span>Hasil</span></a>
+            <span>Hasil Pemeriksaan</span></a>
         </li>
         <hr class="sidebar-divider my-0">
         <li class="nav-item <?php if($this->uri->segment(1) == 'resep') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('resep'); ?>">
-            <span>Resep</span></a>
+            <span>Data Resep Pasien</span></a>
         </li>
         <hr class="sidebar-divider my-0">
         <li class="nav-item <?php if($this->uri->segment(1) == 'layanan') { echo "active"; } ?>">
@@ -82,20 +82,22 @@
             <span>Fasilittas</span></a>
         </li>
         <hr class="sidebar-divider my-0">
-        <li class="nav-item <?php if($this->uri->segment(1) == 'obat') { echo "active"; } ?>">
-          <a class="nav-link" href="<?php echo site_url('obat'); ?>">
-            <span>Data Obat</span></a>
-        </li>
-     <hr class="sidebar-divider my-0">
       <li class="nav-item <?php if($this->uri->segment(1) == 'jasa_layanan') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('jasa_layanan'); ?>">
             <span>Jasa Layanan</span></a>
         </li>
-         <hr class="sidebar-divider my-0">
+          <hr class="sidebar-divider my-0">
       <li class="nav-item <?php if($this->uri->segment(1) == 'jadwal') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('jadwal'); ?>">
             <span>Layanan Pasien</span></a>
         </li>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item <?php if($this->uri->segment(1) == 'obat') { echo "active"; } ?>">
+          <a class="nav-link" href="<?php echo site_url('obat'); ?>">
+            <span>Data Obat</span></a>
+        </li>
+     
+       
         <hr class="sidebar-divider my-0">
           <li class="nav-item <?php if($this->uri->segment(1) == 'penjualan') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('penjualan'); ?>">
@@ -115,20 +117,16 @@
             <!-- <i class="fas fa-fw fa-tag"></i> -->
             <span>Data Dokter</span></a>
         </li>
-        <hr class="sidebar-divider my-0">
-        <li class="nav-item <?php if($this->uri->segment(1) == 'jadwal') { echo "active"; } ?>">
-          <a class="nav-link" href="<?php echo site_url('jadwal'); ?>">
-            <span>Layanan Pasien</span></a>
-        </li>
+       <!-- -->
         <hr class="sidebar-divider my-0">
         <li class="nav-item <?php if($this->uri->segment(1) == 'hasil') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('hasil'); ?>">
-            <span>Hasil</span></a>
+            <span>Hasil Pemeriksaan</span></a>
         </li>
         <hr class="sidebar-divider my-0">
         <li class="nav-item <?php if($this->uri->segment(1) == 'resep') { echo "active"; } ?>">
           <a class="nav-link" href="<?php echo site_url('resep'); ?>">
-            <span>Resep</span></a>
+            <span>Data Resep Pasien</span></a>
         </li>
       <?php } ?>
 

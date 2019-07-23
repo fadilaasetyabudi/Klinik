@@ -87,6 +87,8 @@ class Jasa_layanan extends CI_Controller {
 			'id_layanan' => $id_layanan
 			);
 
+		
+
 		$tambah_data = $this->db->update('tb_jasa_layanan', $data_tambah, $data_where);
 
 		if($tambah_data) {

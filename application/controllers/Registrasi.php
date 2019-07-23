@@ -53,8 +53,8 @@ class Registrasi extends CI_Controller{
 				'kontak_pasien' => $this->input->post('kontak_pasien'),
 				'alamat_pasien' => $this->input->post('alamat_pasien'),
 				'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-				'golongan_darah' => 	$this->input->post('golongan_darah'),
-				'password_pasien' => $this->input->post('password_pasien'),
+				'golongan_darah' => $this->input->post('golongan_darah'),
+				'password_pasien' => md5($this->input->post('password_pasien')),
 				'kode_verivikasi' => $this->input->post('kode_verivikasi'),
 				'qr_code' => $image_name
 			);

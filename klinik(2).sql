@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2019 at 06:44 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Jul 23, 2019 at 07:56 AM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -67,23 +65,31 @@ INSERT INTO `tb_detail_resep` (`id_detail_resep`, `id_resep`, `id_obat`, `jumlah
 (1, 3, 19, 2, 10000),
 (2, 4, 19, 2, 10000),
 (3, 3, 19, 3, 15000),
-(4, 1, 17, 2, 40000),
-(5, 1, 19, 1, 5000),
-(6, 2, 19, 1, 5000),
 (7, 3, 18, 2, 10000),
 (8, 3, 17, 1, 20000),
 (9, 4, 17, 2, 40000),
 (10, 4, 20, 1, 20000),
 (11, 5, 18, 2, 10000),
 (12, 5, 18, 1, 5000),
-(13, 6, 17, 1, 20000),
-(14, 6, 18, 2, 10000),
 (15, 7, 17, 3, 60000),
 (16, 7, 18, 2, 10000),
-(17, 8, 19, 2, 10000),
-(18, 8, 20, 1, 20000),
 (19, 9, 19, 1, 5000),
-(20, 10, 20, 1, 20000);
+(20, 10, 20, 1, 20000),
+(21, 12, 17, 2, 40000),
+(22, 12, 18, 2, 10000),
+(27, 6, 17, 3, 60000),
+(28, 6, 18, 2, 10000),
+(29, 8, 19, 2, 10000),
+(30, 8, 20, 1, 20000),
+(31, 13, 18, 2, 30000),
+(32, 14, 21, 1, 20000),
+(33, 15, 23, 1, 15000),
+(34, 16, 23, 1, 15000),
+(35, 1, 87, 1, 10000),
+(36, 2, 33, 1, 55000),
+(37, 2, 32, 1, 50000),
+(38, 3, 51, 2, 170000),
+(39, 4, 25, 2, 200000);
 
 -- --------------------------------------------------------
 
@@ -105,9 +111,7 @@ CREATE TABLE `tb_dokter` (
 
 INSERT INTO `tb_dokter` (`id_dokter`, `nama_dokter`, `email_dokter`, `password_dokter`, `current_password`) VALUES
 (3, 'Dr.Lia', 'Liadamayati123@gmail.com', '7221a94c235586d29ccf3ad9e12bf7ad', 'drlia123'),
-(5, 'rini', 'rini12@gmail.com', 'a38307cc9b86899868c280ad4e043086', 'rini12'),
-(6, 'della', 'della@gmail.com', '66be74fbb3086ea7b774f393cd264671', 'della123'),
-(7, 'Dr.Rahmat', 'drrahmat@gmail.com', 'af2a4c9d4c4956ec9d6ba62213eed568', 'rahmat');
+(7, 'Dr.Hendra', 'drhendra@gmail.com', 'a04cca766a885687e33bc6b114230ee9', 'hendra');
 
 -- --------------------------------------------------------
 
@@ -127,14 +131,11 @@ CREATE TABLE `tb_hasil` (
 --
 
 INSERT INTO `tb_hasil` (`id_hasil`, `id_jadwal`, `id_jasa`, `keterangan_hasil`) VALUES
-(1, 4, 1, 'perawatan kulit wajah'),
-(2, 7, 1, ''),
-(3, 8, 2, ''),
-(4, 8, 1, 'Asam Urat'),
-(5, 5, 3, 'perawatan kulit wajah'),
-(6, 7, 4, 'perawatan kulit wajah'),
-(7, 11, 2, 'sakit perut'),
-(8, 9, 4, 'perawatan kulit wajah');
+(4, 4, 1, 'kkk'),
+(5, 7, 2, 'hhjk'),
+(6, 8, 1, ''),
+(7, 9, 1, 'lallalaal'),
+(8, 12, 1, 'cek up 3 hari sekali');
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,7 @@ CREATE TABLE `tb_jadwal` (
   `id_pasien` bigint(20) NOT NULL,
   `id_piket` bigint(20) NOT NULL,
   `id_layanan` bigint(20) NOT NULL,
-  `status_jadwal` enum('Belum Ditangani','Sudah Ditangani') NOT NULL,
+  `id_jasa` bigint(20) NOT NULL,
   `tanggal_daftar` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -155,18 +156,13 @@ CREATE TABLE `tb_jadwal` (
 -- Dumping data for table `tb_jadwal`
 --
 
-INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pasien`, `id_piket`, `id_layanan`, `status_jadwal`, `tanggal_daftar`) VALUES
-(4, 5, 1, 2, 'Sudah Ditangani', '0000-00-00'),
-(5, 6, 7, 2, 'Sudah Ditangani', '0000-00-00'),
-(6, 7, 1, 2, 'Sudah Ditangani', '2019-05-29'),
-(7, 17, 2, 2, 'Sudah Ditangani', '0000-00-00'),
-(8, 14, 1, 1, 'Sudah Ditangani', '0000-00-00'),
-(9, 6, 7, 2, 'Sudah Ditangani', '2019-06-13'),
-(10, 17, 7, 2, 'Belum Ditangani', '2019-06-13'),
-(11, 10, 7, 1, 'Sudah Ditangani', '2019-06-13'),
-(12, 17, 1, 1, 'Belum Ditangani', '2019-06-13'),
-(13, 6, 1, 2, 'Belum Ditangani', '0000-00-00'),
-(14, 17, 1, 2, 'Belum Ditangani', '2019-06-18');
+INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pasien`, `id_piket`, `id_layanan`, `id_jasa`, `tanggal_daftar`) VALUES
+(4, 19, 11, 1, 2, '2019-07-01'),
+(7, 19, 11, 1, 1, '2019-07-17'),
+(8, 20, 11, 1, 2, '2019-07-17'),
+(9, 24, 11, 1, 1, '2019-07-17'),
+(11, 19, 11, 1, 1, '2019-07-18'),
+(12, 24, 11, 1, 1, '2019-07-18');
 
 -- --------------------------------------------------------
 
@@ -194,7 +190,8 @@ INSERT INTO `tb_jasa_layanan` (`id_layanan`, `nama_jasa`, `harga`, `kategori`) V
 (6, 'HBM', 0, 1),
 (7, 'Injeksi', 30000, 1),
 (8, 'Injeksi Benodon', 30000, 1),
-(9, 'Injeksi KB', 30000, 1);
+(9, 'Injeksi KB', 30000, 1),
+(10, 'Test', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -244,9 +241,7 @@ INSERT INTO `tb_login` (`id_login`, `username`, `password`) VALUES
 CREATE TABLE `tb_obat` (
   `id_obat` bigint(20) NOT NULL,
   `nama_obat` varchar(30) NOT NULL,
-  `bentuk` enum('Botol','Strip','Tube') NOT NULL,
-  `ukuran` int(11) NOT NULL,
-  `satuan` enum('ML','Tablet','Kapsul','Kaplet') NOT NULL,
+  `kategori` enum('Obat','Krim') NOT NULL,
   `harga_obat` double NOT NULL,
   `keterangan_obat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -255,11 +250,81 @@ CREATE TABLE `tb_obat` (
 -- Dumping data for table `tb_obat`
 --
 
-INSERT INTO `tb_obat` (`id_obat`, `nama_obat`, `bentuk`, `ukuran`, `satuan`, `harga_obat`, `keterangan_obat`) VALUES
-(17, 'fatigon', 'Strip', 10, 'Kapsul', 20000, 'obat'),
-(18, 'betadine', 'Botol', 100, 'ML', 5000, 'obat'),
-(19, 'cream malem', 'Tube', 10, 'ML', 5000, 'vitamin'),
-(20, 'Amoxilin1', 'Strip', 10, 'Kapsul', 20000, 'antibiotik');
+INSERT INTO `tb_obat` (`id_obat`, `nama_obat`, `kategori`, `harga_obat`, `keterangan_obat`) VALUES
+(24, 'AZ', 'Krim', 65000, 'krim'),
+(25, 'BB Cream Solasense', 'Krim', 100000, 'krim'),
+(26, 'Bedak Normal Skin', 'Krim', 45000, ''),
+(27, 'Bedak Snowhite Oily', 'Krim', 45000, ''),
+(28, 'Body Wash Soap', 'Krim', 65000, ''),
+(29, 'CC Pink', 'Krim', 95000, ''),
+(30, 'CC Putih', 'Krim', 95000, ''),
+(31, 'CC Yellow', 'Krim', 95000, ''),
+(32, 'Cream Bibir Kecil', 'Krim', 50000, ''),
+(33, 'Cream Malam / M3', 'Krim', 55000, ''),
+(34, 'Cream Malam / M3 AHA', 'Krim', 65000, ''),
+(35, 'Cream Malam / M3 Hyco', 'Krim', 65000, ''),
+(36, 'Cream Malam / M4', 'Krim', 60000, ''),
+(37, 'Cream Malam / M5', 'Krim', 65000, ''),
+(38, 'Cream Malam / M5LB', 'Krim', 70000, ''),
+(39, 'Cream Peeling Besar', 'Krim', 90000, ''),
+(40, 'DBI Cleanser Peeling', 'Krim', 100000, ''),
+(41, 'DBI Tea Tree Oil', 'Krim', 35000, ''),
+(42, 'DBI Wash Oily', 'Krim', 35000, ''),
+(43, 'DBI White Series', 'Krim', 35000, ''),
+(44, 'Facial Wash Acne', 'Krim', 45000, ''),
+(45, 'Facial Wash Oil', 'Krim', 50000, ''),
+(46, 'Facial Wash Whitening', 'Krim', 45000, ''),
+(47, 'Handbody Kering Keriput', 'Krim', 45000, ''),
+(48, 'Handbody Kering Keriput', 'Krim', 85000, ''),
+(49, 'Handbody Malam', 'Krim', 145000, ''),
+(50, 'Handbody Pagi', 'Krim', 85000, ''),
+(51, 'IMM (Facial Scrub)', 'Krim', 85000, ''),
+(52, 'Infused Whitening', 'Krim', 500000, ''),
+(53, 'Krim Centa', 'Krim', 60000, ''),
+(54, 'Krim Lipatan', 'Krim', 75000, ''),
+(55, 'Krim Malam Coklat (M4/M5)', 'Krim', 55000, ''),
+(56, 'Krim Mata', 'Krim', 60000, ''),
+(57, 'Krim Mata Panda', 'Krim', 100000, ''),
+(58, 'Krim Nigra', 'Krim', 130000, ''),
+(59, 'Krim Super Glowing', 'Krim', 95000, ''),
+(60, 'Lip Balm', 'Krim', 45000, ''),
+(61, 'M5E', 'Krim', 40000, ''),
+(62, 'Alofar 100 mg', 'Obat', 10000, ''),
+(63, 'Alofar 300 mg', 'Obat', 10000, ''),
+(65, 'Antidia', 'Obat', 10000, ''),
+(66, 'Beneuron', 'Obat', 10000, ''),
+(67, 'Benostan', 'Obat', 10000, ''),
+(68, 'Biogastron', 'Obat', 10000, ''),
+(69, 'Carbidu 0,5', 'Obat', 10000, ''),
+(70, 'Carbidu 0,75', 'Obat', 10000, ''),
+(71, 'Chromazol', 'Obat', 10000, ''),
+(72, 'Dexclosan', 'Obat', 10000, ''),
+(73, 'Dexycol', 'Obat', 0, ''),
+(74, 'Dohixat', 'Obat', 10000, ''),
+(75, 'Domperidon', 'Obat', 10000, ''),
+(76, 'Elsiron', 'Obat', 10000, ''),
+(77, 'Eryra Forte', 'Obat', 10000, ''),
+(78, 'Fargoxin 0,25', 'Obat', 10000, ''),
+(79, 'Farsorbid 5', 'Obat', 10000, ''),
+(80, 'Fenaren', 'Obat', 10000, ''),
+(81, 'Fitbon', 'Obat', 10000, ''),
+(82, 'Flacoid', 'Obat', 15000, ''),
+(83, 'Floxigra', 'Obat', 10000, ''),
+(84, 'Forten 25', 'Obat', 0, ''),
+(85, 'Forten 50', 'Obat', 0, ''),
+(86, 'Furosemide', 'Obat', 10000, ''),
+(87, 'Gored', 'Obat', 10000, ''),
+(88, 'Grafachlor', 'Obat', 10000, ''),
+(89, 'Grafadon', 'Krim', 10000, ''),
+(90, 'Grafalin 4', 'Krim', 10000, ''),
+(91, 'Grantusif', 'Krim', 10000, ''),
+(92, 'Graxine', 'Krim', 10000, ''),
+(93, 'Histigo', 'Krim', 10000, ''),
+(94, 'Hufadine', 'Krim', 0, ''),
+(95, 'Hufagripp Forte', 'Krim', 10000, ''),
+(96, 'Hufaxicam', 'Krim', 10000, ''),
+(97, 'Hufralgin', 'Krim', 10000, ''),
+(98, 'Incitin', 'Krim', 10, '');
 
 -- --------------------------------------------------------
 
@@ -286,19 +351,11 @@ CREATE TABLE `tb_pasien` (
 --
 
 INSERT INTO `tb_pasien` (`id_pasien`, `nama_pasien`, `jenis_kelamin`, `email_pasien`, `kontak_pasien`, `alamat_pasien`, `tanggal_lahir`, `golongan_darah`, `password_pasien`, `kode_verivikasi`, `qr_code`) VALUES
-(5, 'rini12', 'P', 'anggraini@gmail.com', '01823981238', 'Sukun', '1998-12-12', 'A', '', 'ya123', '5.png'),
-(6, 'della', 'L', 'della@gmail.com', '09876543', 'Sukun', '2019-05-05', 'AB', '', '123ab', '6.png'),
-(7, 'amel', 'L', 'amel@gmail.com', '081315777', 'JOMBANG', '2019-06-05', 'A', '', 'amel12', '7.png'),
-(8, 'rini', 'L', 'anggraini@gmail.com', '01823981238', 'Yaaaa', '1996-05-13', 'A', '', 'amel12', '8.png'),
-(9, 'alya', 'L', 'alya@gmail.com', '098765432', 'nsbcljwlic', '2019-03-08', 'AB', '', 'ya123', '9.png'),
-(10, 'Anggraini kushayati Harjanto', 'P', 'anggraini@gmail.com', '01823981238', 'Sukun', '2000-06-14', 'A', '821cc4f42a28a476b456b0869d1429eb', 'ya123', '10.png'),
-(13, 'ahayy', 'L', 'ahayy@gmail.com', '082193123', 'Jl. pondok Bestari Indah', '2019-05-27', 'O', 'ahayy', 'ahayy', '13.png'),
-(14, 'fauzi', 'L', 'fauzi@gmail.com', '0987654321', 'Sidoarjo', '1997-06-20', 'A', '', 'fauzi1', '14.png'),
-(15, 'safira', 'P', 'safira@gmail.com', '3456789898', 'Lamongan', '1996-09-07', 'AB', '', 'safira', '15.png'),
-(16, 'naili', 'P', 'naili@gmail.com', '56789876543', 'Kepanjen', '1998-07-05', 'B', '', 'naili1', '16.png'),
-(17, 'dini', 'P', 'dini@gmail.com', '987654323', 'Turen', '1999-07-31', 'A', 'ed0c216375d7785b0d83d9b21aa5aa3b', 'dini12', '17.png'),
-(18, 'verlia', 'P', 'verlia@gmail.com', '654234567', 'Malang', '1999-07-05', 'AB', '', 'verlia', '18.png'),
-(19, '', 'L', '', '', '', '0000-00-00', '', '', '', '19.png');
+(19, 'A. Dalila', 'P', 'dalila@gmail.com', '082244731104', 'jl lowokdoro II/5', '0000-00-00', 'A', 'ab44b1d7834a54e1bfb9f20789dbe4d0', 'dalila', '1.png'),
+(20, 'AMALIA', 'P', 'amalia@gmail.com', '08994546630', 'JL. MASJID BARAT NO. 181 SINGOSARI', '0000-00-00', 'A', '4e5e038025fc95fc75128c172c7149a7', 'amalia', '20.png'),
+(21, 'Anggraini kushayati Harjanto', 'P', 'anggraini@gmail.com', '081230947977', 'malang', '1998-12-12', 'A', '07a7af79e06caf7153289574a97037ff', 'rini12', '21.png'),
+(24, 'fadila setya', 'P', 'fadilsetya@gmail.com', '0812334462349', 'Malang', '2019-07-17', 'B', '56807b53a3cce60af7846ed7e7955053', 'fadila', '22.png'),
+(25, 'Nabil', 'L', 'nabil@gmail.com', '0812334462349', 'Malang', '2019-07-18', 'B', 'nabil', 'nabil', '25.png');
 
 -- --------------------------------------------------------
 
@@ -312,17 +369,6 @@ CREATE TABLE `tb_penjualan` (
   `total_harga` int(11) NOT NULL,
   `id_resep` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_penjualan`
---
-
-INSERT INTO `tb_penjualan` (`id_penjualan`, `tanggal_penjualan`, `total_harga`, `id_resep`) VALUES
-(1, '2019-05-28', 45000, 1),
-(2, '2019-06-13', 30000, 8),
-(3, '2019-06-13', 30000, 6),
-(4, '2019-06-13', 5000, 9),
-(5, '2019-06-13', 20000, 10);
 
 -- --------------------------------------------------------
 
@@ -343,13 +389,7 @@ CREATE TABLE `tb_piket` (
 --
 
 INSERT INTO `tb_piket` (`id_piket`, `id_dokter`, `hari`, `jam_mulai`, `jam_selesai`) VALUES
-(1, 3, 'selasa', '00:00:00', '08:30:00'),
-(2, 3, 'senin', '00:00:00', '00:00:33'),
-(5, 5, 'senin', '08:00:00', '09:00:00'),
-(6, 5, 'selasa', '00:00:08', '00:00:09'),
-(7, 3, 'senin', '15:11:00', '12:31:00'),
-(8, 3, 'senin', '00:00:00', '01:00:00'),
-(9, 3, 'kamis', '08:00:00', '10:00:00');
+(11, 3, 'senin', '08:00:00', '09:00:00');
 
 -- --------------------------------------------------------
 
@@ -367,11 +407,7 @@ CREATE TABLE `tb_resep` (
 --
 
 INSERT INTO `tb_resep` (`id_resep`, `id_hasil`) VALUES
-(1, 1),
-(6, 3),
-(8, 5),
-(9, 6),
-(10, 7);
+(4, 7);
 
 --
 -- Indexes for dumped tables
@@ -410,7 +446,8 @@ ALTER TABLE `tb_jadwal`
   ADD PRIMARY KEY (`id_jadwal`),
   ADD KEY `id_pasien` (`id_pasien`),
   ADD KEY `id_piket` (`id_piket`),
-  ADD KEY `id_layanan` (`id_layanan`);
+  ADD KEY `id_layanan` (`id_layanan`),
+  ADD KEY `id_jasa` (`id_jasa`);
 
 --
 -- Indexes for table `tb_jasa_layanan`
@@ -473,79 +510,66 @@ ALTER TABLE `tb_resep`
 --
 ALTER TABLE `tb_admin`
   MODIFY `id_admin` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `tb_detail_resep`
 --
 ALTER TABLE `tb_detail_resep`
-  MODIFY `id_detail_resep` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
+  MODIFY `id_detail_resep` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `tb_dokter`
 --
 ALTER TABLE `tb_dokter`
   MODIFY `id_dokter` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `tb_hasil`
 --
 ALTER TABLE `tb_hasil`
   MODIFY `id_hasil` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+  MODIFY `id_jadwal` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tb_jasa_layanan`
 --
 ALTER TABLE `tb_jasa_layanan`
-  MODIFY `id_layanan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `id_layanan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tb_layanan`
 --
 ALTER TABLE `tb_layanan`
   MODIFY `id_layanan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `tb_login`
 --
 ALTER TABLE `tb_login`
   MODIFY `id_login` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `tb_obat`
 --
 ALTER TABLE `tb_obat`
-  MODIFY `id_obat` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
+  MODIFY `id_obat` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 --
 -- AUTO_INCREMENT for table `tb_pasien`
 --
 ALTER TABLE `tb_pasien`
-  MODIFY `id_pasien` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
+  MODIFY `id_pasien` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `tb_penjualan`
 --
 ALTER TABLE `tb_penjualan`
-  MODIFY `id_penjualan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id_penjualan` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tb_piket`
 --
 ALTER TABLE `tb_piket`
-  MODIFY `id_piket` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `id_piket` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tb_resep`
 --
 ALTER TABLE `tb_resep`
-  MODIFY `id_resep` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `id_resep` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --
@@ -563,7 +587,8 @@ ALTER TABLE `tb_hasil`
 ALTER TABLE `tb_jadwal`
   ADD CONSTRAINT `tb_jadwal_ibfk_1` FOREIGN KEY (`id_pasien`) REFERENCES `tb_pasien` (`id_pasien`),
   ADD CONSTRAINT `tb_jadwal_ibfk_2` FOREIGN KEY (`id_piket`) REFERENCES `tb_piket` (`id_piket`),
-  ADD CONSTRAINT `tb_jadwal_ibfk_3` FOREIGN KEY (`id_layanan`) REFERENCES `tb_layanan` (`id_layanan`) ON DELETE CASCADE;
+  ADD CONSTRAINT `tb_jadwal_ibfk_3` FOREIGN KEY (`id_layanan`) REFERENCES `tb_layanan` (`id_layanan`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tb_jadwal_ibfk_4` FOREIGN KEY (`id_jasa`) REFERENCES `tb_layanan` (`id_layanan`);
 
 --
 -- Constraints for table `tb_jasa_layanan`
@@ -588,7 +613,6 @@ ALTER TABLE `tb_piket`
 --
 ALTER TABLE `tb_resep`
   ADD CONSTRAINT `tb_resep_ibfk_1` FOREIGN KEY (`id_hasil`) REFERENCES `tb_hasil` (`id_hasil`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

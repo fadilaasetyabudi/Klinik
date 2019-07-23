@@ -75,7 +75,17 @@ defined('BASEPATH') or exit('No direct script');
                 <?php } ?>
               </select>
             </div>
-
+             <div class="form-group">                    
+              <label for="i id pasien">Jasa Layanan</label>
+              <select name="i_id_jasa" class="form-control">
+                <?php foreach ($p_semuajasa as $key) { ?>
+                <option value="<?php echo $key->id_layanan; ?>"><?php echo $key->nama_jasa; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+      
+              </select>
+            </div>
             <div class="form-group">
             <label for="i id pasien">Tanggal Daftar</label>
               <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Daftar " name="i_tanggal_daftar" value="<?php echo date('Y-m-d') ?>" readonly>

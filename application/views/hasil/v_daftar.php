@@ -86,8 +86,9 @@ defined('BASEPATH') or exit('No direct script');
                   <tr>
                    <th>#</th>
                    <th>id hasil</th>
+                   <th>Tanggal Pemeriksaan</th>
                    <th>Jadwal</th>
-                   <th>Layanan Jasa</th>
+                
                    <th>Keterangan hasil</th>
                    <?php if ($this->session->userdata('level') == 'dokter') { ?>
                    <th>Aksi</th>
@@ -98,8 +99,9 @@ defined('BASEPATH') or exit('No direct script');
                 <tr>
                   <th>#</th>
                   <th>id hasil</th>
+                  <th>Tanggal Pemeriksaan</th>
                   <th>Jadwal</th>
-                  <th>Layanan Jasa</th>
+                 
                   <th>Keterangan hasil</th>
                   <?php if ($this->session->userdata('level') == 'dokter') { ?>
                   <th>Aksi</th>
@@ -112,9 +114,11 @@ defined('BASEPATH') or exit('No direct script');
                <?php foreach ($p_semuahasil as $data) { ?>
                <tr>
                 <td><?php echo $no++; ?></td>
-                <td><?php echo $data->id_hasil; ?></td>
-                <td><?php echo $data->nama_pasien." | ".$data->nama_dokter." | ".$data->hari." - ".$data->jam_mulai." - ".$data->jam_selesai." | ".$data->nama_layanan; ?></td>
-                <td><?php echo $data->nama_jasa; ?></td>
+                 <td><?php echo $data->id_hasil; ?></td>
+                   <td><?php echo $data->tanggal_daftar; ?></td>
+               
+                <td><?php echo $data->nama_pasien." | ".$data->nama_dokter." | ".$data->hari." - ".$data->jam_mulai." - ".$data->jam_selesai." | ".$data->nama_layanan." | ".$data->nama_jasa; ?></td>
+                
                 <td><?php echo $data->keterangan_hasil; ?></td>
               <?php if ($this->session->userdata('level') == 'dokter') { ?>
               <td>

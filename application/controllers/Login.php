@@ -68,7 +68,7 @@ class Login extends CI_Controller {
 				redirect("Profil");
 		
 			
-			}else if (count($cek_login2) == 0) {
+			} else if (count($cek_login2) == 0) {
 
 				$data_where = array(
 					'email_pasien' => $v_email,
@@ -86,6 +86,11 @@ class Login extends CI_Controller {
 					redirect("Profil_pasien");
 		
 			
+				} else {
+					echo $v_email;
+					echo "//";
+					echo md5($v_password);
+					var_dump($cek_login3);
 				}
 			}
 		}

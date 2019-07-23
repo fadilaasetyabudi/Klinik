@@ -16,7 +16,7 @@ defined('BASEPATH') or exit('No direct script');
 				<th>ID Pasien<th> 
 				<th>ID Piket<th>
 				<th>ID Layanan<th>
-				<th>Status Jadwal</th>
+				<th>ID Jasa Layanan</th>
 				<th>Tanggal Daftar</th>				
 
 				<th>Aksi</th>
@@ -31,7 +31,8 @@ defined('BASEPATH') or exit('No direct script');
 				<td><?php echo $data->id_pasien; ?></td>
 				<td><?php echo $data->id_piket; ?></td>
 				<td><?php echo $data->id_layanan; ?></td>
-				<td><?php echo $data->status_jadwal; ?></td>
+				<td><?php echo $data->id_jasa; ?></td>
+				<!--  -->
 				<td><?php echo $data->tanggal_daftar; ?></td>
 				
 				<td>

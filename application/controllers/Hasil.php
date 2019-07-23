@@ -44,6 +44,7 @@ class Hasil extends CI_Controller {
 		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
+		$this->db->join('tb_jasa_layanan', 'tb_jasa_layanan.id_layanan=tb_jadwal.id_jasa');
 		$this->db->where('tb_jadwal.id_jadwal NOT IN (select id_jadwal from tb_hasil)');
 		$data['p_semuajadwal'] = $this->db->get('tb_jadwal')->result();
 		//$this->db->join('tb_dokter', 'tb_dokter.id_dokter=tb_piket.id_dokter');

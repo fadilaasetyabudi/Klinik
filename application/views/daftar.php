@@ -20,9 +20,7 @@
 
 </head>
 
-<body class="bg-gradient-primary" >
-
-  <div class="container" align="center" style="background-color: green;">
+  <div class="bg-container-primary" align="center" style="background-color: green;">
     <div class="col-lg-3"></div>
     <div class="col-lg-7">
 
@@ -54,9 +52,9 @@
                   <label>Email</label>
                   <input type="text" class="form-control form-control-user" id="email_pasien"  name="email_pasien" placeholder=" " required="required">
                 </div>
-                <div class="form-group" align="left">
+               <div class="form-group" align="left">
                   <label>No.Hp</label>
-                  <input type="text" class="form-control form-control-user" id="kontak_pasien"  name=" " placeholder=" " required="required">
+                  <input type="text" class="form-control form-control-user" id="kontak_pasien"  name="kontak_pasien" placeholder=" " required="required">
                 </div>
                 <div class="form-group" align="left">
                   <label>Alamat</label>
@@ -92,7 +90,7 @@
               <br>
 
               <a href="<?php echo base_url('index.php/login') ?>">
-              Sudah memiliki aku? Kembali ke halaman Login!         
+              Sudah memiliki akun? Kembali ke halaman Login!         
               </a>
           
                

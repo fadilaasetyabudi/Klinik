@@ -14,6 +14,7 @@ defined('BASEPATH') or exit('No direct script');
 			<tr>
 				<th>#</th>
                      <th>id hasil</th>
+                     <th>Tanggal</th>>
                      <th>id jadwal</th>
                      <th>Keterangan hasil</th>
                      <th>Aksi</th>
@@ -25,6 +26,7 @@ defined('BASEPATH') or exit('No direct script');
 			<?php foreach ($p_semuahasil as $data) { ?>
 			<tr>
 				<td><?php echo $no++; ?></td>
+				<td><?php echo $data->tanggal_daftar; ?></td>
 				<td><?php echo $data->id_jadwal; ?></td>
 				<td><?php echo $data->keterangan_hasil; ?></td>
 				

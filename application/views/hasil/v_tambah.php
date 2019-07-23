@@ -60,7 +60,7 @@ defined('BASEPATH') or exit('No direct script');
                       <label for="i id pasien">ID Jadwal</label>
                       <select name="i_id_jadwal" class="form-control" id="jadwal">
                         <?php $no = 1; foreach ($p_semuajadwal as $key) { ?>
-                          <option value="<?php echo $key->id_jadwal; ?>"><?php echo $no; echo " - "; echo $key->nama_pasien; echo " "; ?> | <?php echo $key->nama_dokter; ?> | Hari <?php echo $key->hari; ?> | Jam <?php echo $key->jam_mulai ?> | <?php echo $key->nama_layanan; ?></option>
+                          <option value="<?php echo $key->id_jadwal; ?>"><?php echo $no; echo " - "; echo $key->nama_pasien; echo " "; ?> | <?php echo $key->nama_dokter; ?> | Hari <?php echo $key->hari; ?> | Jam <?php echo $key->jam_mulai ?> | <?php echo $key->nama_layanan ?> | <?php echo $key->nama_jasa; ?></option>
                           <?php $no++;} ?>
                         </select>
                       </div>
