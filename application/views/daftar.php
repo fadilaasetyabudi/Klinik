@@ -19,7 +19,7 @@
   <link href="<?php echo base_url('tema/admin/css/sb-admin-2.min.css') ?>" rel="stylesheet">
 
 </head>
-
+<!-- <body class="bg-gradient-primary" > -->
   <div class="bg-container-primary" align="center" style="background-color: green;">
     <div class="col-lg-3"></div>
     <div class="col-lg-7">
@@ -74,6 +74,7 @@
                          <option value="O">O</option>
                       </select>
                       <br>
+                    </div>
                 <div class="form-group row" align="left">
                   <div class="col-sm-6">
                     <label>Kata Sandi</label>
