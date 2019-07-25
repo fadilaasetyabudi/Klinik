@@ -53,15 +53,20 @@ defined('BASEPATH') or exit('No direct script');
           <br>
 
           <?php  if($this->session->flashdata('fd_pesan')){}?>
-
+              <label>Nama</label>
              <h2><?php echo $p_pasien->nama_pasien; ?></h2>
+             <label>Jenis Kelamin</label>
             <h2><?php echo $p_pasien->jenis_kelamin; ?></h2>
+            <label>Email</label>
             <h2><?php echo $p_pasien->email_pasien; ?></h2>
+            <label>Kontak</label>
             <h2><?php echo $p_pasien->kontak_pasien; ?></h2>
+            <label>Alamat</label>
             <h2><?php echo $p_pasien->alamat_pasien; ?></h2>
+            <label>Tanggal Lahir</label>
             <h2><?php echo $p_pasien->tanggal_lahir; ?></h2>
+            <label>Golongan Darah</label>
             <h2><?php echo $p_pasien->golongan_darah; ?></h2>
-            <h2><?php echo $p_pasien->nama_pasien; ?></h2>
         </div>
         <!-- /.container-fluid -->
         <div class="text-center"><a style="background-color: purple; "href="<?php echo site_url('jadwal/tambah2/'.$p_pasien->id_pasien); ?>" class="btn btn-primary">

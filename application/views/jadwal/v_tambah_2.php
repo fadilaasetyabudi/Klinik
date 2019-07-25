@@ -83,14 +83,10 @@ defined('BASEPATH') or exit('No direct script');
            
             <div class="form-group">
             <label for="i id pasien">Tanggal Daftar</label>
-              <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Daftar " name="i_tanggal_daftar">
+              <input type="date" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Tanggal Daftar " name="i_tanggal_daftar" value="<?php echo date('Y-m-d') ?>" readonly>
             </div>
-        
             <div class="form-group">
-
-
-
-              <button style="background-color: purple;  type="submit" class="btn btn-primary btn-user btn-block">
+              <button style="background-color: purple;  type="submit class="btn btn-primary btn-block">
                 Tambah
               </button>
 
