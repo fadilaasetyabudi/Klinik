@@ -44,7 +44,7 @@ defined('BASEPATH') or exit('No direct script');
               <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <h3 style="color: green;  class="h3 text-gray-900 mb-4">Klinik Kecantikan Dokter Lia</h3>
+                    <h3 style="color: green;  class="h3 text-gray-900 mb-4>Klinik Kecantikan Dokter Lia</h3>
                   </div>
                   <br>
                   <form method="POST" action="<?php echo site_url('login/proses_login');?>" class="user">
@@ -56,7 +56,7 @@ defined('BASEPATH') or exit('No direct script');
                     </div>
                    
                     </div>
-                    <div class="text-center"><button  type="submit" class="btn btn-primary">
+                    <div class="text-center"><button style="background-color: purple; "type="submit" class="btn btn-primary">
                       Login
                   </button></div>
                    <br><br>

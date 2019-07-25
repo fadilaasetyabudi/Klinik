@@ -86,7 +86,7 @@
                   </div>
                 </div>
               </div>
-              <button type="submit"  required="required" class="btn btn-primary btn-user btn-block">Daftar</button>
+              <button style="background-color: purple; "type="submit"  required="required" class="btn btn-primary btn-user btn-block">Daftar</button>
 
               <br>
 
