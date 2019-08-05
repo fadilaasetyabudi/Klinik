@@ -87,10 +87,7 @@ class Login extends CI_Controller {
 		
 			
 				} else {
-					echo $v_email;
-					echo "//";
-					echo md5($v_password);
-					var_dump($cek_login3);
+					redirect("login");
 				}
 			}
 		}

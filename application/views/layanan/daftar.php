@@ -15,8 +15,8 @@ defined('BASEPATH') or exit('No direct script');
 				<th>#</th>
 				<th>Nama layanan</th>
 				
-				<th>Aksi</th>
-			</tr>
+<!-- 				<th>Aksi</th>
+ -->			</tr>
 		</thead>
 		<tbody>
 			<?php if(count($p_semualayanan) > 0) { ?>

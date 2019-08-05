@@ -28,7 +28,7 @@ class jadwal extends CI_Controller {
 		$this->db->join('tb_pasien', 'tb_pasien.id_pasien=tb_jadwal.id_pasien');
 		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
-		$this->db->join('tb_jasa_layanan', 'tb_jasa_layanan.id_layanan=tb_jadwal.id_jasa');
+		// $this->db->join('tb_jasa_layanan', 'tb_jasa_layanan.id_layanan=tb_jadwal.id_jasa');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
 
 		$data['p_semuajadwal'] = $this->db->get('tb_jadwal')->result(); 
@@ -70,7 +70,7 @@ class jadwal extends CI_Controller {
 			'id_pasien' => $v_id_pasien,
 			'id_piket' => $v_id_piket,
 			'id_layanan' => $v_id_layanan,
-			'id_jasa' => $v_id_jasa,
+			// 'id_jasa' => $v_id_jasa,
 			'tanggal_daftar' => $v_tanggal_daftar,
 			);
 			

@@ -78,11 +78,11 @@
                 <div class="form-group row" align="left">
                   <div class="col-sm-6">
                     <label>Kata Sandi</label>
-                    <input type="text" class="form-control form-control-user" id="password_pasien" name="password_pasien" placeholder=" " required="required">
+                    <input type="password" class="form-control form-control-user" id="password_pasien" name="password_pasien" placeholder=" " required="required">
                   </div>
                   <div class="col-sm-6">
                     <label>Kode Verifikasi</label>
-                    <input type="text" class="form-control form-control-user" id="kode_verivikasi" name="kode_verivikasi" placeholder=" " required="required">
+                    <input type="password" class="form-control form-control-user" id="kode_verivikasi" name="kode_verivikasi" placeholder=" " required="required">
                   </div>
                 </div>
               </div>

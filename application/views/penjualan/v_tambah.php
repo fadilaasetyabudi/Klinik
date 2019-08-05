@@ -96,6 +96,7 @@ defined('BASEPATH') or exit('No direct script');
           getJasa();
 
           function getObat() {
+            hargaTotal = 0;
             $.ajax({
               url: base_url+'index.php/penjualan/getDataObat/'+id,
               type: "GET",
@@ -137,6 +138,7 @@ defined('BASEPATH') or exit('No direct script');
             var id = $('#resep').val();
             //hargaTotal = 0;
             getObat();
+            getJasa();
             
 
           });

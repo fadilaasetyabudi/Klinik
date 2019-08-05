@@ -86,16 +86,11 @@ defined('BASEPATH') or exit('No direct script');
                      <th>#</th>
                      <th>Nama layanan</th>
                    
-                     <th>Aksi</th>
-                    </tr>
+<!--                      <th>Aksi</th>
+ -->                    </tr>
                   </thead>
                   <tfoot>
-                    <tr>
-                     <th>#</th>
-                     <th>Nama layanan</th>
-                     
-                      <th>Aksi</th>
-                    </tr>
+        
                   </tfoot>
                   <tbody>
                    <?php if(count($p_semualayanan) > 0) { ?>
@@ -108,15 +103,15 @@ defined('BASEPATH') or exit('No direct script');
       
         <td>
        <!--    <a href="">Edit</a> -->
-         <?php if ($this->session->userdata('level') == 'admin') { ?>
+         <!-- <?php if ($this->session->userdata('level') == 'admin') { ?>
           <a href="<?php echo site_url('layanan/edit/' . $data->id_layanan); ?>" class="btn btn-success btn-circle">
                     <i class="fas fa-edit"></i>
-                  </a>
+                  </a> -->
         <!--   <a href="">Hapus</a> -->
-           <a href="<?php echo site_url('layanan/proses_hapus/' . $data->id_layanan); ?>" class="btn btn-danger btn-circle">
+          <!--  <a href="<?php echo site_url('layanan/proses_hapus/' . $data->id_layanan); ?>" class="btn btn-danger btn-circle">
                     <i class="fas fa-trash"></i>
                   </a>
-                  <?php } ?>
+                  <?php } ?> -->
         </td>
       </tr>
       <?php } ?>

@@ -19,10 +19,6 @@ defined('BASEPATH') or exit('No direct script');
 		<label for="i tanggal ditangani">Tanggal Daftar</label>
 		<input type="local-time" name="i_tanggal_daftar" value="<?php echo $p_jadwal->tanggal_daftar; ?>">
 	</p>
-	
-	
-
-	
 	</p>
 	<p>
 		<button type="submit">Kirim</button>

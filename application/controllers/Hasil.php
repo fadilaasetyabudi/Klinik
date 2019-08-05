@@ -44,7 +44,7 @@ class Hasil extends CI_Controller {
 		$this->db->join('tb_piket', 'tb_piket.id_piket=tb_jadwal.id_piket');
 		$this->db->join('tb_layanan', 'tb_layanan.id_layanan=tb_jadwal.id_layanan');
 		$this->db->join('tb_dokter', 'tb_piket.id_dokter=tb_dokter.id_dokter');
-		$this->db->join('tb_jasa_layanan', 'tb_jasa_layanan.id_layanan=tb_jadwal.id_jasa');
+		// $this->db->join('tb_jasa_layanan', 'tb_jasa_layanan.id_layanan=tb_jadwal.id_jasa');
 		$this->db->where('tb_jadwal.id_jadwal NOT IN (select id_jadwal from tb_hasil)');
 		$data['p_semuajadwal'] = $this->db->get('tb_jadwal')->result();
 		//$this->db->join('tb_dokter', 'tb_dokter.id_dokter=tb_piket.id_dokter');
@@ -147,13 +147,13 @@ class Hasil extends CI_Controller {
 		}
 	}
 
-	public function proses_hapus($id_jadwal)
+	public function proses_hapus($id_hasil)
 	{
 			$data_where= array(
 			'id_hasil' => $id_hasil
 			);
 
-		$hapus_data = $this->db->delete('tb_hasil', $data_where, $data_where);
+		$hapus_data = $this->db->delete('tb_hasil', $data_where);
 
 		if($hapus_data) {
 			$this->session->set_flashdata('fd_pesan', 'Hapus hasil berhasil.');

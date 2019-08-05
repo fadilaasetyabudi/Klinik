@@ -86,10 +86,10 @@ defined('BASEPATH') or exit('No direct script');
                      <th>#</th>
                      <th>Nama Pasien</th>
                      <th>Jadwal Piket</th>
-                     <th>Nama Layanan</th>
-                     <th>Nama Jasa Layanan</th>
-                     <th>Tanggal Pemeriksaan</th>                    
-                     <th>Tanggal Daftar</th>                   
+                     <th>Nama Layanan</th><!-- 
+                     <th>Nama Jasa Layanan</th> -->
+<!--                      <th>Tanggal Pemeriksaan</th>                    
+ -->                     <th>Tanggal Daftar</th>                   
                      <th>Aksi</th>
                     </tr>
                   </thead>
@@ -100,8 +100,8 @@ defined('BASEPATH') or exit('No direct script');
                      <th>Jadwal Piket</th>
                      <th>Nama Layanan</th>
                       <th>Nama Jasa Layanan</th>
-                     <th>Tanggal Pemeriksaan</th>                    
-                      <th>Aksi</th>
+<!--                      <th>Tanggal Pemeriksaan</th>                    
+ -->                      <th>Aksi</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -113,7 +113,7 @@ defined('BASEPATH') or exit('No direct script');
         <td><?php echo $data->nama_pasien; ?></td>
         <td><?php echo $data->nama_dokter; echo " Hari "; echo $data->hari; echo " Jam "; echo $data->jam_mulai; echo " - "; echo $data->jam_selesai; ?> </td>
         <td><?php echo $data->nama_layanan; ?></td>
-         <td><?php echo $data->nama_jasa; ?></td>
+         <!-- <td><?php echo $data->nama_jasa; ?></td> -->
 
         <td><?php echo $data->tanggal_daftar; ?></td>
         

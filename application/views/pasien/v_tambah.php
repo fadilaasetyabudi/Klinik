@@ -89,11 +89,11 @@ defined('BASEPATH') or exit('No direct script');
                     </div>
                      <div class="form-group">
                        <label for="i id pasien">Password</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_password_pasien">
+                      <input type="Password" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_password_pasien">
                     </div>
                     <div class="form-group">
                        <label for="i id pasien">Verifikasi Password</label>
-                      <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_kode_verivikasi">
+                      <input type="Password" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder=" " name="i_kode_verivikasi">
                     </div>
                    
                     <button style="background-color: purple; type="submit" class="btn btn-primary btn-block">

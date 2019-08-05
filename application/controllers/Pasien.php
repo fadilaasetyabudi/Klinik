@@ -135,11 +135,12 @@ class Pasien extends CI_Controller {
 			'alamat_pasien' => $v_alamat_pasien,
 			'tanggal_lahir' => $v_tanggal_lahir,
 			'golongan_darah' => 	$v_golongan_darah,
-			'kode_verivikasi' => $v_kode_verivikasi);
+			'password_pasien' => md5($v_password_pasien)
+		);
 
 		$data_where= array(
 			'id_pasien' => $v_id_pasien
-			);
+		);
 		$this->db->where('id_pasien', $id_pasien);
 		$tambah_data = $this->db->update('tb_pasien', $data_tambah);
 
